@@ -1,0 +1,113 @@
+<!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12" id="footer">
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div>
+            <img src="/static/Alohomora.jpg" alt="Alohomora" class="bg-opacity-90">
+            <p class="text-gray-400 mb-4" data-translate="footer_desc">
+              अलोहोमोरा फाउंडेशन भारत के युवाओं को उनके करियर के लक्ष्यों को प्राप्त करने में मदद करता है।
+            </p>
+            <div class="flex space-x-4">
+              <a
+                href="https://www.facebook.com/UnlockMyPotential/" target="_blank"
+                class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-800 hover:bg-primary transition-colors"
+              >
+                <i class="ri-facebook-fill"></i>
+              </a>
+              <a
+                href="https://twitter.com/alohomora_edu" target="_blank"
+                class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-800 hover:bg-primary transition-colors"
+              >
+                <i class="ri-twitter-fill"></i>
+              </a>
+              <a
+                href="https://www.instagram.com/alohomora_education/?hl=en" target="_blank"
+                class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-800 hover:bg-primary transition-colors"
+              >
+                <i class="ri-instagram-fill"></i>
+              </a>
+              <a
+                href="https://www.linkedin.com/company/alohomora-education/" target="_blank"
+                class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-800 hover:bg-primary transition-colors"
+              >
+                <i class="ri-linkedin-fill"></i>
+              </a>
+            </div>
+          </div>
+          <div>
+            <h4 class="text-lg font-semibold mb-4" data-translate="quick_links">त्वरित लिंक</h4>
+            <ul class="space-y-2">
+              <li><a href="{{ url_for('index') }}" class="text-gray-400 hover:text-white transition-colors" data-translate="home">होम</a></li>
+              <li><a href="{{ url_for('sectors') }}" class="text-gray-400 hover:text-white transition-colors" data-translate="sectors">सेक्टर</a></li>
+              <li><a href="https://www.alohomora.org" class="text-gray-400 hover:text-white transition-colors" data-translate="about">हमारे बारे में</a></li>
+              <li><a href="#" class="text-gray-400 hover:text-white transition-colors" data-translate="contact">संपर्क</a></li>
+              <li><a href="#" class="text-gray-400 hover:text-white transition-colors" data-translate="privacy_policy">गोपनीयता नीति</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-lg font-semibold mb-4" data-translate="contact_us">संपर्क</h4>
+            <ul class="space-y-2">
+              <li class="flex items-start">
+                <div
+                  class="w-5 h-5 flex items-center justify-center text-primary mt-1"
+                >
+                  <i class="ri-map-pin-line"></i>
+                </div>
+                <span class="ml-2 text-gray-400"
+                  >123, सेक्टर 4, नई दिल्ली - 110001</span
+                >
+              </li>
+              <li class="flex items-start">
+                <div
+                  class="w-5 h-5 flex items-center justify-center text-primary mt-1"
+                >
+                  <i class="ri-mail-line"></i>
+                </div>
+                <span class="ml-2 text-gray-400">info@alohomora.org</span>
+              </li>
+              <li class="flex items-start">
+                <div
+                  class="w-5 h-5 flex items-center justify-center text-primary mt-1"
+                >
+                  <i class="ri-phone-line"></i>
+                </div>
+                <span class="ml-2 text-gray-400">+91 98765 43210</span>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-lg font-semibold mb-4" data-translate="newsletter_title">न्यूज़लेटर</h4>
+            <p class="text-gray-400 mb-4" data-translate="newsletter_subtitle">
+              नवीनतम अपडेट और करियर संबंधित जानकारी के लिए सब्सक्राइब करें
+            </p>
+            <div class="flex">
+              <input type="email" data-translate="email_placeholder" placeholder="आपका ईमेल" class="px-4 py-2 rounded-l-button bg-gray-800 text-white border-none focus:outline-none focus:ring-2 focus:ring-primary" />
+              <button class="bg-primary text-white px-4 py-2 rounded-r-button hover:bg-opacity-90 transition-all whitespace-nowrap" data-translate="subscribe">
+                सब्सक्राइब
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          class="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center"
+        >
+          <p class="text-gray-400 text-sm mb-4 md:mb-0" data-translate="copyright">
+            © 2025 अलोहोमोरा फाउंडेशन। सर्वाधिकार सुरक्षित।
+          </p>
+          <div class="flex space-x-4">
+            <div class="w-10 h-10 flex items-center justify-center">
+              <i class="ri-visa-fill ri-lg text-gray-400"></i>
+            </div>
+            <div class="w-10 h-10 flex items-center justify-center">
+              <i class="ri-mastercard-fill ri-lg text-gray-400"></i>
+            </div>
+            <div class="w-10 h-10 flex items-center justify-center">
+              <i class="ri-paypal-fill ri-lg text-gray-400"></i>
+            </div>
+            <div class="w-10 h-10 flex items-center justify-center">
+              <i class="ri-amazon-pay-fill ri-lg text-gray-400"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>

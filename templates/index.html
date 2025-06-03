@@ -50,9 +50,13 @@
             font-family: 'Hind', 'Poppins', sans-serif;
         }
         .hero-section {
-            background-image: linear-gradient(to right, rgba(255, 255, 255, 0.9) 40%, rgba(255, 255, 255, 0.7) 60%, rgba(255, 255, 255, 0.4) 80%, rgba(255, 255, 255, 0) 100%);
+            /* background-image: linear-gradient(to right, rgba(255, 255, 255, 0.9) 40%, rgba(255, 255, 255, 0.7) 60%, rgba(255, 255, 255, 0.4) 80%, rgba(255, 255, 255, 0) 100%); */
             background-size: cover;
             background-position: center right;
+            will-change: auto !important;
+            transform: none !important;
+            overflow: visible !important;
+            background-image: none !important;
         }
         @keyframes fadeInUp {
             from {
@@ -121,7 +125,10 @@
             50% { transform: scale(1.05); }
             100% { transform: scale(1); }
         }
-        
+        html {
+        scroll-behavior: smooth;
+      }
+
         .float-animation {
             animation: float 3s ease-in-out infinite;
         }
@@ -137,30 +144,11 @@
 </head>
 <body class="bg-gray-50">
     <!-- Header -->
-    <header class="sticky top-0 z-50 bg-white shadow-sm">
-        <div class="container mx-auto px-4 py-3 flex items-center justify-between">
-            <div class="flex items-center">
-                <a href="#" class="flex items-center">
-                    <h1 class="text-2xl font-bold text-primary">CareerShala</h1>
-                </a>
-            </div>
-            <nav class="hidden md:flex items-center space-x-8">
-                <a href="#" class="text-gray-900 font-medium hover:text-primary transition-colors">होम</a>
-                <a href="#choose-state" class="text-gray-600 hover:text-primary transition-colors">अपना राज्य चुनें</a>
-                <a href="https://www.alohomora.org" target="_blank" class="text-gray-600 hover:text-primary transition-colors">हमारे बारे में</a>
-                <a href="#" class="text-gray-600 hover:text-primary transition-colors">संपर्क</a>
-            </nav>
-            <div class="flex items-center space-x-4">
-                <button class="md:hidden w-10 h-10 flex items-center justify-center text-gray-700">
-                    <i class="ri-menu-line ri-lg"></i>
-                </button>
-            </div>
-        </div>
-    </header>
+    {% include 'header.html' %}
 
 
     <!-- Hero Section -->
-    <section class="hero-section w-full py-24 md:py-32 bg-cover bg-center relative overflow-hidden">
+    <section class="hero-section w-full py-12 md:py-16 bg-cover bg-center relative">
         <div class="absolute inset-0 bg-gradient-to-r from-accent2/10 to-primary/10"></div>
         <div class="absolute inset-0 bg-gradient-to-br from-white/95 via-white/90 to-transparent"></div>
         <div class="container mx-auto px-4">
@@ -174,7 +162,7 @@
                             अलोहोमोरा फाउंडेशन द्वारा संचालित करियर शाला, युवाओं को उनके करियर के लक्ष्यों को पहचानने और उन्हें प्राप्त करने के लिए मार्गदर्शन प्रदान करता है।
                         </p>
                     </div>
-                    <div class="flex flex-col sm:flex-row gap-4">
+                    <div class="hidden flex flex-col sm:flex-row gap-4">
                         <button onclick="scrollToStateSelection()" class="bg-gradient-to-r from-primary to-accent2 text-white px-10 py-4 rounded-full font-medium hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300 whitespace-nowrap text-lg">
                             अभी शुरू करें
                         </button>
@@ -216,45 +204,61 @@
     </section>
 
     <!-- Journey Steps Banner -->
-<section class="bg-gradient-to-r from-primary/5 to-secondary/5 py-12 border-b border-gray-200">
-<div class="container mx-auto px-4">
-<h2 class="text-3xl font-semibold text-gray-800 mb-8 text-center">आपकी करियर यात्रा</h2>
-<div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-8 overflow-x-auto pb-4">
-<div class="flex flex-col items-center text-center step-active min-w-[180px] group">
-<div class="step-number bg-primary text-white group-hover:scale-110 transition-transform">1</div>
-<h3 class="font-semibold mb-2 text-primary">सोचना शुरू करो</h3>
-<p class="text-sm text-gray-600">एक रोचक वीडियो के साथ शुरुआत करें</p>
-<button class="mt-4 flex items-center gap-2 text-primary font-medium group-hover:translate-x-1 transition-transform">
-<i class="ri-play-circle-line text-xl"></i>
-<span>वीडियो देखें</span>
-</button>
-</div>
-<div class="hidden md:block step-line bg-gradient-to-r from-primary/20 to-secondary/20"></div>
-<div class="flex flex-col items-center text-center min-w-[180px] group">
-<div class="step-number group-hover:bg-secondary/20 transition-colors">2</div>
-<h3 class="font-semibold mb-2 text-gray-700">खुल के सोचो</h3>
-<p class="text-sm text-gray-600">70+ रोचक करियर विकल्पों का पता लगाएं</p>
-</div>
-<div class="hidden md:block step-line bg-gradient-to-r from-primary/20 to-secondary/20"></div>
-<div class="flex flex-col items-center text-center min-w-[180px] group">
-<div class="step-number group-hover:bg-secondary/20 transition-colors">3</div>
-<h3 class="font-semibold mb-2 text-gray-700">खुद को पहचानो</h3>
-<p class="text-sm text-gray-600">अपनी रुचियों और क्षमताओं को जानें</p>
-</div>
-<div class="hidden md:block step-line bg-gradient-to-r from-primary/20 to-secondary/20"></div>
-<div class="flex flex-col items-center text-center min-w-[180px] group">
-<div class="step-number group-hover:bg-secondary/20 transition-colors">4</div>
-<h3 class="font-semibold mb-2 text-gray-700">जीत की तैयारी</h3>
-<p class="text-sm text-gray-600">200+ संस्थानों और कोर्स का पता लगाएं</p>
-</div>
-<div class="hidden md:block step-line bg-gradient-to-r from-primary/20 to-secondary/20"></div>
-<div class="flex flex-col items-center text-center min-w-[180px] group">
-<div class="step-number group-hover:bg-secondary/20 transition-colors">5</div>
-<h3 class="font-semibold mb-2 text-gray-700">अपनी राह चुनो</h3>
-<p class="text-sm text-gray-600">आत्मविश्वास बढ़ाएं और अपना मार्ग चुनें</p>
-</div>
-</div>
-</div>
+<section class="bg-gradient-to-r from-primary/20 to-secondary/20 py-12 border-b-10 border-primary">
+    <div class="container mx-auto px-4 ">
+    <h2 class="text-3xl font-semibold text-gray-800 mb-8 text-center">आपकी करियर यात्रा</h2>
+    <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-8 overflow-x-auto pb-4">
+    <div class="flex flex-col items-center text-center step-active min-w-[180px] group hover:bg-secondary/10 rounded-xl p-4 transition-colors duration-300">
+        <div class="step-number ">1</div>
+        <h3 class="font-semibold mb-2 text-gray-700">सोचना शुरू करो</h3>
+        <p class="text-sm text-gray-600">एक रोचक वीडियो के साथ शुरुआत करें</p>
+        <button id='step-1' onclick="openStepUrl('step-1')" class="mt-4 flex items-center gap-2 text-primary font-medium group-hover:translate-x-1 transition-transform">
+        <i class="ri-play-circle-line text-xl"></i>
+        <span>वीडियो देखें</span>
+        </button>
+    </div>
+    <div class="hidden md:block step-line bg-gradient-to-r from-primary/20 to-secondary/20 "></div>
+    <div class="flex flex-col items-center text-center min-w-[180px] group hover:bg-secondary/10 rounded-xl p-4 transition-colors duration-300">
+        <div class="step-number">2</div>
+        <h3 class="font-semibold mb-2 text-gray-700">खुल के सोचो</h3>
+        <p class="text-sm text-gray-600">70+ रोचक करियर विकल्पों का पता लगाएं</p>
+        <button onclick="openStepUrl('step-2')" id='step-2' class="mt-4 flex items-center gap-2 text-primary font-medium group-hover:translate-x-1 transition-transform">
+        <i class="ri-play-circle-line text-xl"></i>
+        <span>वीडियो देखें</span>
+        </button>
+    </div>
+    <div class="hidden md:block step-line bg-gradient-to-r from-primary/20 to-secondary/20"></div>
+    <div class="flex flex-col items-center text-center min-w-[180px] group hover:bg-secondary/10 rounded-xl p-4 transition-colors duration-300">
+        <div class="step-number">3</div>
+        <h3 class="font-semibold mb-2 text-gray-700">खुद को पहचानो</h3>
+        <p class="text-sm text-gray-600">अपनी रुचियों और क्षमताओं को जानें</p>
+        <button id='step-3' onclick="openStepUrl('step-3')" class="mt-4 flex items-center gap-2 text-primary font-medium group-hover:translate-x-1 transition-transform">
+        <i class="ri-play-circle-line text-xl"></i>
+        <span>वीडियो देखें</span>
+        </button>
+    </div>
+    <div class="hidden md:block step-line bg-gradient-to-r from-primary/20 to-secondary/20"></div>
+    <div class="flex flex-col items-center text-center min-w-[180px] group hover:bg-secondary/10 rounded-xl p-4 transition-colors duration-300">
+        <div class="step-number">4</div>
+        <h3 class="font-semibold mb-2 text-gray-700">जीत की तैयारी</h3>
+        <p class="text-sm text-gray-600">200+ संस्थानों और कोर्स का पता लगाएं</p>
+        <button id='step-4' onclick="openStepUrl('step-4')" class="mt-4 flex items-center gap-2 text-primary font-medium group-hover:translate-x-1 transition-transform">
+        <i class="ri-play-circle-line text-xl"></i>
+        <span>वीडियो देखें</span>
+        </button>
+    </div>
+    <div class="hidden md:block step-line bg-gradient-to-r from-primary/20 to-secondary/20"></div>
+    <div class="flex flex-col items-center text-center min-w-[180px] group hover:bg-secondary/10 rounded-xl p-4 transition-colors duration-300">
+        <div class="step-number">5</div>
+        <h3 class="font-semibold mb-2 text-gray-700">अपनी राह चुनो</h3>
+        <p class="text-sm text-gray-600">आत्मविश्वास बढ़ाएं और अपना मार्ग चुनें</p>
+        <button id='step-5' onclick="openStepUrl('step-5')" class="mt-4 flex items-center gap-2 text-primary font-medium group-hover:translate-x-1 transition-transform">
+        <i class="ri-play-circle-line text-xl"></i>
+        <span>वीडियो देखें</span>
+        </button>
+    </div>
+    </div>
+    </div>
 </section>
 
     <!-- State Selection Section -->
@@ -406,119 +410,7 @@
     
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-12">
-      <div class="container mx-auto px-4">
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-          <div>
-            <h3 class="text-xl font-['Pacifico'] text-primary mb-4">logo</h3>
-            <p class="text-gray-400 mb-4" data-translate="footer_desc">
-              अलोहोमोरा फाउंडेशन भारत के युवाओं को उनके करियर के लक्ष्यों को प्राप्त करने में मदद करता है।
-            </p>
-            <div class="flex space-x-4">
-              <a
-                href="#"
-                class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-800 hover:bg-primary transition-colors"
-              >
-                <i class="ri-facebook-fill"></i>
-              </a>
-              <a
-                href="#"
-                class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-800 hover:bg-primary transition-colors"
-              >
-                <i class="ri-twitter-fill"></i>
-              </a>
-              <a
-                href="#"
-                class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-800 hover:bg-primary transition-colors"
-              >
-                <i class="ri-instagram-fill"></i>
-              </a>
-              <a
-                href="#"
-                class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-800 hover:bg-primary transition-colors"
-              >
-                <i class="ri-linkedin-fill"></i>
-              </a>
-            </div>
-          </div>
-          <div>
-            <h4 class="text-lg font-semibold mb-4" data-translate="quick_links">त्वरित लिंक</h4>
-            <ul class="space-y-2">
-              <li><a href="#" class="text-gray-400 hover:text-white transition-colors" data-translate="home">होम</a></li>
-              <li><a href="#" class="text-gray-400 hover:text-white transition-colors" data-translate="sectors">सेक्टर</a></li>
-              <li><a href="#" class="text-gray-400 hover:text-white transition-colors" data-translate="about">हमारे बारे में</a></li>
-              <li><a href="#" class="text-gray-400 hover:text-white transition-colors" data-translate="contact">संपर्क</a></li>
-              <li><a href="#" class="text-gray-400 hover:text-white transition-colors" data-translate="privacy_policy">गोपनीयता नीति</a></li>
-            </ul>
-          </div>
-          <div>
-            <h4 class="text-lg font-semibold mb-4" data-translate="contact_us">संपर्क</h4>
-            <ul class="space-y-2">
-              <li class="flex items-start">
-                <div
-                  class="w-5 h-5 flex items-center justify-center text-primary mt-1"
-                >
-                  <i class="ri-map-pin-line"></i>
-                </div>
-                <span class="ml-2 text-gray-400"
-                  >123, सेक्टर 4, नई दिल्ली - 110001</span
-                >
-              </li>
-              <li class="flex items-start">
-                <div
-                  class="w-5 h-5 flex items-center justify-center text-primary mt-1"
-                >
-                  <i class="ri-mail-line"></i>
-                </div>
-                <span class="ml-2 text-gray-400">info@alohomora.org</span>
-              </li>
-              <li class="flex items-start">
-                <div
-                  class="w-5 h-5 flex items-center justify-center text-primary mt-1"
-                >
-                  <i class="ri-phone-line"></i>
-                </div>
-                <span class="ml-2 text-gray-400">+91 98765 43210</span>
-              </li>
-            </ul>
-          </div>
-          <div>
-            <h4 class="text-lg font-semibold mb-4" data-translate="newsletter_title">न्यूज़लेटर</h4>
-            <p class="text-gray-400 mb-4" data-translate="newsletter_subtitle">
-              नवीनतम अपडेट और करियर संबंधित जानकारी के लिए सब्सक्राइब करें
-            </p>
-            <div class="flex">
-              <input type="email" data-translate="email_placeholder" placeholder="आपका ईमेल" class="px-4 py-2 rounded-l-button bg-gray-800 text-white border-none focus:outline-none focus:ring-2 focus:ring-primary" />
-              <button class="bg-primary text-white px-4 py-2 rounded-r-button hover:bg-opacity-90 transition-all whitespace-nowrap" data-translate="subscribe">
-                सब्सक्राइब
-              </button>
-            </div>
-          </div>
-        </div>
-        <div
-          class="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center"
-        >
-          <p class="text-gray-400 text-sm mb-4 md:mb-0" data-translate="copyright">
-            © 2025 अलोहोमोरा फाउंडेशन। सर्वाधिकार सुरक्षित।
-          </p>
-          <div class="flex space-x-4">
-            <div class="w-10 h-10 flex items-center justify-center">
-              <i class="ri-visa-fill ri-lg text-gray-400"></i>
-            </div>
-            <div class="w-10 h-10 flex items-center justify-center">
-              <i class="ri-mastercard-fill ri-lg text-gray-400"></i>
-            </div>
-            <div class="w-10 h-10 flex items-center justify-center">
-              <i class="ri-paypal-fill ri-lg text-gray-400"></i>
-            </div>
-            <div class="w-10 h-10 flex items-center justify-center">
-              <i class="ri-amazon-pay-fill ri-lg text-gray-400"></i>
-            </div>
-          </div>
-        </div>
-      </div>
-    </footer>
-
+    {% include 'footer.html' %}
     <script>
         // Initialize counters animation
         function animateCounters() {
@@ -627,6 +519,25 @@
           a.rel = 'noopener noreferrer'; // security best practice
           a.click();
         }
+
+
+        const stepUrls = {
+          "step-1": "https://youtu.be/bopCvc8pf0M",
+          "step-2": "https://youtu.be/vCkfTaZCCAw?t=1",
+          "step-3": "https://youtu.be/AFuC88Vq1l0?t=2",
+          "step-4": "https://youtu.be/UIhOdzMPuvA?t=2",
+          "step-5": "https://youtu.be/SdcQPafqTcw?t=1"
+        };
+
+        function openStepUrl(stepId) {
+          const url = stepUrls[stepId];
+          if (url) {
+            window.open(url, "_blank");
+          } else {
+            console.warn("Invalid step ID or URL not found:", stepId);
+          }
+        }
+
 
 
         // Add parallax effect to hero section

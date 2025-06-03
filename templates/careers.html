@@ -126,26 +126,7 @@
 </head>
 <body class="bg-gray-50">
     <!-- Header -->
-    <header class="sticky top-0 z-50 bg-white shadow-sm">
-        <div class="container mx-auto px-4 py-3 flex items-center justify-between">
-            <div class="flex items-center">
-                <a href="/" class="flex items-center">
-                    <h1 class="text-2xl font-bold text-primary">CareerShala</h1>
-                </a>
-            </div>
-            <nav class="hidden md:flex items-center space-x-8">
-                <a href="/" class="text-gray-600 hover:text-primary transition-colors">होम</a>
-                <a href="#" class="text-gray-900 font-medium hover:text-primary transition-colors">करियर</a>
-                <a href="#" class="text-gray-600 hover:text-primary transition-colors">हमारे बारे में</a>
-                <a href="#" class="text-gray-600 hover:text-primary transition-colors">संपर्क</a>
-            </nav>
-            <div class="flex items-center space-x-4">
-                <button class="md:hidden w-10 h-10 flex items-center justify-center text-gray-700">
-                    <i class="ri-menu-line ri-lg"></i>
-                </button>
-            </div>
-        </div>
-    </header>
+    {% include 'header.html' %}
 
     <!-- Hero Section -->
     <section class="hero-section w-full py-24 md:py-32 bg-cover bg-center relative overflow-hidden">
@@ -335,55 +316,8 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-800 text-gray-300 py-12">
-        <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                <div>
-                    <h3 class="text-xl font-bold text-white mb-4">CareerShala</h3>
-                    <p class="text-gray-400 mb-4">अलोहोमोरा फाउंडेशन भारत के युवाओं को उनके करियर के लक्ष्यों को प्राप्त करने में मदद करता है।</p>
-                </div>
-                <div>
-                    <h4 class="text-white font-medium mb-4">त्वरित लिंक</h4>
-                    <ul class="space-y-2">
-                        <li><a href="/" class="text-gray-400 hover:text-white">होम</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white">सेक्टर</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white">हमारे बारे में</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white">संपर्क</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="text-white font-medium mb-4">संसाधन</h4>
-                    <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-400 hover:text-white">करियर वीडियो</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white">सफलता की कहानियां</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white">ब्लॉग</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white">संस्थान निर्देशिका</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="text-white font-medium mb-4">संपर्क</h4>
-                    <ul class="space-y-2">
-                        <li class="flex items-start gap-2">
-                            <i class="ri-map-pin-line mt-1"></i>
-                            <span>123, सेक्टर 4, नई दिल्ली - 110001</span>
-                        </li>
-                        <li class="flex items-center gap-2">
-                            <i class="ri-phone-line"></i>
-                            <span>+91 98765 43210</span>
-                        </li>
-                        <li class="flex items-center gap-2">
-                            <i class="ri-mail-line"></i>
-                            <span>info@careershala.org</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
-                <p>&copy; 2025 अलोहोमोरा फाउंडेशन। सर्वाधिकार सुरक्षित।</p>
-            </div>
-        </div>
-    </footer>
 
+    {% include 'footer.html' %}
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             // Get parameters from URL

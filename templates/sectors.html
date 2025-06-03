@@ -16,7 +16,12 @@
 tailwind.config = {
   theme: {
     extend: {
-      colors: { primary: "#4f46e5", secondary: "#f97316" },
+      colors: { primary: "#FF6B35",
+                        secondary: "#2EC4B6",
+                        accent1: "#FFD93D",
+                        accent2: "#6C63FF",
+                        accent3: "#4CAF50",
+                        accent4: "#9C27B0", },
       borderRadius: {
         none: "0px",
         sm: "4px",
@@ -71,27 +76,7 @@ box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 
 </head>
 <body class="bg-gray-50">
 <!-- Header -->
-<header class="bg-white sticky top-0 z-50 shadow-sm">
-<div class="container mx-auto px-4 py-4">
-<div class="flex items-center justify-between">
-<div class="flex items-center gap-12">
-<h1 class="text-2xl font-['Pacifico'] text-primary">CareerShala</h1>
-<nav class="hidden md:flex items-center gap-8">
-<a href="/" class="text-gray-600 hover:text-primary transition-colors">होम</a>
-<a href="#choose-state" class="text-gray-600 hover:text-primary transition-colors">अपना राज्य चुनें</a>
-<a href="#" class="text-gray-600 hover:text-primary transition-colors">हमारे बारे में</a>
-<a href="#" class="text-gray-600 hover:text-primary transition-colors">संपर्क</a>
-</nav>
-</div>
-<div class="flex items-center gap-4">
-<button class="text-gray-600 hover:text-primary px-4 py-2 rounded-button flex items-center gap-2 transition-colors whitespace-nowrap">
-<i class="ri-user-line"></i>
-<span class="hidden md:inline">साइन इन</span>
-</button>
-</div>
-</div>
-</div>
-</header>
+    {% include 'header.html' %}
 
 
 
@@ -138,70 +123,8 @@ box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 
 </section>
 
 <!-- Footer -->
-<footer class="bg-gray-800 text-gray-300 py-12">
-<div class="container mx-auto px-4">
-<div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-<div>
-<h3 class="text-xl font-['Pacifico'] text-white mb-4">CareerShala</h3>
-<p class="text-gray-400 mb-4">अलोहोमोरा फाउंडेशन भारत के युवाओं को उनके करियर के लक्ष्यों को प्राप्त करने में मदद करता है।</p>
-<div class="flex space-x-4">
-<a href="#" class="text-gray-400 hover:text-white">
-<i class="ri-facebook-fill text-xl"></i>
-</a>
-<a href="#" class="text-gray-400 hover:text-white">
-<i class="ri-twitter-fill text-xl"></i>
-</a>
-<a href="#" class="text-gray-400 hover:text-white">
-<i class="ri-instagram-fill text-xl"></i>
-</a>
-<a href="#" class="text-gray-400 hover:text-white">
-<i class="ri-youtube-fill text-xl"></i>
-</a>
-</div>
-</div>
-<div>
-<h4 class="text-white font-medium mb-4">त्वरित लिंक</h4>
-<ul class="space-y-2">
-<li><a href="#" class="text-gray-400 hover:text-white">होम</a></li>
-<li><a href="#" class="text-gray-400 hover:text-white">सेक्टर</a></li>
-<li><a href="#" class="text-gray-400 hover:text-white">हमारे बारे में</a></li>
-<li><a href="#" class="text-gray-400 hover:text-white">संपर्क</a></li>
-<li><a href="#" class="text-gray-400 hover:text-white">गोपनीयता नीति</a></li>
-</ul>
-</div>
-<div>
-<h4 class="text-white font-medium mb-4">संसाधन</h4>
-<ul class="space-y-2">
-<li><a href="#" class="text-gray-400 hover:text-white">करियर वीडियो</a></li>
-<li><a href="#" class="text-gray-400 hover:text-white">सफलता की कहानियां</a></li>
-<li><a href="#" class="text-gray-400 hover:text-white">ब्लॉग</a></li>
-<li><a href="#" class="text-gray-400 hover:text-white">संस्थान निर्देशिका</a></li>
-<li><a href="#" class="text-gray-400 hover:text-white">सामान्य प्रश्न</a></li>
-</ul>
-</div>
-<div>
-<h4 class="text-white font-medium mb-4">संपर्क</h4>
-<ul class="space-y-2">
-<li class="flex items-start gap-2">
-<i class="ri-map-pin-line mt-1"></i>
-<span>123, सेक्टर 4, नई दिल्ली - 110001</span>
-</li>
-<li class="flex items-center gap-2">
-<i class="ri-phone-line"></i>
-<span>+91 98765 43210</span>
-</li>
-<li class="flex items-center gap-2">
-<i class="ri-mail-line"></i>
-<span>info@careershala.org</span>
-</li>
-</ul>
-</div>
-</div>
-<div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
-<p>&copy; 2025 अलोहोमोरा फाउंडेशन। सर्वाधिकार सुरक्षित।</p>
-</div>
-</div>
-</footer>
+
+    {% include 'footer.html' %}
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
