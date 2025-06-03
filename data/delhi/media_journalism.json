@@ -1,0 +1,295 @@
+{
+  "common_info": {
+    "name":"मीडिया और पत्रकारिता",
+   "short_desc":" शोर्ट डिस्क्रिप्शन",
+    "description": "मीडिया को लोकतंत्र का चौथा स्तंभ माना जाता है, इसकी शक्ति और जिम्मेदारी नागरिकों को सूचित रखना, राजनीतिक, सामाजिक, आर्थिक और अंतर्राष्ट्रीय मामलों पर उनकी आवाज़ बनना है। मीडिया के विभिन्न रूप जैसे समाचारपत्र, टेलीविजन, रेडियो, डिजिटल प्लेटफॉर्म के जरिए समाज में सूचना का प्रसार होता है।",
+    "skills": "लेखन कौशल, संवाद कौशल, अनुसंधान क्षमता, तकनीकी ज्ञान, रचनात्मकता, समय प्रबंधन, नेटवर्किंग, भाषा प्रवाहता",
+    "facts": "भारत में 100,000+ मीडिया पेशेवर कार्यरत हैं, डिजिटल मीडिया की वृद्धि दर 25% वार्षिक है, मीडिया उद्योग में महिलाओं की भागीदारी बढ़ रही है",
+    "daily_practices": "समाचार अपडेट पढ़ना, सोशल मीडिया मॉनिटरिंग, इंटरव्यू और रिसर्च, लेखन अभ्यास, नेटवर्किंग इवेंट्स में भाग लेना",
+    "immediate_actions": "मीडिया हाउसेस में इंटर्नशिप के लिए आवेदन करें, पोर्टफोलियो तैयार करें, व्यक्तिगत ब्लॉग या YouTube चैनल शुरू करें, मीडिया पेशेवरों से संपर्क बनाएं",
+    "keywords": "पत्रकारिता, ब्रॉडकास्टिंग, डिजिटल मीडिया, सोशल मीडिया, फोटोग्राफी, वीडियोग्राफी, एडिटिंग, रिपोर्टिंग, एंकरिंग, कॉपीराइटिंग",
+    "questions": "क्या आप समसामयिक घटनाओं में रुचि रखते हैं? क्या आपको लिखना पसंद है? क्या आप कैमरे के सामने बोलने में सहज हैं? क्या आप तकनीकी उपकरणों का उपयोग करना जानते हैं?"
+  },
+  "career_categories": [
+    {
+      "category": "ऑन-ग्राउंड",
+      "careers": [
+        {
+          "id": "reporter-correspondent",
+          "name": "रिपोर्टर / कोरेस्पोंडेंट",
+          "stream": "कोई भी स्ट्रीम",
+          "courses": "बैचलर ऑफ़ मास कम्युनिकेशन एंड जर्नलिज़्म (डिग्री इन फ़ील्ड्स ऑफ़ स्पेसलाईज़ेशन, जैसे कि स्पोर्ट्स, साइंस, लॉ, पॉलिटिक्स, हिस्ट्री को प्राथमिकता मिलती है)",
+          "duration": "3 साल",
+          "institutions": {
+            "Delhi": [],
+            "Haryana": [],
+            "Uttarakhand": [],
+            "MP": []
+          }
+        },
+        {
+          "id": "photographer-videographer",
+          "name": "फोटोग्राफर / वीडियोग्राफर",
+          "stream": "कोई भी स्ट्रीम",
+          "courses": ["बैचलर ऑफ़ मास कम्युनिकेशन और बैचलर ऑफ़ फाइन आर्ट्स", "सर्टिफिकेट कोर्स / डिप्लोमा इन फोटोग्राफी / वीडियोग्राफी"],
+          "duration": ["3 साल", "1-2 साल"],
+          "institutions": {
+            "Delhi": [],
+            "Haryana": [],
+            "Uttarakhand": [],
+            "MP": []
+          }
+        }
+      ]
+    },
+    {
+      "category": "राइटिंग",
+      "careers": [
+        {
+          "id": "copywriter-scriptwriter",
+          "name": "कॉपीराइटर स्क्रिप्टराइटर / टिकर ब्लॉगर",
+          "stream": "कोई भी स्ट्रीम",
+          "courses": "बैचलर ऑफ़ मास कम्युनिकेशन डिप्लोमा इन स्क्रिप्ट एंड स्क्रीनप्ले राइटिंग बैचलर ऑफ़ आर्ट्स (हिंदी / इंग्लिश / अन्य लैंग्वेज)",
+          "duration": "3 साल",
+          "institutions": {
+            "Delhi": [],
+            "Haryana": [],
+            "Uttarakhand": [],
+            "MP": []
+          }
+        },
+        {
+          "id": "copy-editor-news-editor",
+          "name": "कॉपी एडिटर न्यूज़ एडिटर",
+          "stream": "",
+          "courses": "",
+          "duration": "",
+          "institutions": {
+            "Delhi": [],
+            "Haryana": [],
+            "Uttarakhand": [],
+            "MP": []
+          }
+        }
+      ]
+    },
+    {
+      "category": "डिज़ाइन",
+      "careers": [
+        {
+          "id": "graphic-designer-cartoonist",
+          "name": "डिज़ाइनर (न्यूज़पेपर) ग्राफ़िक डिज़ाइनर कार्टूनिस्ट / इलस्ट्रेटर",
+          "stream": "",
+          "courses": "बैचलर ऑफ़ डिज़ाइन बैचलर ऑफ़ फाइन आर्ट्स",
+          "duration": "3 साल",
+          "institutions": {
+            "Delhi": [],
+            "Haryana": [],
+            "Uttarakhand": [],
+            "MP": []
+          }
+        },
+        {
+          "id": "video-editor-producer",
+          "name": "वीडियो एडिटर वीडियो प्रोडूसर",
+          "stream": "कोई भी स्ट्रीम",
+          "courses": "सर्टिफिकेट/ डिप्लोमा कोर्स इन ग्राफ़िक डिज़ाइन सर्टिफिकेट/ डिप्लोमा कोर्स इन वीडियो एडिटिंग",
+          "duration": "1 साल/उससे ज्यादा",
+          "institutions": {
+            "Delhi": [],
+            "Haryana": [],
+            "Uttarakhand": [],
+            "MP": []
+          }
+        }
+      ]
+    },
+    {
+      "category": "प्रेजेंटेशन",
+      "careers": [
+        {
+          "id": "anchor-presenter",
+          "name": "एंकर न्यूज़ प्रेसेंटर (आल इंडिया रेडियो) कमेंटेटर्स रेडियो जॉकी",
+          "stream": "",
+          "courses": ["बैचलर ऑफ़ मास कम्युनिकेशन & जर्नलिज्म", "सर्टिफिकेट कोर्स in रेडियो जॉकी / एंकरिंग"],
+          "duration": ["3 साल", "6 महीने या उससे ज्यादा"],
+          "institutions": {
+            "Delhi": [],
+            "Haryana": [],
+            "Uttarakhand": [],
+            "MP": []
+          }
+        },
+        {
+          "id": "technician",
+          "name": "ऑडियो/ वीडियो/ लाइट टेकनीशियन",
+          "stream": "कोई भी स्ट्रीम",
+          "courses": "डिप्लोमा कोर्सेज",
+          "duration": "<= 1 साल",
+          "institutions": {
+            "Delhi": [],
+            "Haryana": [],
+            "Uttarakhand": [],
+            "MP": []
+          }
+        },
+        {
+          "id": "broadcast-engineer",
+          "name": "ब्रॉडकास्ट इंजीनियर",
+          "stream": "साइंस (PCM)",
+          "courses": "B.Tech. (इलेक्ट्रिकल इंजीनियरिंग)",
+          "duration": "4 साल",
+          "institutions": {
+            "Delhi": [],
+            "Haryana": [],
+            "Uttarakhand": [],
+            "MP": []
+          }
+        }
+      ]
+    },
+    {
+      "category": "पब्लिक रिलेशन्स",
+      "careers": [
+        {
+          "id": "social-media-manager",
+          "name": "सोशल मीडिया मैनेजर/ हैंडलर",
+          "stream": "कोई भी स्ट्रीम",
+          "courses": "सर्टिफिकेट/ डिप्लोमा in डिजिटल मार्केटिंग",
+          "duration": "1-2 साल",
+          "institutions": {
+            "Delhi": [],
+            "Haryana": [],
+            "Uttarakhand": [],
+            "MP": []
+          }
+        },
+        {
+          "id": "public-relations-officer",
+          "name": "पब्लिक रिलेशन्स ऑफिसर (govt) पब्लिक रिलेशन्स मैनेजर/ एजेंट",
+          "stream": "",
+          "courses": "बैचलर ऑफ़ मास कम्युनिकेशन",
+          "duration": "3 साल",
+          "institutions": {
+            "Delhi": [],
+            "Haryana": [],
+            "Uttarakhand": [],
+            "MP": []
+          }
+        }
+      ]
+    }
+  ],
+  "career_paths": {
+    "photographer-videographer": {
+      "title": "फोटोग्राफर/विडिओग्राफर",
+      "during_school": "12th में किसी भी स्ट्रीम से फोटोग्राफर बन सकते हैं | क्रिएटिविटी और कंप्युटर स्किल्स जैसी हॉबीस बनाएँ , स्केचिंग और डिज़ाइनिंग की लगातार प्रैक्टिस करें और गूगल से नया सीखते रहें",
+      "after_12th": "क्या कर सकते हैं? : फ़ोटोग्राफ़ी या विडिओग्राफ़ी के कोर्स करें, बैचलर ऑफ़ मास कम्युनिकेशन, बैचलर ऑफ़ फाइन आर्ट्स या फिर करें सिर्फ कुछ महीनों का कोर्स",
+      "during_college": "कॉलेज के दौरान करें काम: अच्छे कैमरे खरीदने में पैसे लगाएं (DSLR, प्रोफेशनल कैमरा आदि) फोटो एडिटिंग सॉफ्टवेयर सीखें ( Adobe Photoshop, Adobe Lightroom, Adobe Premiere Pro)",
+      "after_college": "कॉलेज के बाद करें काम: प्रैक्टिकल अनुभव पाने के लिए इंटर्नशिप करें | उदाहरण: मीडिया हाउसेस, प्रोडक्शन हाउसेस या एडवर्टाईज़िंग एजेंसीज़ में काम करें,अपना फोटो स्टूडियो स्थापित करने के बारे में सोचें",
+      "description": "फोटोग्राफर और वीडियोग्राफर विज़ुअल स्टोरीटेलिंग के माध्यम से घटनाओं, व्यक्तित्वों और समसामयिक मुद्दों को कैप्चर करते हैं। वे समाचार, डॉक्यूमेंट्री, विज्ञापन और मनोरंजन के क्षेत्र में काम करते हैं।",
+      "day_in_life": "सुबह शूटिंग लोकेशन पर पहुंचना, उपकरण सेटअप करना, विभिन्न एंगल से फोटो/वीडियो कैप्चर करना, एडिटिंग सॉफ्टवेयर में काम करना, क्लाइंट या एजेंसी को फाइनल आउटपुट भेजना",
+      "did_you_know": "एक अच्छा फोटोग्राफर एक ही इवेंट में 1000+ तस्वीरें खींच सकता है लेकिन केवल 10-20 का इस्तेमाल करता है",
+      "career_progression": "असिस्टेंट फोटोग्राफर → फ्रीलांस फोटोग्राफर → सीनियर फोटोग्राफर → फोटो एडिटर/डायरेक्टर → अपना स्टूडियो"
+    },
+    "anchor-reporter": {
+      "title": "न्यूज ऐंकर/प्रेसेंटर न्यूज रिपोर्टर",
+      "during_school": "12th में किसी भी स्ट्रीम के बाद न्यूज रिपोर्टर या ऐंकर बन सकते हैं | स्कूल के समय में भी: यूट्यूब और लर्निंग ऐप्स के माध्यम से अपनी बोलने और आब्ज़र्वैशन स्किल्स को बेहतर बनाएं",
+      "after_12th": "क्या कर सकते हैं? : बैचलर ऑफ़ मास कम्युनिकेशन या जर्नलिज्म, बैचलर ऑफ़ आर्ट्स (इंग्लिश, हिंदी, पॉलिटिकल साइंस), या फिर कुछ महीनों का एंकरिंग कोर्स",
+      "during_college": "कॉलेज के दौरान करें काम: कैमरे के सामने बोलने की प्रैक्टिस करें | मॉक न्यूज प्रेसेंटेशन बनाएं | वॉयस मॉडुलेशन और बॉडी लैंग्वेज पर काम करें",
+      "after_college": "कॉलेज के बाद करें काम: लोकल न्यूज चैनल्स या रेडियो स्टेशन्स में इंटर्नशिप करें | अपना न्यूज रील्स या यूट्यूब चैनल बनाएं | नेटवर्किंग इवेंट्स में भाग लें",
+      "description": "न्यूज एंकर और रिपोर्टर समाचारों को जनता तक पहुंचाने का काम करते हैं। वे फील्ड से रिपोर्टिंग करते हैं या स्टूडियो में न्यूज प्रेजेंट करते हैं।",
+      "day_in_life": "सुबह न्यूज ब्रीफिंग, स्क्रिप्ट रीडिंग और तैयारी, फील्ड रिपोर्टिंग या स्टूडियो में लाइव न्यूज प्रेजेंटेशन, इंटरव्यू लेना, न्यूज राइटिंग",
+      "did_you_know": "एक न्यूज एंकर एक दिन में 6-8 घंटे लाइव टेलीकास्ट कर सकता है",
+      "career_progression": "ट्रेनी रिपोर्टर → रिपोर्टर → सीनियर रिपोर्टर → न्यूज एंकर → न्यूज एडिटर → न्यूज डायरेक्टर"
+    },
+    "social-media-manager": {
+      "title": "सोशल मीडिया मैनेजर",
+      "during_school": "12th में किसी भी stream के बाद Social Media Manager बन सकते हैं। स्कूल के समय में भी : स्किल्स सीखें जैसे प्रॉब्लम सॉलविंग लाजिकल थिंकिंग , मार्केटिंग , कम्यूनिकेशन आदि।",
+      "after_12th": "क्या कर सकते हैं? : डिजिटल मार्केटिंग का कोर्स, बैचलर ऑफ़ मास कम्युनिकेशन, बैचलर ऑफ़ बिज़नेस एडमिनिस्ट्रेशन (मार्केटिंग), या फिर सिर्फ कुछ महीनों का सोशल मीडिया कोर्स",
+      "during_college": "कॉलेज के दौरान करें काम: अलग-अलग सोशल मीडिया प्लेटफॉर्म (Instagram, Facebook, Twitter, LinkedIn, YouTube) को समझें | कंटेंट क्रिएशन सीखें | ऐनालिटिक्स टूल्स सीखें",
+      "after_college": "कॉलेज के बाद करें काम: अपना सोशल मीडिया अकाउंट बनाकर पोर्टफोलियो तैयार करें | छोटे बिज़नेस या लोकल ब्रांड्स के लिए फ्रीलांसिंग करें | डिजिटल मार्केटिंग एजेंसीज़ में काम करें",
+      "description": "सोशल मीडिया मैनेजर ब्रांड्स और कंपनियों की ऑनलाइन उपस्थिति को मैनेज करते हैं। वे कंटेंट बनाते हैं, कैंपेन चलाते हैं और ऑडियंस एंगेजमेंट बढ़ाते हैं।",
+      "day_in_life": "कंटेंट प्लानिंग और शेड्यूलिंग, ग्राफिक्स और वीडियो बनाना, पोस्ट्स पब्लिश करना, कमेंट्स और मैसेजेस का जवाब देना, ऐनालिटिक्स चेक करना",
+      "did_you_know": "एक वायरल पोस्ट 24 घंटे में लाखों लोगों तक पहुंच सकती है",
+      "career_progression": "सोशल मीडिया असिस्टेंट → सोशल मीडिया एग्जीक्यूटिव → सोशल मीडिया मैनेजर → डिजिटल मार्केटिंग मैनेजर → डिजिटल मार्केटिंग डायरेक्टर"
+    },
+    "scriptwriter": {
+      "title": "स्क्रिप्ट/ स्क्रीनप्ले राइटर",
+      "during_school": "12th में किसी भी स्ट्रीम से स्क्रिप्ट राइटर बन सकते हैंl स्कूल के समय भी: लेख लिखने, वास्तविक घटनाओ पे विचार साझा करने जैसी हॉबीस में रूचि रखे| अपने दोस्तों को भी ये सब शेयर करके फीडबैक लें",
+      "after_12th": "क्या कर सकते हैं? : बैचलर ऑफ़ मास कम्युनिकेशन, बैचलर ऑफ़ आर्ट्स (हिंदी/इंग्लिश), बैचलर ऑफ़ फाइन आर्ट्स, या फिर स्क्रिप्ट राइटिंग का डिप्लोमा कोर्स",
+      "during_college": "कॉलेज के दौरान करें काम: अलग-अलग जॉनर में लिखने की प्रैक्टिस करें | मूवीज़, वेब सीरीज़, और डॉक्यूमेंट्रीज़ देखकर स्क्रिप्ट्स का एनालिसिस करें | राइटिंग कम्पटीशन में भाग लें",
+      "after_college": "कॉलेज के बाद करें काम: प्रोडक्शन हाउसेस, फिल्म मेकर्स, और कंटेंट क्रिएटर्स के साथ नेटवर्क बनाएं | छोटे प्रोजेक्ट्स के लिए स्क्रिप्ट लिखें | अपना पोर्टफोलियो बनाएं",
+      "description": "स्क्रिप्ट राइटर फिल्म, टीवी शो, वेब सीरीज़, और अन्य मीडिया कंटेंट के लिए कहानियां और संवाद लिखते हैं।",
+      "day_in_life": "रिसर्च करना, कैरेक्टर डेवलपमेंट, संवाद लिखना, स्क्रिप्ट एडिटिंग, डायरेक्टर और प्रोड्यूसर के साथ मीटिंग",
+      "did_you_know": "एक अच्छी स्क्रिप्ट को 5-10 बार rewrite किया जा सकता है",
+      "career_progression": "असिस्टेंट राइटर → जूनियर स्क्रिप्ट राइटर → स्क्रिप्ट राइटर → सीनियर राइटर → स्टोरी एडिटर → क्रिएटिव डायरेक्टर"
+    }
+  },
+  "institutions": {
+    "national": [
+      "A.J.K. Mass Communication Research Centre",
+      "India Today Media Institute",
+      "NRAI School Of Mass Communication",
+      "Heritage Institute Of Management & Communication (HIMCOM)",
+      "Institute of Management Studies, Noida",
+      "Amity School of Communication",
+      "Xavier Institute of Communications",
+      "Delhi School of Communication",
+      "Makhanlal Chaturvedi National University of Journalism and Communication",
+      "Banaras Hindu University",
+      "Jamia Millia Islamia",
+      "Indian Institute of Mass Communication (IIMC)"
+    ],
+    "states": {
+      "Delhi": [
+        "Indian Institute of Mass Communication (IIMC), New Delhi",
+        "Jamia Millia Islamia (JMI), New Delhi",
+        "Delhi College of Arts and Commerce (DCAC), New Delhi",
+        "Lady Shri Ram College for Women (LSR), New Delhi",
+        "Bharatiya Vidya Bhavan (BVB), New Delhi",
+        "Guru Gobind Singh Indraprastha University (GGSIPU), New Delhi",
+        "Kamala Nehru College (KNC), New Delhi",
+        "Sri Aurobindo Centre for Arts and Communication (SACAC), New Delhi",
+        "Delhi School of Journalism (DSJ), New Delhi",
+        "Amity School of Communication (ASCO), New Delhi"
+      ],
+      "Haryana": [
+        "Kurukshetra University, Kurukshetra",
+        "Guru Jambheshwar University of Science and Technology, Hisar",
+        "Maharshi Dayanand University, Rohtak",
+        "YMCA University of Science and Technology, Faridabad",
+        "Chaudhary Charan Singh Haryana Agricultural University, Hisar",
+        "Manav Rachna International Institute of Research and Studies, Faridabad",
+        "DAV College, Chandigarh",
+        "National Institute of Mass Communication and Journalism (NIMCJ), Faridabad",
+        "St. Soldier Management and Technical Institute, Ambala",
+        "Government College for Women, Faridabad"
+      ],
+      "Uttarakhand": [
+        "Doon University, Dehradun",
+        "Graphic Era University, Dehradun",
+        "Himgiri Zee University, Dehradun",
+        "Uttaranchal University, Dehradun",
+        "DIT University, Dehradun",
+        "Dev Bhoomi Group of Institutions, Dehradun",
+        "IMS Unison University, Dehradun",
+        "Quantum University, Roorkee",
+        "Tula's Institute, Dehradun",
+        "Himalayan Institute of Technology, Dehradun"
+      ],
+      "MP": [
+        "Makhanlal Chaturvedi National University of Journalism and Communication (MCNUJC), Bhopal",
+        "Amity University, Gwalior",
+        "Indian Institute of Mass Communication (IIMC), Dhenkanal (Regional Campus in Bhopal)",
+        "School of Journalism and Mass Communication (SJMC), Devi Ahilya Vishwavidyalaya, Indore",
+        "Devi Ahilya Vishwavidyalaya, Indore",
+        "Jagran Lakecity University, Bhopal",
+        "Makhanlal Chaturvedi Rashtriya Patrakarita Vishwavidyalaya, Bhopal",
+        "NRI Institute of Information Science and Technology, Bhopal",
+        "Dr. B. R. Ambedkar University of Social Sciences, Indore",
+        "Vikram University, Ujjain"
+      ]
+    }
+  }
+}

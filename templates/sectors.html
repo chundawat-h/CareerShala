@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CareerShala - Explore Industries</title>
+<!-- <link href="/static/css/tailwind-output.css" rel="stylesheet"> -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: { primary: "#4f46e5", secondary: "#f97316" },
+      borderRadius: {
+        none: "0px",
+        sm: "4px",
+        DEFAULT: "8px",
+        md: "12px",
+        lg: "16px",
+        xl: "20px",
+        "2xl": "24px",
+        "3xl": "32px",
+        full: "9999px",
+        button: "8px",
+      },
+    },
+  },
+};
+</script>
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+body {
+font-family: 'Inter', sans-serif;
+}
+.step-active {
+color: #4f46e5;
+border-color: #4f46e5;
+}
+.step-active .step-number {
+background-color: #4f46e5;
+color: white;
+}
+.step-line {
+height: 2px;
+background-color: #e5e7eb;
+flex-grow: 1;
+margin: 0 8px;
+}
+.step-number {
+width: 32px;
+height: 32px;
+border-radius: 50%;
+background-color: #e5e7eb;
+display: flex;
+align-items: center;
+justify-content: center;
+font-weight: 600;
+margin-bottom: 12px;
+}
+.industry-card:hover {
+transform: translateY(-4px);
+box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+</style>
+</head>
+<body class="bg-gray-50">
+<!-- Header -->
+<header class="bg-white sticky top-0 z-50 shadow-sm">
+<div class="container mx-auto px-4 py-4">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-12">
+<h1 class="text-2xl font-['Pacifico'] text-primary">CareerShala</h1>
+<nav class="hidden md:flex items-center gap-8">
+<a href="/" class="text-gray-600 hover:text-primary transition-colors">होम</a>
+<a href="#choose-state" class="text-gray-600 hover:text-primary transition-colors">अपना राज्य चुनें</a>
+<a href="#" class="text-gray-600 hover:text-primary transition-colors">हमारे बारे में</a>
+<a href="#" class="text-gray-600 hover:text-primary transition-colors">संपर्क</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-gray-600 hover:text-primary px-4 py-2 rounded-button flex items-center gap-2 transition-colors whitespace-nowrap">
+<i class="ri-user-line"></i>
+<span class="hidden md:inline">साइन इन</span>
+</button>
+</div>
+</div>
+</div>
+</header>
+
+
+
+<!-- Main Content -->
+<main class="container mx-auto px-4 py-12">
+<!-- Industry Grid -->
+<div class="text-center max-w-3xl mx-auto mb-12">
+<h2 class="text-3xl font-semibold text-gray-800 mb-4">उपलब्ध करियर क्षेत्र</h2>
+<p class="text-gray-600">अपने सपनों का करियर चुनें और सफलता की राह पर आगे बढ़ें</p>
+</div>
+
+<!-- Loading State -->
+<div id="loading" class="text-center py-12">
+<div class="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-primary"></div>
+<p class="mt-4 text-gray-600">Loading sectors...</p>
+</div>
+
+<!-- Error State -->
+<div id="error-state" class="text-center py-12 hidden">
+<div class="bg-red-50 border border-red-200 rounded-lg p-6 max-w-md mx-auto">
+<i class="ri-error-warning-line text-4xl text-red-500 mb-4"></i>
+<h3 class="text-lg font-semibold text-red-800 mb-2">Error Loading Sectors</h3>
+<p id="error-message" class="text-red-600"></p>
+</div>
+</div>
+
+<!-- Industries Grid -->
+<div id="industriesGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 hidden">
+<!-- Industries will be dynamically loaded here -->
+</div>
+</main>
+
+<!-- Featured Section -->
+<section class="bg-gradient-to-r from-primary/10 to-secondary/10 py-12 my-8">
+<div class="container mx-auto px-4">
+<div class="max-w-3xl mx-auto text-center">
+<h2 class="text-2xl font-semibold text-gray-800 mb-4">शुरुआत कहाँ से करें?</h2>
+<p class="text-gray-600 mb-6">अपनी रुचियों, कौशल और व्यक्तित्व के अनुरूप करियर क्षेत्रों की खोज के लिए हमारा व्यक्तिगत करियर मूल्यांकन लें।</p>
+<button class="bg-primary text-white px-6 py-3 rounded-button hover:bg-primary/90 whitespace-nowrap">
+करियर मूल्यांकन लें
+</button>
+</div>
+</div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-gray-800 text-gray-300 py-12">
+<div class="container mx-auto px-4">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+<div>
+<h3 class="text-xl font-['Pacifico'] text-white mb-4">CareerShala</h3>
+<p class="text-gray-400 mb-4">अलोहोमोरा फाउंडेशन भारत के युवाओं को उनके करियर के लक्ष्यों को प्राप्त करने में मदद करता है।</p>
+<div class="flex space-x-4">
+<a href="#" class="text-gray-400 hover:text-white">
+<i class="ri-facebook-fill text-xl"></i>
+</a>
+<a href="#" class="text-gray-400 hover:text-white">
+<i class="ri-twitter-fill text-xl"></i>
+</a>
+<a href="#" class="text-gray-400 hover:text-white">
+<i class="ri-instagram-fill text-xl"></i>
+</a>
+<a href="#" class="text-gray-400 hover:text-white">
+<i class="ri-youtube-fill text-xl"></i>
+</a>
+</div>
+</div>
+<div>
+<h4 class="text-white font-medium mb-4">त्वरित लिंक</h4>
+<ul class="space-y-2">
+<li><a href="#" class="text-gray-400 hover:text-white">होम</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white">सेक्टर</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white">हमारे बारे में</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white">संपर्क</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white">गोपनीयता नीति</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-white font-medium mb-4">संसाधन</h4>
+<ul class="space-y-2">
+<li><a href="#" class="text-gray-400 hover:text-white">करियर वीडियो</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white">सफलता की कहानियां</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white">ब्लॉग</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white">संस्थान निर्देशिका</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white">सामान्य प्रश्न</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-white font-medium mb-4">संपर्क</h4>
+<ul class="space-y-2">
+<li class="flex items-start gap-2">
+<i class="ri-map-pin-line mt-1"></i>
+<span>123, सेक्टर 4, नई दिल्ली - 110001</span>
+</li>
+<li class="flex items-center gap-2">
+<i class="ri-phone-line"></i>
+<span>+91 98765 43210</span>
+</li>
+<li class="flex items-center gap-2">
+<i class="ri-mail-line"></i>
+<span>info@careershala.org</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+<p>&copy; 2025 अलोहोमोरा फाउंडेशन। सर्वाधिकार सुरक्षित।</p>
+</div>
+</div>
+</footer>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  // Get state from URL
+  const urlParams = new URLSearchParams(window.location.search);
+  const state = urlParams.get('state');
+  
+  if (state) {
+    loadSectors(state);
+  } else {
+    showError('No state selected');
+  }
+});
+
+async function loadSectors(state) {
+  const loadingEl = document.getElementById('loading');
+  const errorEl = document.getElementById('error-state');
+  const gridEl = document.getElementById('industriesGrid');
+  
+  try {
+    const response = await fetch(`/api/sectors?state=${encodeURIComponent(state)}`);
+    
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    
+    const data = await response.json();
+    
+    if (data.error) {
+      throw new Error(data.error);
+    }
+    
+    displaySectors(data.sectors, state);
+    
+  } catch (error) {
+    console.error('Error loading sectors:', error);
+    showError(error.message);
+  }
+}
+
+function displaySectors(sectors, state) {
+  const loadingEl = document.getElementById('loading');
+  const gridEl = document.getElementById('industriesGrid');
+  
+  loadingEl.classList.add('hidden');
+  
+  if (!sectors || sectors.length === 0) {
+    showError('No sectors found for this state.');
+    return;
+  }
+  
+  // Create sector cards
+  gridEl.innerHTML = sectors.map(sector => `
+    <div class="industry-card bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer transform hover:scale-105" 
+         onclick="selectSector('${state}', '${sector.id}', '${sector.name}')">
+      <div class="mb-4">
+        <div class="w-12 h-12 bg-gradient-to-br from-${getColorClass(sector.icon)}/20 to-${getColorClass(sector.icon)}/40 rounded-lg flex items-center justify-center mb-4">
+          <i class="ri-${sector.icon}-line text-2xl text-${getColorClass(sector.icon)}"></i>
+        </div>
+        <h3 class="text-xl font-semibold text-gray-900 mb-2">${sector.name}</h3>
+        <p class="text-gray-600 text-sm mb-4">${sector.description}</p>
+        <div class="flex items-center justify-between">
+          <span class="text-sm text-gray-500">Explore Careers</span>
+          <i class="ri-arrow-right-line text-primary"></i>
+        </div>
+      </div>
+    </div>
+  `).join('');
+  
+  gridEl.classList.remove('hidden');
+}
+
+function getColorClass(icon) {
+  const colorMap = {
+    'film': 'purple',
+    'cpu': 'blue',
+    'heart': 'rose',
+    'trending-up': 'emerald',
+    'book': 'orange',
+    'users': 'indigo',
+    'settings': 'gray',
+    'activity': 'green',
+    'zap': 'yellow'
+  };
+  return colorMap[icon] || 'primary';
+}
+
+function selectSector(state, sectorId, sectorName) {
+  window.location.href = `/careers?state=${encodeURIComponent(state)}&sector=${encodeURIComponent(sectorId)}`;
+}
+
+function showError(message) {
+  const loadingEl = document.getElementById('loading');
+  const errorEl = document.getElementById('error-state');
+  const messageEl = document.getElementById('error-message');
+  
+  loadingEl.classList.add('hidden');
+  messageEl.textContent = message;
+  errorEl.classList.remove('hidden');
+}
+</script>
+</body>
+</html>

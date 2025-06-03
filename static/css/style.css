@@ -1,0 +1,269 @@
+/* Custom CSS for CareerShala */
+
+/* Root variables for consistent theming */
+:root {
+  --primary-color: #0d6efd;
+  --secondary-color: #6c757d;
+  --success-color: #198754;
+  --info-color: #0dcaf0;
+  --warning-color: #ffc107;
+  --danger-color: #dc3545;
+  --light-color: #f8f9fa;
+  --dark-color: #212529;
+}
+
+/* Body and general styling */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  line-height: 1.6;
+  background-color: var(--bs-body-bg);
+}
+
+/* Navigation enhancements */
+.navbar-brand {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.navbar-nav .nav-link {
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+/* Card hover effects */
+.card {
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* State selection buttons */
+.state-btn {
+  height: auto;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+  border: 2px solid rgba(13, 110, 253, 0.2);
+}
+
+.state-btn:hover {
+  transform: translateY(-2px);
+  border-color: var(--primary-color);
+  box-shadow: 0 8px 25px rgba(13, 110, 253, 0.15);
+}
+
+.state-btn.active {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  color: white;
+}
+
+/* Sector and career cards */
+.sector-card,
+.career-card {
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sector-card:hover,
+.career-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  border-color: var(--primary-color);
+}
+
+/* Badge styling */
+.badge {
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+/* Loading states */
+.spinner-border {
+  width: 2rem;
+  height: 2rem;
+}
+
+.spinner-border-sm {
+  width: 1rem;
+  height: 1rem;
+}
+
+/* Breadcrumb styling */
+.breadcrumb {
+  background-color: transparent;
+  padding: 0;
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+  content: "›";
+  font-weight: bold;
+}
+
+/* Career path steps */
+.career-step {
+  position: relative;
+  padding-left: 2rem;
+  margin-bottom: 2rem;
+}
+
+.career-step::before {
+  content: '';
+  position: absolute;
+  left: 0.5rem;
+  top: 0;
+  bottom: -2rem;
+  width: 2px;
+  background-color: var(--primary-color);
+}
+
+.career-step:last-child::before {
+  display: none;
+}
+
+.step-number {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 2rem;
+  height: 2rem;
+  background-color: var(--primary-color);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 0.875rem;
+}
+
+/* Institution cards */
+.institution-card {
+  border-left: 4px solid var(--primary-color);
+}
+
+.institution-card.government {
+  border-left-color: var(--success-color);
+}
+
+.institution-card.private {
+  border-left-color: var(--info-color);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .display-4 {
+    font-size: 2rem;
+  }
+  
+  .display-5 {
+    font-size: 1.75rem;
+  }
+  
+  .state-btn {
+    padding: 1rem;
+  }
+  
+  .card-body {
+    padding: 1rem;
+  }
+}
+
+/* Utility classes */
+.text-gradient {
+  background: linear-gradient(45deg, var(--primary-color), var(--info-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.bg-gradient-primary {
+  background: linear-gradient(45deg, var(--primary-color), #0056b3);
+}
+
+/* Footer styling */
+footer {
+  margin-top: auto;
+}
+
+/* Error and success states */
+.alert {
+  border: none;
+  border-radius: 0.5rem;
+}
+
+.alert-success {
+  background-color: rgba(25, 135, 84, 0.1);
+  color: var(--success-color);
+}
+
+.alert-danger {
+  background-color: rgba(220, 53, 69, 0.1);
+  color: var(--danger-color);
+}
+
+.alert-info {
+  background-color: rgba(13, 202, 240, 0.1);
+  color: var(--info-color);
+}
+
+.alert-warning {
+  background-color: rgba(255, 193, 7, 0.1);
+  color: #664d03;
+}
+
+/* Animation classes */
+.fade-in {
+  animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.slide-up {
+  animation: slideUp 0.6s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Focus states for accessibility */
+.btn:focus,
+.card:focus {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+/* Print styles */
+@media print {
+  .navbar,
+  .breadcrumb,
+  .btn,
+  footer {
+    display: none !important;
+  }
+  
+  .card {
+    border: 1px solid #000 !important;
+    break-inside: avoid;
+  }
+}
