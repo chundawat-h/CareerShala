@@ -3,7 +3,11 @@
       <div class="container mx-auto px-4">
         <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
-            <img src="/static/Alohomora.png" alt="Alohomora" class="bg-opacity-90">
+            <div class="flex justify-between  items-start">
+            <img src="/static/Alohomora.jpg" alt="Alohomora" class="bg-opacity-90 w-36 h-auto">
+          </div>
+          <br>
+          <br>
             <p class="text-gray-400 mb-4" data-translate="footer_desc">
               अलोहोमोरा फाउंडेशन भारत के युवाओं को उनके करियर के लक्ष्यों को प्राप्त करने में मदद करता है।
             </p>
@@ -32,13 +36,21 @@
               >
                 <i class="ri-linkedin-fill"></i>
               </a>
+              <a
+                href="https://www.youtube.com/c/AlohomoraEducationCareerShala/featured" target="_blank"
+                class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-800 hover:bg-primary transition-colors"
+              >
+                <i class="ri-youtube-fill"></i>
+              </a>
+              
+              
             </div>
           </div>
           <div>
             <h4 class="text-lg font-semibold mb-4" data-translate="quick_links">त्वरित लिंक</h4>
             <ul class="space-y-2">
               <li><a href="{{ url_for('index') }}" class="text-gray-400 hover:text-white transition-colors" data-translate="home">होम</a></li>
-              <li><a href="{{ url_for('sectors') }}" class="text-gray-400 hover:text-white transition-colors" data-translate="sectors">सेक्टर</a></li>
+              <li><a href="{{ url_for('sectors') }}" class="hidden text-gray-400 hover:text-white transition-colors" data-translate="sectors">सेक्टर</a></li>
               <li><a href="https://www.alohomora.org" class="text-gray-400 hover:text-white transition-colors" data-translate="about">हमारे बारे में</a></li>
               <li><a href="#" class="text-gray-400 hover:text-white transition-colors" data-translate="contact">संपर्क</a></li>
               <li><a href="#" class="text-gray-400 hover:text-white transition-colors" data-translate="privacy_policy">गोपनीयता नीति</a></li>
