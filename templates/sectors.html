@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>industryShala - Explore Industries</title>
+<title>CareerShala - Explore Industries</title>
 <!-- <link href="/static/css/tailwind-output.css" rel="stylesheet"> -->
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -141,7 +141,7 @@ background: linear-gradient(135deg, #FF6B35 0%, #2EC4B6 100%);
 <!-- Main Content -->
 <main class="container mx-auto px-4 py-12">
 <!-- Industry Grid -->
-<div class="bg-gradient-to-r from-primary/20 to-secondary/20 py-12  mx-auto mb-12">
+<div class="bg-gradient-to-r from-primary/20 to-secondary/20 py-12  mx-auto mb-12 ">
 <h2 class="text-5xl font-semibold text-center text-gray-800 mb-8 ">उपलब्ध करियर क्षेत्र</h2>
 <p class="text-gray-600 text-center mb-4">अपने सपनों का करियर चुनें और सफलता की राह पर आगे बढ़ें</p>
 </div>
@@ -245,7 +245,7 @@ function displaySectors(sectors, state) {
         <h3 class="text-xl font-semibold text-gray-900 mb-2">${sector.name}</h3>
         <p class="text-gray-600 text-sm mb-4">${sector.description}</p>
         <div class="flex items-center justify-between">
-          <span class="text-sm text-gray-500">Explore industrys</span>
+          <div class="text-sm text-primary " data-translate='Explore Careers'>करियर एक्सप्लोर करें </div>
           <i class="ri-arrow-right-line text-primary"></i>
         </div>
       </div>
@@ -271,7 +271,7 @@ function getColorClass(icon) {
 }
 
 function selectSector(state, sectorId, sectorName) {
-  window.location.href = `/industrys?state=${encodeURIComponent(state)}&sector=${encodeURIComponent(sectorId)}`;
+  window.location.href = `/careers?state=${encodeURIComponent(state)}&sector=${encodeURIComponent(sectorId)}`;
 }
 
 function showError(message) {
