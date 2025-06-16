@@ -50,6 +50,11 @@
             background-size: cover;
             background-position: center right;
         }
+        @media (max-width: 768px) {
+            #careers-grid {
+                grid-template-columns: 1fr; /* Keep single-column layout */
+            }
+        }
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -90,7 +95,11 @@
             border-color: #3B82F6;
             animation: borderAnimation 1.5s linear infinite;
         }
-        
+        @media (max-width: 768px) {
+            #careers-grid {
+                grid-template-columns: 1fr; /* Keep single-column layout */
+            }
+        }
         @keyframes borderAnimation {
             0% { clip-path: inset(0 0 95% 0); }
             25% { clip-path: inset(0 95% 0 0); }
@@ -129,18 +138,18 @@
     {% include 'header.html' %}
 
     <!-- Hero Section -->
-    <section class="hero-section w-full py-24 md:py-32 bg-cover bg-center relative overflow-hidden">
+    <section class="hero-section w-full py-12 md:py-24 bg-cover bg-center relative overflow-hidden">
         <div class="absolute inset-0 bg-gradient-to-r from-accent2/10 to-primary/10"></div>
         <div class="absolute inset-0 bg-gradient-to-br from-white/95 via-white/90 to-transparent"></div>
         <div class="container mx-auto px-4">
             <div class="relative container mx-auto px-4">
-                <nav class="flex items-center text-sm text-gray-600 mb-6">
+                <!-- <nav class="flex items-center text-sm text-gray-600 mb-6">
                     <a href="/" class="hover:text-primary">होम</a>
                     <i class="ri-arrow-right-s-line mx-2"></i>
                     <a href="javascript:history.back()" class="hover:text-primary">सेक्टर</a>
                     <i class="ri-arrow-right-s-line mx-2"></i>
                     <span class="text-gray-900" id="sector-name">करियर विकल्प</span>
-                </nav>
+                </nav> -->
                 <div class="w-full max-w-2xl">
                     <div class="mb-8 transform hover:scale-105 transition-transform">
                         <h1 class="text-3xl md:text-4xl font-bold mb-6 leading-tight text-gray-900" id="page-title">
@@ -151,10 +160,10 @@
                         </p>
                     </div>
                     <div class="flex flex-col sm:flex-row gap-4">
-                        <button onclick="history.back()" class="bg-gradient-to-r from-primary to-accent2 text-white px-10 py-4 rounded-full font-medium hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300 whitespace-nowrap text-lg">
+                        <button onclick="history.back()" class="bg-gradient-to-r from-primary to-accent2 text-white px-5 md:px-10 py-2 md:py-4 rounded-full font-medium hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300 whitespace-nowrap text-lg">
                             <i class="ri-arrow-left-line mr-2"></i>वापस जाएं
                         </button>
-                        <button class="bg-white/80 backdrop-blur text-primary border-2 border-primary px-10 py-4 rounded-full font-medium hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300 whitespace-nowrap text-lg">
+                        <button class="bg-white/80 backdrop-blur text-primary border-2 border-primary px-5 md:px-10 py-2 md:py-4 rounded-full font-medium hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300 whitespace-nowrap text-lg">
                             <i class="ri-phone-line mr-2"></i>सलाह लें
                         </button>
                     </div>
@@ -196,7 +205,7 @@
         <div id="common-info" class="hidden mb-16">
             <!-- Description -->
             <div class="section-card mb-8">
-                <div class="bg-white p-8 rounded-xl shadow-lg">
+                <div class="bg-white p-4 md:p-8 rounded-xl shadow-lg">
                     <h2 class="text-2xl font-bold text-gray-900 mb-4 flex items-center">
                         <i class="ri-information-line text-primary mr-3"></i>
                         क्षेत्र परिचय
@@ -209,7 +218,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
                 <!-- Skills -->
                 <div class="section-card">
-                    <div class="bg-white p-8 rounded-xl shadow-lg">
+                    <div class="bg-white p-4 md:p-8 rounded-xl shadow-lg">
                         <h3 class="text-xl font-bold text-gray-900 mb-4 flex items-center">
                             <i class="ri-lightbulb-line text-secondary mr-3"></i>
                             आवश्यक कौशल
@@ -220,7 +229,7 @@
 
                 <!-- Facts -->
                 <div class="section-card">
-                    <div class="bg-white p-8 rounded-xl shadow-lg">
+                    <div class="bg-white p-4 md:p-8 rounded-xl shadow-lg">
                         <h3 class="text-xl font-bold text-gray-900 mb-4 flex items-center">
                             <i class="ri-bar-chart-line text-orange-500 mr-3"></i>
                             महत्वपूर्ण तथ्य
@@ -229,7 +238,30 @@
                     </div>
                 </div>
             </div>
+           
 
+
+
+            <!-- Careers Grid -->
+                    <div id="careers-grid" class="hidden">
+                        <div class="text-center mb-12">
+                            <h2 class="text-2xl font-bold text-gray-900 mb-2">उपलब्ध करियर विकल्प</h2>
+                            <p class="text-gray-600">अपनी रुचि के अनुसार करियर चुनें और विस्तृत जानकारी प्राप्त करें</p>
+                        </div>
+                         <!-- Career Category Filter -->
+                        <div class="flex flex-col justify-between mb-6 p-2 py-4 border rounded-md bg-white shadow-sm ">
+                            <label for="categoryFilter" class="text-white mr-2 px-2 py-1 mb-0 border rounded-md bg-blue-800 w-24">फिल्टर करें:</label>
+                            <select id="categoryFilter" class="p-2 border rounded-md bg-white shadow-sm cursor-pointer" onchange="filterCareers()">
+                                <option value="">All Categories</option>
+                                <!-- Categories will be added dynamically here -->
+                            </select>
+                        </div>
+                        <div id="careers-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                            <!-- Career cards will be dynamically loaded here -->
+                        </div>
+                    </div>
+            <br>
+            <br>   
             <!-- Daily Practices -->
             <div class="section-card mb-8">
                 <div class="bg-gradient-to-r from-accent3/10 to-accent2/10 p-8 rounded-xl">
@@ -289,18 +321,7 @@
             </div>
         </div>
 
-        <!-- Careers Grid -->
-        <div id="careers-grid" class="hidden">
-            <div class="text-center mb-12">
-                <h2 class="text-2xl font-bold text-gray-900 mb-4">उपलब्ध करियर विकल्प</h2>
-                <p class="text-gray-600">अपनी रुचि के अनुसार करियर चुनें और विस्तृत जानकारी प्राप्त करें</p>
-            </div>
-            
-            <div id="careers-container" class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-                <!-- Career cards will be dynamically loaded here -->
-            </div>
-        </div>
-    </main>
+    </main>    
 
     <!-- Featured Section -->
     <section class="bg-gradient-to-r from-primary/10 to-secondary/10 py-12 my-8">
@@ -332,6 +353,8 @@
             }
         });
 
+        let allCareers = []; // Store careers globally for filtering
+
         async function loadCareers(state, sector) {
             const loadingEl = document.getElementById('loading');
             const errorEl = document.getElementById('error-state');
@@ -356,7 +379,18 @@
                 updatePageTitle(sector, state);
                 
                 // Load common information for all sectors
-                await loadCommonInfo();
+                loadCommonInfo();
+
+                // Store careers globally for filtering
+                allCareers = data.careers;
+
+                // Extract unique categories dynamically
+                const categories = [...new Set(data.careers.map(career => career.category))];
+                
+                // Populate category filter dropdown
+                const categoryFilterEl = document.getElementById("categoryFilter");
+                categoryFilterEl.innerHTML = `<option value="">All Categories</option>` + 
+                    categories.map(category => `<option value="${category}">${category}</option>`).join("");
                 
                 if (data.careers && data.careers.length > 0) {
                     displayCareers(data.careers, state, sector);
@@ -444,37 +478,43 @@
                 }
             
             // const sectorName = sector.replace('-', ' & ').replace(/\b\w/g, l => l.toUpperCase());
-            document.getElementById('sector-name').textContent = sectorName;
+            // document.getElementById('sector-name').textContent = sectorName;
             document.getElementById('page-title').textContent = `${sectorName} - करियर विकल्प`;
             document.getElementById('page-subtitle').textContent = sectorSubtitle;
         }
 
         function displayCareers(careers, state, sector) {
-            const loadingEl = document.getElementById('loading');
-            const gridEl = document.getElementById('careers-grid');
-            const containerEl = document.getElementById('careers-container');
-            
-            loadingEl.classList.add('hidden');
-            
+            const loadingEl = document.getElementById("loading");
+            const gridEl = document.getElementById("careers-grid");
+            const containerEl = document.getElementById("careers-container");
+
+            loadingEl.classList.add("hidden");
+
             containerEl.innerHTML = careers.map((career, index) => `
-                <div class="career-card card-hover-effect bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer transform hover:-translate-y-2" 
-                     onclick="viewCareerDetail('${state}', '${sector}', '${career.id}')"
-                     style="animation-delay: ${index * 0.2}s;">
+                <div class="career-card card-hover-effect bg-white p-4 md:p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
+                    style="animation-delay: ${index * 0.2}s;">
                     <div class="text-center">
-                        <div class="w-16 h-16 bg-gradient-to-br from-primary/20 to-primary/40 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <div class="w-16 h-4 md:h-16 bg-gradient-to-br from-primary/20 to-primary/40 rounded-full flex items-center justify-center mx-auto mb-6">
                             <i class="ri-briefcase-line text-2xl text-primary"></i>
                         </div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">${career.name}</h3>
-                        <p class="text-gray-600 mb-4">${career.category}</p>
-                        <div class="text-sm text-gray-500">
-                            <p>• ${career.description}</p>
-                            <p class="mt-2 text-primary font-medium"> विस्तार से जानें →</p>
+                        <h3 class="text-xl font-bold text-gray-900">${career.name}</h3>
+
+                        <!-- Toggle Button for Mobile -->
+                        <button onclick="toggleCareerDetails('${career.id}')" class="md:hidden text-gray-500 mt-2">
+                            <i id="toggle-icon-${career.id}" class="ri-arrow-down-s-line text-xl"></i>
+                        </button>
+
+                        <!-- Career Details (Hidden on mobile, visible on md+) -->
+                        <div id="career-details-${career.id}" class="hidden md:block mt-2">
+                            <p class="text-gray-600">${career.category}</p>
+                            <p class="text-gray-500 text-sm">${career.description}</p>
+                            <p class="mt-2 text-primary font-medium cursor-pointer" onclick="viewCareerDetail('${state}', '${sector}', '${career.id}')">विस्तार से जानें →</p>
                         </div>
                     </div>
                 </div>
-            `).join('');
-            
-            gridEl.classList.remove('hidden');
+            `).join("");
+
+            gridEl.classList.remove("hidden");
         }
 
         function viewCareerDetail(state, sector, careerId) {
@@ -497,6 +537,30 @@
             loadingEl.classList.add('hidden');
             messageEl.textContent = message;
             errorEl.classList.remove('hidden');
+        }
+        function toggleCareerDetails(careerId) {
+            const detailsEl = document.getElementById(`career-details-${careerId}`);
+            const iconEl = document.getElementById(`toggle-icon-${careerId}`);
+
+            if (detailsEl.classList.contains("hidden")) {
+                detailsEl.classList.remove("hidden");
+                iconEl.classList.replace("ri-arrow-down-s-line", "ri-arrow-up-s-line");
+            } else {
+                detailsEl.classList.add("hidden");
+                iconEl.classList.replace("ri-arrow-up-s-line", "ri-arrow-down-s-line");
+            }
+        }
+
+        function filterCareers() {
+            const selectedCategory = document.getElementById("categoryFilter").value;
+
+            // Use already fetched careers for filtering instead of making an API call
+            const filteredCareers = selectedCategory 
+                ? allCareers.filter(career => career.category === selectedCategory) 
+                : allCareers;
+
+            // Display filtered careers (no need for state/sector here)
+            displayCareers(filteredCareers);
         }
     </script>
 </body>
