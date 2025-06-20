@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CareerShala - Alohomora Foundation</title>
+    <!-- <link href="{{ url_for('static', filename='css/tailwind-output.css') }}" rel="stylesheet"> -->
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Hind:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" />
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.5.0/echarts.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#FF6B35",
+                        secondary: "#2EC4B6",
+                        accent1: "#FFD93D",
+                        accent2: "#6C63FF",
+                        accent3: "#4CAF50",
+                        accent4: "#9C27B0",
+                    },
+                    borderRadius: {
+                        none: "0px",
+                        sm: "4px",
+                        DEFAULT: "8px",
+                        md: "12px",
+                        lg: "16px",
+                        xl: "20px",
+                        "2xl": "24px",
+                        "3xl": "32px",
+                        full: "9999px",
+                        button: "8px",
+                    },
+                },
+            },
+        };
+    </script>
+    <style>
+        :where([class^="ri-"])::before { content: "\f3c2"; }
+        body {
+            font-family: 'Hind', 'Poppins', sans-serif;
+        }
+        .hero-section {
+            /* background-image: linear-gradient(to right, rgba(255, 255, 255, 0.9) 40%, rgba(255, 255, 255, 0.7) 60%, rgba(255, 255, 255, 0.4) 80%, rgba(255, 255, 255, 0) 100%); */
+            background-size: cover;
+            background-position: center right;
+            will-change: auto !important;
+            transform: none !important;
+            overflow: visible !important;
+            background-image: url('static/image.png') !important;
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .state-card {
+            animation: fadeInUp 0.6s ease-out forwards;
+            opacity: 0;
+        }
+        .state-card:nth-child(1) { animation-delay: 0.2s; }
+        .state-card:nth-child(2) { animation-delay: 0.4s; }
+        .state-card:nth-child(3) { animation-delay: 0.6s; }
+        .card-hover-effect {
+            position: relative;
+            overflow: hidden;
+        }
+        .card-hover-effect::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 2px solid transparent;
+            border-radius: inherit;
+            pointer-events: none;
+            transition: all 0.3s ease;
+        }
+        .card-hover-effect:hover::before {
+            border-color: #3B82F6;
+            animation: borderAnimation 1.5s linear infinite;
+        }
+        
+        @keyframes borderAnimation {
+            0% { clip-path: inset(0 0 95% 0); }
+            25% { clip-path: inset(0 95% 0 0); }
+            50% { clip-path: inset(95% 0 0 0); }
+            75% { clip-path: inset(0 0 0 95%); }
+            100% { clip-path: inset(0 0 95% 0); }
+        }
+        
+        .counter-value {
+            counter-reset: count 0;
+            animation: count-up 2s forwards;
+        }
+        
+        @keyframes count-up {
+            from { content: "0"; }
+            to { content: attr(data-count); }
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        html {
+        scroll-behavior: smooth;
+      }
+
+        .float-animation {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        .pulse-animation {
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #FF6B35 0%, #2EC4B6 100%);
+        }
+        .flex-row {
+  scroll-snap-type: x mandatory;
+}
+.container {
+  overflow-x: visible;
+}
+.snap-start {
+  scroll-snap-align: start;
+}
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    {% include 'header.html' %}
+
+
+    <!-- Hero Section -->
+    <section class="hero-section w-full py-4 md:py-12 lg:py-16 bg-cover bg-center relative">
+        <div class="absolute inset-0 bg-gradient-to-r from-accent2/10 to-primary/10"></div>
+        <div class="absolute inset-0 bg-gradient-to-br from-white/95 via-white/90 to-transparent"></div>
+        <div class="container mx-auto px-2 md:px-4">
+            <div class="relative container mx-auto px-4">
+                <div class="w-full">
+                    <div class="mb-4 md:mb-8 transform hover:scale-105 transition-transform">
+                        <h1 class="text-4xl md:text-7xl p-2 md:p-4 font-bold  leading-tight bg-gradient-to-r from-primary via-accent2 to-accent1 text-transparent bg-clip-text font-['Baloo_2']">
+                            करियर शाला:
+                        </h1>
+                        <h2 class="text-2xl md:text-5xl p-1 md:p-3 font-bold mb-2 md:mb-6 leading-tight bg-gradient-to-r from-primary via-accent2 to-accent1 text-transparent bg-clip-text font-['Baloo_2']">
+                            आपके सपनों का मार्गदर्शक
+                        </h2>
+                        <p class="text-md md:text-xl text-gray-700 mb-2 md:mb-8 leading-relaxed">
+                            अलोहोमोरा फाउंडेशन द्वारा संचालित करियर शाला, युवाओं को उनके करियर के लक्ष्यों को पहचानने और उन्हें प्राप्त करने के लिए मार्गदर्शन प्रदान करता है।
+                        </p>
+                    </div>
+                    <div class="hidden flex flex-col sm:flex-row gap-4">
+                        <button onclick="scrollToStateSelection()" class="bg-gradient-to-r from-primary to-accent2 text-white px-10 py-4 rounded-full font-medium hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300 whitespace-nowrap text-lg">
+                            अभी शुरू करें
+                        </button>
+                        <button onclick="knowAlohomora()"   class="bg-white/80 backdrop-blur text-primary border-2 border-primary px-10 py-4 rounded-full font-medium hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300 whitespace-nowrap text-lg">
+                            और जानें
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics Section -->
+    <section class="hidden py-16 gradient-bg">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-white mb-4">हमारी सफलता की गाथा</h2>
+                <p class="text-lg text-white/90 max-w-3xl mx-auto">भारत भर में युवाओं के करियर को नई दिशा देने में हमारी उपलब्धियां</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="text-center text-white float-animation">
+                    <div class="text-4xl font-bold mb-2" id="counter1">50,000+</div>
+                    <p class="text-white/90">छात्रों तक पहुंच</p>
+                </div>
+                <div class="text-center text-white float-animation" style="animation-delay: 0.5s;">
+                    <div class="text-4xl font-bold mb-2" id="counter2">200+</div>
+                    <p class="text-white/90">शैक्षणिक संस्थान</p>
+                </div>
+                <div class="text-center text-white float-animation" style="animation-delay: 1s;">
+                    <div class="text-4xl font-bold mb-2" id="counter3">70+</div>
+                    <p class="text-white/90">करियर विकल्प</p>
+                </div>
+                <div class="text-center text-white float-animation" style="animation-delay: 1.5s;">
+                    <div class="text-4xl font-bold mb-2" id="counter4">15+</div>
+                    <p class="text-white/90">राज्यों में उपस्थिति</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Journey Steps Banner -->
+<section class="bg-gradient-to-r from-primary/20 to-secondary/20 py-2 md:py-12 border-b-10 border-primary">
+    <div class="container mx-auto px-2 md:px-4 ">
+    <h2 class="text-3xl font-semibold text-gray-800 mb-0 md:mb-8 text-center">आपकी करियर यात्रा</h2>
+    <div class="flex flex-row items-start md:items-center gap-4 overflow-x-auto pb-2 md:pb-4 scrollbar-hide snap-x snap-mandatory md:justify-between">
+    <div class="flex flex-col items-center text-center step-active min-w-[180px] snap-start group hover:bg-secondary/10 rounded-xl p-4 transition-colors duration-300">
+        <div class="step-number ">1</div>
+        <h3 class="font-semibold mb-2 text-gray-700">सोचना शुरू करो</h3>
+        <p class="text-sm text-gray-600">एक रोचक वीडियो के साथ शुरुआत करें</p>
+        <button id='step-1' onclick="openStepUrl('step-1')" class="mt-4 flex items-center gap-2 text-primary font-medium group-hover:translate-x-1 transition-transform">
+        <i class="ri-play-circle-line text-xl"></i>
+        <span>वीडियो देखें</span>
+        </button>
+    </div>
+    <div class="hidden md:block step-line bg-gradient-to-r from-primary/20 to-secondary/20 "></div>
+    <div class="flex flex-col items-center text-center min-w-[180px] snap-start group hover:bg-secondary/10 rounded-xl p-4 transition-colors duration-300">
+        <div class="step-number">2</div>
+        <h3 class="font-semibold mb-2 text-gray-700">खुल के सोचो</h3>
+        <p class="text-sm text-gray-600">70+ रोचक करियर विकल्पों का पता लगाएं</p>
+        <button onclick="openStepUrl('step-2')" id='step-2' class="mt-4 flex items-center gap-2 text-primary font-medium group-hover:translate-x-1 transition-transform">
+        <i class="ri-play-circle-line text-xl"></i>
+        <span>वीडियो देखें</span>
+        </button>
+    </div>
+    <div class="hidden md:block step-line bg-gradient-to-r from-primary/20 to-secondary/20"></div>
+    <div class="flex flex-col items-center text-center min-w-[180px] snap-start group hover:bg-secondary/10 rounded-xl p-4 transition-colors duration-300">
+        <div class="step-number">3</div>
+        <h3 class="font-semibold mb-2 text-gray-700">खुद को पहचानो</h3>
+        <p class="text-sm text-gray-600">अपनी रुचियों और क्षमताओं को जानें</p>
+        <button id='step-3' onclick="openStepUrl('step-3')" class="mt-4 flex items-center gap-2 text-primary font-medium group-hover:translate-x-1 transition-transform">
+        <i class="ri-play-circle-line text-xl"></i>
+        <span>वीडियो देखें</span>
+        </button>
+    </div>
+    <div class="hidden md:block step-line bg-gradient-to-r from-primary/20 to-secondary/20"></div>
+    <div class="flex flex-col items-center text-center min-w-[180px] snap-start group hover:bg-secondary/10 rounded-xl p-4 transition-colors duration-300">
+        <div class="step-number">4</div>
+        <h3 class="font-semibold mb-2 text-gray-700">जीत की तैयारी</h3>
+        <p class="text-sm text-gray-600">200+ संस्थानों और कोर्स का पता लगाएं</p>
+        <button id='step-4' onclick="openStepUrl('step-4')" class="mt-4 flex items-center gap-2 text-primary font-medium group-hover:translate-x-1 transition-transform">
+        <i class="ri-play-circle-line text-xl"></i>
+        <span>वीडियो देखें</span>
+        </button>
+    </div>
+    <div class="hidden md:block step-line bg-gradient-to-r from-primary/20 to-secondary/20"></div>
+    <div class="flex flex-col items-center text-center min-w-[180px] snap-start hover:bg-secondary/10 rounded-xl p-4 transition-colors duration-300">
+        <div class="step-number">5</div>
+        <h3 class="font-semibold mb-2 text-gray-700">अपनी राह चुनो</h3>
+        <p class="text-sm text-gray-600">आत्मविश्वास बढ़ाएं और अपना मार्ग चुनें</p>
+        <button id='step-5' onclick="openStepUrl('step-5')" class="mt-4 flex items-center gap-2 text-primary font-medium group-hover:translate-x-1 transition-transform">
+        <i class="ri-play-circle-line text-xl"></i>
+        <span>वीडियो देखें</span>
+        </button>
+    </div>
+    </div>
+    </div>
+</section>
+
+    <!-- State Selection Section -->
+    <section id="choose-state" class="py-4 md:py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-8 md:mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">अपना राज्य चुनें</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">अपने राज्य के अनुसार करियर के अवसरों और शैक्षणिक संस्थानों की जानकारी प्राप्त करें</p>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 max-w-6xl mx-auto">
+                <div class="state-card card-hover-effect bg-white p-1 md:p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer transform hover:-translate-y-2" onclick="selectState('Delhi')">
+                    <div class="text-center">
+                        <div class="w-12 h-12 bg-gradient-to-br from-primary/20 to-primary/40 rounded-full flex items-center justify-center mx-auto mb-2 md:mb-6">
+                            <i class="ri-government-line text-2xl text-primary"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">दिल्ली</h3>
+                        <p class="text-gray-600 mb-4">राष्ट्रीय राजधानी क्षेत्र</p>
+                        <div class="text-sm text-gray-500">
+                            <p>• 50+ शैक्षणिक संस्थान</p>
+                            <p>• सरकारी नौकरी के अवसर</p>
+                            <p>• तकनीकी करियर केंद्र</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="state-card card-hover-effect bg-white p-1 md:p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer transform hover:-translate-y-2" onclick="selectState('Madhyapradesh')">
+                    <div class="text-center">
+                        <div class="w-12 h-12 bg-gradient-to-br from-secondary/20 to-secondary/40 rounded-full flex items-center justify-center mx-auto mb-2  md:mb-6">
+                            <i class="ri-bank-line text-2xl text-secondary"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">मध्यप्रदेश</h3>
+                        <p class="text-gray-600 mb-4">वित्तीय राजधानी</p>
+                        <div class="text-sm text-gray-500">
+                            <p>• बैंकिंग और वित्त</p>
+                            <p>• मीडिया और मनोरंजन</p>
+                            <p>• व्यापारिक अवसर</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="state-card card-hover-effect bg-white p-1 md:p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer transform hover:-translate-y-2" onclick="selectState('Haryana')">
+                    <div class="text-center">
+                        <div class="w-12 h-12 bg-gradient-to-br from-accent3/20 to-accent3/40 rounded-full flex items-center justify-center mx-auto mb-2 md:mb-6">
+                            <i class="ri-landscape-line text-2xl text-accent3"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">हरियाणा</h3>
+                        <p class="text-gray-600 mb-4">कृषि और औद्योगिक केंद्र</p>
+                        <div class="text-sm text-gray-500">
+                            <p>• कृषि और डेयरी</p>
+                            <p>• औद्योगिक विकास</p>
+                            <p>• खेल और फिटनेस</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="state-card card-hover-effect bg-white p-1 md:p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer transform hover:-translate-y-2" onclick="selectState('Uttarakhand')">
+                    <div class="text-center">
+                        <div class="w-12 h-12 bg-gradient-to-br from-accent4/20 to-accent4/40 rounded-full flex items-center justify-center mx-auto mb-2 md:mb-6">
+                            <i class="ri-mountain-line text-2xl text-accent4"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">उत्तराखंड</h3>
+                        <p class="text-gray-600 mb-4">पर्वतीय राज्य</p>
+                        <div class="text-sm text-gray-500">
+                            <p>• पर्यटन और होटल</p>
+                            <p>• वन और पर्यावरण</p>
+                            <p>• पारंपरिक शिल्प</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- -------------------------------------------------------------------------------------------------------------------------------------------------- -->
+
+<section class="py-16 bg-gray-50">
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          <div>
+            <img
+              src="https://readdy.ai/api/search-image?query=Indian%20education%20foundation%20mentoring%20session%2C%20diverse%20group%20of%20educators%20and%20students%20collaborating%2C%20professional%20setting%2C%20warm%20lighting%2C%20inspirational%20atmosphere%2C%20clean%20background%2C%20high%20quality%20professional%20photography&width=600&height=500&seq=2&orientation=landscape"
+              alt="Alohomora Foundation"
+              class="rounded-lg shadow-lg object-cover w-full h-full object-top"
+            />
+          </div>
+          <div>
+            <h2 class="text-xl md:text-3xl font-bold text-gray-900 mb-2 md:mb-6" data-translate="about_title">
+              अलोहोमोरा फाउंडेशन के बारे में
+            </h2>
+            <p class="tect-md md:text-lg text-gray-700 mb-3 md:mb-6" data-translate="about_desc">
+              अलोहोमोरा फाउंडेशन एक गैर-लाभकारी संगठन है जो भारत के युवाओं को
+              उनके करियर के लक्ष्यों को प्राप्त करने में मदद करता है। हम विश्वास
+              करते हैं कि हर छात्र में अपने सपनों को साकार करने की क्षमता होती
+              है।
+            </p>
+            <div class="space-y-4 mb-8">
+              <div class="flex items-start">
+                <div
+                  class="w-6 h-6 flex items-center justify-center text-primary mt-1"
+                >
+                  <i class="ri-check-line ri-lg"></i>
+                </div>
+                <p class="ml-3 text-gray-700" data-translate="students_helped">
+                  हमने 50,000+ छात्रों को करियर मार्गदर्शन प्रदान किया है
+                </p>
+              </div>
+              <div class="flex items-start">
+                <div
+                  class="w-6 h-6 flex items-center justify-center text-primary mt-1"
+                >
+                  <i class="ri-check-line ri-lg"></i>
+                </div>
+                <p class="ml-3 text-gray-700">
+                  8+ राज्यों में हमारे कार्यक्रम सफलतापूर्वक चल रहे हैं
+                </p>
+              </div>
+              <div class="flex items-start">
+                <div
+                  class="w-6 h-6 flex items-center justify-center text-primary mt-1"
+                >
+                  <i class="ri-check-line ri-lg"></i>
+                </div>
+                <p class="ml-3 text-gray-700">
+                  200+ स्कूलों और संस्थानों के साथ साझेदारी
+                </p>
+              </div>
+              <div class="flex items-start">
+                <div
+                  class="w-6 h-6 flex items-center justify-center text-primary mt-1"
+                >
+                  <i class="ri-check-line ri-lg"></i>
+                </div>
+                <p class="ml-3 text-gray-700">
+                  1000+ प्रशिक्षित करियर मार्गदर्शक
+                </p>
+              </div>
+            </div>
+            <button
+            onclick="knowAlohomora()"
+              class="bg-primary text-white px-6 py-3 rounded-button font-medium hover:bg-opacity-90 transition-all whitespace-nowrap"
+              data-translate="know_more"
+            >
+              और जानें
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+
+    <!-- Footer -->
+    {% include 'footer.html' %}
+    <script>
+        // Initialize counters animation
+        function animateCounters() {
+            const counters = [
+                { id: 'counter1', target: 50000, suffix: '+' },
+                { id: 'counter2', target: 200, suffix: '+' },
+                { id: 'counter3', target: 70, suffix: '+' },
+                { id: 'counter4', target: 15, suffix: '+' }
+            ];
+
+            counters.forEach((counter, index) => {
+                const element = document.getElementById(counter.id);
+                let current = 0;
+                const increment = counter.target / 100;
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= counter.target) {
+                        current = counter.target;
+                        clearInterval(timer);
+                    }
+                    element.textContent = Math.floor(current).toLocaleString() + counter.suffix;
+                }, 20);
+            });
+        }
+
+        // Intersection Observer for counter animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounters();
+                    observer.disconnect();
+                }
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const statsSection = document.querySelector('.gradient-bg');
+            if (statsSection) {
+                observer.observe(statsSection);
+            }
+
+            // Add interactive hover effects to cards
+            const stateCards = document.querySelectorAll('.state-card');
+            stateCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-8px) scale(1.02)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+
+            // Smooth scroll behavior for navigation
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        });
+
+        function selectState(state) {
+            const card = event.currentTarget;
+            
+            // Enhanced loading animation
+            card.style.transform = 'scale(0.95)';
+            card.style.opacity = '0.8';
+            card.style.filter = 'brightness(0.9)';
+            
+            // Add loading spinner
+            const originalContent = card.innerHTML;
+            card.innerHTML = `
+                <div class="text-center">
+                    <div class="w-8 h-8 border-4 border-primary border-t-transparent rounded-full animate-spin mx-auto mb-2"></div>
+                    <p class="text-gray-600">Loading...</p>
+                </div>
+            `;
+            // Simulate a delay or back navigation (e.g., 2 seconds)
+
+            // Navigate to sectors page
+            setTimeout(() => {
+                window.location.href = `/sectors?state=${encodeURIComponent(state)}`;
+                card.innerHTML = originalContent;
+                card.style.filter = 'brightness(1.0)';
+            }, 800);
+        }
+
+        function scrollToStateSelection() {
+            document.getElementById('choose-state').scrollIntoView({ 
+                behavior: 'smooth',
+                block: 'center'
+            });
+        }
+       
+        function knowAlohomora() {
+          const a = document.createElement('a');
+          a.href = 'https://www.alohomora.org';
+          a.target = '_blank';
+          a.rel = 'noopener noreferrer'; // security best practice
+          a.click();
+        }
+
+
+        const stepUrls = {
+          "step-1": "https://youtu.be/bopCvc8pf0M",
+          "step-2": "https://youtu.be/vCkfTaZCCAw?t=1",
+          "step-3": "https://youtu.be/AFuC88Vq1l0?t=2",
+          "step-4": "https://youtu.be/UIhOdzMPuvA?t=2",
+          "step-5": "https://youtu.be/SdcQPafqTcw?t=1"
+        };
+
+        function openStepUrl(stepId) {
+          const url = stepUrls[stepId];
+          if (url) {
+            window.open(url, "_blank");
+          } else {
+            console.warn("Invalid step ID or URL not found:", stepId);
+          }
+        }
+
+
+
+        // Add parallax effect to hero section
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallax = document.querySelector('.hero-section');
+            if (parallax) {
+                const speed = scrolled * 0.5;
+                parallax.style.transform = `translateY(${speed}px)`;
+            }
+        });
+    </script>
+</body>
+</html>

@@ -158,18 +158,18 @@
     {% include 'header.html' %}
 
     <!-- Hero Section -->
-    <section class="hero-section w-full py-24 md:py-32 bg-cover bg-center relative overflow-hidden">
+    <section class="hero-section w-full py-6 md:py-12 bg-cover bg-center relative overflow-hidden">
         <div class="absolute inset-0 bg-gradient-to-r from-accent2/10 to-primary/10"></div>
         <div class="absolute inset-0 bg-gradient-to-br from-white/95 via-white/90 to-transparent"></div>
         <div class="container mx-auto px-4">
             <div class="relative container mx-auto px-4">
-                <nav class="flex items-center text-sm text-gray-600 mb-6">
+                <!-- <nav class="flex items-center text-sm text-gray-600 mb-6">
                     <a href="/" class="hover:text-primary">होम</a>
                     <i class="ri-arrow-right-s-line mx-2"></i>
                     <a href="javascript:history.back()" class="hover:text-primary">करियर</a>
                     <i class="ri-arrow-right-s-line mx-2"></i>
                     <span class="text-gray-900" id="career-name">करियर विवरण</span>
-                </nav>
+                </nav> -->
                 <div class="w-full max-w-2xl">
                     <div class="mb-8 transform hover:scale-105 transition-transform">
                         <h1 class="text-3xl md:text-4xl font-bold mb-6 leading-tight text-gray-900" id="career-title">
@@ -180,10 +180,10 @@
                         </p>
                     </div>
                     <div class="flex flex-col sm:flex-row gap-4">
-                        <button onclick="history.back()" class="bg-gradient-to-r from-primary to-accent2 text-white px-10 py-4 rounded-full font-medium hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300 whitespace-nowrap text-lg">
+                        <button onclick="history.back()" class="bg-gradient-to-r from-primary to-accent2 text-white px-5 md:px-10 py-2 md:py-4 rounded-full font-medium hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300 whitespace-nowrap text-lg">
                             <i class="ri-arrow-left-line mr-2"></i>वापस जाएं
                         </button>
-                        <button onclick="viewInstitutions()" class="bg-white/80 backdrop-blur text-primary border-2 border-primary px-10 py-4 rounded-full font-medium hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300 whitespace-nowrap text-lg">
+                        <button onclick="viewInstitutions()" class="bg-white/80 backdrop-blur text-primary border-2 border-primary px-5 md:px-10 py-2 md:py-4 rounded-full font-medium hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300 whitespace-nowrap text-lg">
                             <i class="ri-building-line mr-2"></i>संस्थान देखें
                         </button>
                     </div>
@@ -350,7 +350,7 @@
             loadingEl.classList.add('hidden');
             
             // Update page title and header
-            document.getElementById('career-name').textContent = careerData.title || currentCareer;
+            // document.getElementById('career-name').textContent = careerData.title || currentCareer;
             document.getElementById('career-title').textContent = careerData.title || currentCareer;
             document.getElementById('career-description').textContent = careerData.description || '';
             

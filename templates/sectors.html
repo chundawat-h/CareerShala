@@ -143,16 +143,24 @@ background: linear-gradient(135deg, #FF6B35 0%, #2EC4B6 100%);
 <!-- Header -->
     {% include 'header.html' %}
 
+<!--hero section -->
+<div class="w-full py-12 md:py-24 px-10 md:px-36  bg-gradient-to-r from-white/5 to-primary/10 bg-cover bg-center relative overflow-hidden" >
+  <div class="md:py-2  mx-auto ">
+    <h2 class="text-3xl md:text-4xl font-semibold text-gray-800 mb-4 md:mb-8 ">उपलब्ध करियर क्षेत्र</h2>
+    <p class="text-gray-600 mb-2 md:mb-4">अपने सपनों का करियर चुनें और सफलता की राह पर आगे बढ़ें</p>    
+  </div>
+  <div class="flex flex-col sm:flex-row gap-4 mb-4 md:mb-12">
+      <button onclick="history.back()" class="bg-gradient-to-r from-primary to-accent2 text-white px-5 md:px-10 py-2 md:py-4 rounded-full font-medium hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300 whitespace-nowrap text-lg">
+          <i class="ri-arrow-left-line mr-2"></i>वापस जाएं
+      </button>
+      <button class="bg-white/80 backdrop-blur text-primary border-2 border-primary px-5 md:px-10 py-2 md:py-4 rounded-full font-medium hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300 whitespace-nowrap text-lg">
+          <i class="ri-phone-line mr-2"></i>सलाह लें
+      </button>
+  </div>
 
-
+</div>
 <!-- Main Content -->
 <main class="container mx-auto px-4 py-6 md:py-12">
-<!-- Industry Grid -->
-<div class="bg-gradient-to-r from-primary/20 to-secondary/20 py-4 md:py-12  mx-auto mb-4 md:mb-12 ">
-<h2 class="text:2xl md:text-5xl font-semibold text-center text-gray-800 mb-4 md:mb-8 ">उपलब्ध करियर क्षेत्र</h2>
-<p class="text-gray-600 text-center mb-2 md:mb-4">अपने सपनों का करियर चुनें और सफलता की राह पर आगे बढ़ें</p>
-</div>
-
 <!-- Loading State -->
 <div id="loading" class="text-center py-12">
 <div class="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-primary"></div>
