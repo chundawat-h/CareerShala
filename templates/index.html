@@ -126,21 +126,27 @@
                 50% { transform: scale(1.05); }
                 100% { transform: scale(1); }
             }
-            .type-seq span {
+            .typewriter-box span {
                 opacity: 0;
-                animation: reveal 0.5s forwards;
+                display: inline-block;
+                transform: translateY(10px);
             }
 
-            .type-seq span:nth-child(1) { animation-delay: 0s; }
-            .type-seq span:nth-child(2) { animation-delay: 0.6s; }
-            .type-seq span:nth-child(3) { animation-delay: 1.2s; }
-            .type-seq span:nth-child(4) { animation-delay: 1.8s; }
-            .type-seq span:nth-child(5) { animation-delay: 2.4s; }
+            .typewriter-box.animate span {
+                animation: typewriter-reveal 0.5s forwards;
+            }
 
-            @keyframes reveal {
-                to { opacity: 1; transform: translateY(0); }
+            .typewriter-box.animate span:nth-child(1) { animation-delay: 0s; }
+            .typewriter-box.animate span:nth-child(2) { animation-delay: 0.5s; }
+            .typewriter-box.animate span:nth-child(3) { animation-delay: 1s; }
+            .typewriter-box.animate span:nth-child(4) { animation-delay: 1.5s; }
+            .typewriter-box.animate span:nth-child(5) { animation-delay: 2s; }
+
+            @keyframes typewriter-reveal {
                 from { opacity: 0; transform: translateY(10px); }
+                to { opacity: 1; transform: translateY(0); }
             }
+
 
 
             html {
@@ -169,7 +175,7 @@
             }
         </style>
     </head>
-    <body class="bg-gray-50">
+    <body >
         <!-- Header -->
         {% include 'header.html' %}
         <!-- Hero Section -->
@@ -207,7 +213,7 @@
         <div class="flex justify-between  items-start will-change mb-2 md:mb-12">
             <img src="/static/media/home/image1.png" alt="Alohomora" class="bg-opacity-90 w-full h-auto bg-accent1">
         </div>
-        <div class="flex justify-between py-2 md:py-4">
+        <div class="flex justify-between py-2 md:py-4 bg-gray-50 mb-2 md:mb-8">
             <div class="flex justify-content  items-start py-2 md:py-4 ">
                 <img src="/static/media/home/image21.png" alt="Alohomora" class="bg-opacity-90 w-16 md:w-24 lg:w-36 h-auto">
             </div>
@@ -224,7 +230,7 @@
             </div>
         </div>
         <!-- Responsive YouTube Embed -->
-        <div class="px-12 md:px-36 max-w-5xl mx-auto">
+        <div class="px-12 md:px-36 max-w-5xl mx-auto mb-4 md:mb-8">
             <div class="relative w-full px-4" style="padding-top: 56.25%;;">
                 <iframe
                     class="absolute top-0 left-0 mb-4 w-full h-full"
@@ -242,7 +248,7 @@
         <div class="w-full max-w-6xl mb-8 center mx-auto">
             <img src="/static/media/home/image5.png" alt="Alohomora" class="bg-opacity-90 w-full h-auto bg-accent1">
         </div>
-        <div class="flex gap-2 md:gap-12 text-xl md:text-4xl mb-12 type-seq justify-center">
+        <div class="flex gap-2 md:gap-12 text-2xl md:text-5xl mb-4 md:mb-12 font-mono typewriter-box justify-center" id="typewriter">
             <span class="bg-gray-200 px-3 py-1 rounded shadow">self</span>
             <span class="bg-gray-200 px-3 py-1 rounded shadow">+</span>
             <span class="bg-gray-200 px-3 py-1 rounded shadow">world</span>
@@ -251,5 +257,19 @@
         </div>
         <!-- Footer -->
     {% include 'footer.html' %}
+    <script>
+    const observer = new IntersectionObserver(
+        ([entry]) => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('animate');
+            observer.unobserve(entry.target); // Remove this line if you want it to replay every time
+        }
+        },
+        { threshold: 0.5 }
+    );
+
+    observer.observe(document.getElementById('typewriter'));
+    </script>
+
     </body>
 </html>
