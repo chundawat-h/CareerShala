@@ -39,10 +39,19 @@ def load_json_data(filename, state=None):
         return {}
 
 # Main page routes
+
 @app.route('/')
 def index():
     """Homepage with state selection"""
     return render_template('index.html')
+
+@app.route('/self')
+def self_page():
+    return render_template('self.html')
+
+@app.route('/world')
+def world_page():
+    return render_template('world.html')
 
 @app.route('/sectors')
 def sectors():
