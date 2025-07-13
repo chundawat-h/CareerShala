@@ -1,49 +1,42 @@
 import os
 import json
-import logging
-# import flask_cors
+import random
 from flask import Flask, render_template, jsonify, request
-import pandas as pd
-# Configure logging
-logging.basicConfig(level=logging.DEBUG)
 
-# Create Flask app
 app = Flask(__name__)
-app.secret_key = os.environ.get("SESSION_SECRET", "dev-secret-key")
+app.secret_key = os.environ.get("SESSION_SECRET", "careershala-secret-key")
 
-# Helper function to load JSON data
-def load_json_data(filename, state=None):
-    """Load JSON data from the data directory or state-specific folder"""
-    if state:
-        # Map state names to folder names
-        state_folder_map = {
-            'Delhi': 'delhi',
-            'Madhyapradesh': 'madhyapradesh', 
-            'Bangalore': 'bangalore',
-            'Haryana': 'haryana',
-            'Uttarakhand': 'uttarakhand'
-        }
-        folder_name = state_folder_map.get(state, state.lower())
-        file_path = f'data/{folder_name}/{filename}'
-    else:
-        file_path = f'data/{filename}'
-    
+def load_sectors():
     try:
-        with open(file_path, 'r', encoding='utf-8') as file:
-            return json.load(file)
-    except FileNotFoundError:
-        app.logger.error(f"Data file {filename} not found in path {file_path}")
+        with open('static/sectors.json', 'r', encoding='utf-8') as f:
+            sectors = json.load(f)
+            
+            # Add default icon path to all sectors
+            for category in sectors.values():
+                for sector in category:
+                    if not sector.get('icon'):
+                        sector['icon'] = '/static/media/sectors/default.png'
+            return sectors
+            
+    except Exception as e:
+        print(f"Error loading sectors: {e}")
         return {}
-    except json.JSONDecodeError as e:
-        app.logger.error(f"Error parsing JSON from {file_path}: {e}")
-        return {}
-
-# Main page routes
 
 @app.route('/')
 def index():
-    """Homepage with state selection"""
-    return render_template('index.html')
+    """Main page route"""
+    sectors_data = load_sectors()
+    
+    # Get 3 random sectors from all categories
+    all_sectors = []
+    for category, sectors in sectors_data.items():
+        for sector in sectors:
+            sector['category'] = category
+            all_sectors.append(sector)
+    
+    random_sectors = random.sample(all_sectors, min(3, len(all_sectors)))
+    
+    return render_template('index.html', random_sectors=random_sectors)
 
 @app.route('/self')
 def self_page():
@@ -53,226 +46,199 @@ def self_page():
 def world_page():
     return render_template('world.html')
 
-@app.route('/sectors')
-def sectors():
-    """Sectors page for selected state"""
-    state = request.args.get('state')
-    if not state:
-        return render_template('sectors.html', error="No state selected")
-    return render_template('sectors.html', state=state)
+@app.route('/api/sectors')
+def get_all_sectors():
+    """API endpoint to get all sectors organized by category"""
+    sectors_data = load_sectors()
+    return jsonify(sectors_data)
+
+@app.route('/api/sector/<sector_id>')
+def get_sector_detail(sector_id):
+    """API endpoint to get detailed information for a specific sector"""
+    try:
+        # First find which category the sector belongs to
+        sectors_data = load_sectors()
+        sector_category = None
+        
+        for category, sectors in sectors_data.items():
+            for sector in sectors:
+                if sector['id'] == sector_id:
+                    sector_category = category
+                    break
+            if sector_category:
+                break
+        
+        if not sector_category:
+            return jsonify({'error': 'Sector not found'}), 404
+        
+        # Try to load detailed sector data from JSON file
+        category_folder = sector_category.replace(' ', '_').replace('-', '_')
+        file_path = f'data/{category_folder}/{sector_id}.json'
+        
+        try:
+            with open(file_path, 'r', encoding='utf-8') as f:
+                sector_detail = json.load(f)
+                return jsonify(sector_detail)
+        except FileNotFoundError:
+            # Return basic info if detailed file doesn't exist
+            return jsonify({
+                'sector_id': sector_id,
+                'message': 'Detailed information coming soon',
+                'careers': [],
+                'common_info': None
+            })
+            
+    except Exception as e:
+        return jsonify({'error': 'Internal server error'}), 500
+
+@app.route('/sector/<sector_id>')
+def sector_detail(sector_id):
+    """Individual sector page"""
+    sectors_data = load_sectors()
+    
+    # Find the sector across all categories
+    sector = None
+    category = None
+    # category = get_category_by_sector_id(sectors_data, sector_id)
+    # if not category:
+    #     return "Sector not found", 404
+    
+    for cat, sectors in sectors_data.items():
+        for s in sectors:
+            if s['id'] == sector_id:
+                sector = s
+                category = cat.lower()
+                break
+        if sector:
+            break
+    
+    if not sector:
+        return "Sector not found", 404
+    
+    
+    return render_template('sector_detail.html', sector=sector, category=category)
+def get_category_by_sector_id(sectors_data, sector_id):
+    return next(
+        (category for category, sectors in sectors_data.items() 
+                for s in sectors 
+                if s['id'] == sector_id),
+        None  # Return None if sector_id not found
+    )
+# s=load_sectors()
+print(get_category_by_sector_id(load_sectors(),'media_journalism').lower())
 
 @app.route('/careers')
 def careers():
-    """Careers page for selected sector"""
-    state = request.args.get('state')
-    sector = request.args.get('sector')
-    if not state or not sector:
-        return render_template('careers.html', error="Missing state or sector")
-    return render_template('careers.html', state=state, sector=sector)
+    sector_id = request.args.get('sector')
+    category_name = request.args.get('category')
+    print(sector_id)
+    # Load sector data
+    sectors_data = load_sectors()
+    sector = next(
+    (s for cat in sectors_data.values() for s in cat if s['id'] == sector_id),
+    None
+)
+    category_folder = get_category_by_sector_id(sectors_data=sectors_data,sector_id=sector_id).lower()
+    # print(sector)
+    if not category_folder:
+        return "Sector not found", 404
+        
+    # Load detailed sector data
+    
+    file_path = f'data/{category_folder}/{sector_id}.json'
+    
+    try:
+        with open(file_path, 'r', encoding='utf-8') as f:
+            sector_data = json.load(f)
+          
+        # Find matching category
+        category_data = next(
+            (cat for cat in sector_data.get('career_categories', []) 
+             if cat['category'] == category_name),
+            None
+        )
+        print(category_data)
+        return render_template(
+            'careers.html',
+            sector=sector,
+            category=category_data,
+            sector_data=sector_data
+        )
+        
+    except Exception as e:
+        return f"Error loading careers: {str(e)}", 500
 
 @app.route('/career-detail')
 def career_detail():
     """Career detail page"""
-    state = request.args.get('state')
-    sector = request.args.get('sector')
-    career = request.args.get('career')
-    if not all([state, sector, career]):
-        return render_template('career-detail.html', error="Missing required parameters")
-    return render_template('career-detail.html', state=state, sector=sector, career=career)
+    return render_template('career-detail.html')
 
 @app.route('/institutions')
 def institutions():
     """Institutions page"""
     return render_template('institutions.html')
-
-# API Routes
-@app.route('/api/sectors')
-def api_sectors():
-    """Get sectors for a specific state"""
+@app.route('/sectors')
+def sector_listing():
+    """New route for direct institution search flow"""
     state = request.args.get('state')
-    if not state:
-        return jsonify({'error': 'State parameter is required'}), 400
+    direct_mode = request.args.get('direct') == 'true'
     
-    # Get available sectors for the state
-    
-    try:        
-        Allsectors = pd.read_json('data/sectors.json')
-        sectors = Allsectors[state.capitalize()].to_list()
-            
-    except Exception as e:
-        app.logger.error(f"Error loading sectors for state {state}: {e}")
-    
-    return jsonify({
-        'state': state,
-        'sectors': sectors
-    })
-
-@app.route('/api/careers/<sector>')
-def api_careers(sector):
-    """Get careers for a specific sector"""
+    sectors_data = load_sectors()
+    return render_template(
+        'sectors.html', 
+        sectors_data=sectors_data,
+        state=state,
+        direct_mode=direct_mode
+    )
+@app.route('/api/institutions')
+def get_institutions():
+    """Modified to handle both flows"""
+    sector_id = request.args.get('sector')
+    category = request.args.get('category')
+    career = request.args.get('career')
     state = request.args.get('state')
-    if not state:
-        return jsonify({'error': 'State parameter is required'}), 400
-    
-    # Load sector data from state-specific folder
-    sector_data = load_json_data(f'{sector}.json', state)
-    if not sector_data:
+
+    try:
+        # Load sector data
+        sectors_data = load_sectors()
+        sector = next(
+            (s for cat in sectors_data.values() 
+             for s in cat if s['id'] == sector_id), 
+            None
+        )
+        if not sector:
+            return jsonify({'error': 'Sector not found'}), 404
+
+        # Load detailed sector data
+        category_folder = sector['category'].replace(' ', '_')
+        file_path = f'data/{category_folder}/{sector_id}.json'
+        
+        with open(file_path, 'r', encoding='utf-8') as f:
+            sector_data = json.load(f)
+
+        # Find matching career
+        institutions = []
+        for cat in sector_data.get('career_categories', []):
+            if not category or cat['category'] == category:
+                for cr in cat.get('careers', []):
+                    if not career or cr['name'] == career or cr.get('hindi_name') == career:
+                        if state:
+                            institutions.extend(cr.get('institutions', {}).get(state, []))
+                        else:
+                            # Get all institutions if no state specified
+                            for state_inst in cr.get('institutions', {}).values():
+                                institutions.extend(state_inst)
+
         return jsonify({
-            'state': state,
-            'sector': sector,
-            'careers': []
-        })
-    
-    # Extract careers from all categories
-    all_careers = []
-    for category in sector_data.get('career_categories', []):
-        for career in category.get('careers', []):
-            career_item = {
-                'id': career['id'],
-                'name': career['name'],
-                'description': f"Stream: {career['stream']} | Duration: {career['duration']}",
-                'category': category['category'],
-                'courses': career['courses']
-            }
-            all_careers.append(career_item)
-    
-    return jsonify({
-        'state': state,
-        'sector': sector,
-        'careers': all_careers
-    })
-
-@app.route('/api/career-path/<career>')
-def api_career_path(career):
-    """Get detailed career path information"""
-    state = request.args.get('state')
-    sector = request.args.get('sector')
-    
-    if not state or not sector:
-        # Try to find in any available state/sector
-        for state_name in ['Mumbai', 'Delhi', 'Haryana', 'Uttarakhand']:
-            for sector_name in ['media_journalism', 'technology', 'healthcare', 'education']:
-                sector_data = load_json_data(f'{sector_name}.json', state_name)
-                if sector_data and career in sector_data.get('career_paths', {}):
-                    career_info = sector_data['career_paths'][career]
-                    return jsonify({
-                        'career': career,
-                        'path': career_info
-                    })
-    else:
-        # Load from specific state and sector
-        sector_data = load_json_data(f'{sector}.json', state)
-        if sector_data and career in sector_data.get('career_paths', {}):
-            career_info = sector_data['career_paths'][career]
-            return jsonify({
-                'career': career,
-                'path': career_info
-            })
-    
-    return jsonify({'error': 'Career path data not available yet. More sectors coming soon!'}), 404
-
-@app.route('/api/institutions/<career>')
-def api_institutions(career):
-    """Get institutions for a specific career and state"""
-    state = request.args.get('state')
-    if not state:
-        return jsonify({'error': 'State parameter is required'}), 400
-    
-    # Check if it's a media-journalism career
-    media_data = load_json_data('media_journalism.json')
-    if media_data:
-        institutions = media_data.get('institutions', {})
-        
-        # Return all institutions with state information
-        all_institutions = []
-        states_data = institutions.get('states', {})
-        
-        for state_name, inst_list in states_data.items():
-            for inst_name in inst_list:
-                all_institutions.append({
-                    'name': inst_name,
-                    'state': state_name,
-                    'type': 'Government' if 'Government' in inst_name or 'University' in inst_name else 'Private',
-                    'courses': ['Mass Communication', 'Journalism', 'Digital Media'],
-                    'fees': '₹50K-3 Lakhs',
-                    'ranking': 'Top Institution',
-                    'website': '#'
-                })
-        
-        return jsonify({
+            'institutions': institutions,
+            'sector_name': sector_data.get('sector_name'),
+            'category': category,
             'career': career,
-            'state': state,
-            'institutions': all_institutions,
-            'available_states': list(states_data.keys())
+            'state': state
         })
-    
-    # Handle existing careers
-    institutions_data = load_json_data('institutions.json')
-    career_institutions = institutions_data.get(career, {})
-    state_institutions = career_institutions.get(state, [])
-    
-    return jsonify({
-        'career': career,
-        'state': state,
-        'institutions': state_institutions
-    })
 
-@app.route('/api/institutions/all')
-def api_all_institutions():
-    """Get all institutions"""
-    state = request.args.get('state', 'all')
-    
-    # Load from media-journalism data
-    media_data = load_json_data('media_journalism.json')
-    if media_data:
-        institutions = media_data.get('institutions', {})
-        
-        # Extract all institutions with state information
-        all_institutions = []
-        states_data = institutions.get('states', {})
-        
-        for state_name, inst_list in states_data.items():
-            for inst_name in inst_list:
-                all_institutions.append({
-                    'name': inst_name,
-                    'location': state_name,
-                    'type': 'Government' if 'Government' in inst_name or 'University' in inst_name else 'Private',
-                    'courses': ['Mass Communication', 'Journalism', 'Digital Media'],
-                    'website': 'example.edu'
-                })
-        
-        # Filter by state if specified
-        if state.lower() != 'all':
-            filtered_institutions = [inst for inst in all_institutions if inst.get('location', '').lower() == state.lower()]
-        else:
-            filtered_institutions = all_institutions
-        
-        return jsonify({
-            'state': state,
-            'institutions': filtered_institutions
-        })
-    
-    return jsonify({
-        'state': state,
-        'institutions': []
-    })
-
-@app.route('/data/<state>/<sector>.json')
-def serve_sector_data(state, sector):
-    """Serve sector JSON data for a specific state"""
-    sector_data = load_json_data(f'{sector}.json', state)
-    if sector_data:
-        return jsonify(sector_data)
-    return jsonify({'error': 'Data not found'}), 404
-
-# Error handlers
-@app.errorhandler(404)
-def page_not_found(e):
-    return render_template('base.html', error="Page not found"), 404
-
-@app.errorhandler(500)
-def internal_server_error(e):
-    return render_template('base.html', error="Internal server error"), 500
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
 
 if __name__ == '__main__':
     app.run(debug=True)

@@ -1,279 +1,137 @@
 {
-  "Delhi": [
-    {
-      "id": "media-journalism",
-      "name": " मीडिया और पत्रकारिता",
-      "description": "पत्रकारिता, ब्रॉडकास्टिंग, डिजिटल मीडिया, सोशल मीडिया",
-      "icon": "film"
-    },
-    {
-      "id": "it",
-      "name": "सूचना प्रौद्योगिकी",
-      "description": "सॉफ्टवेयर डेवलपमेंट, साइबर सिक्योरिटी, डेटा साइंस",
-      "icon": "cpu"
-    },
-    {
-      "id": "healthcare",
-      "name": "स्वास्थ्य सेवा",
-      "description": "चिकित्सा अभ्यास, नर्सिंग, फार्मेसी",
-      "icon": "heart"
-    },
-    {
-      "id": "banking_finance",
-      "name": "बैंकिंग और वित्त",
-      "description": "निवेश बैंकिंग, वित्तीय विश्लेषण, लेखांकन",
-      "icon": "trending-up"
-    },
-    {
-      "id": "education",
-      "name": "शिक्षा",
-      "description": "शिक्षण, शैक्षिक प्रौद्योगिकी, पाठ्यक्रम विकास",
-      "icon": "book"
-    },
+  "Art": [
     {
       "id": "art_design",
-      "name": "कला और डिज़ाइन",
+      "name": "Art and Design",
       "description": "",
-      "icon": ""
+      "icon": "/static/media/sectors/art_design.png"
     },
     
     {
       "id": "beauty_wellness",
-      "name": "सौंदर्य और वेलनेस",
+      "name": "Beuty and Wellness",
       "description": "",
-      "icon": ""
+      "icon": "/static/media/sectors/beauty_wellness.png"
     },
-    {
-      "id": "farming_agriculture",
-      "name": "कृषि और खेती",
-      "description": "",
-      "icon": ""
-    },
+   
     {
       "id": "fashion",
-      "name": "फैशन",
+      "name": "Fashion",
       "description": "",
-      "icon": ""
+      "icon": "/static/media/sectors/fashion.png"
+    }
+  ],
+  "Skill": [
+    {
+      "id": "agriculture_food_processing",
+      "name": "Agriculture and Food Processing",
+      "description": "",
+      "icon": "/static/media/sectors/agriculture_food_processing.png"
+    },
+    {
+      "id": "business_functions",
+      "name": "Business Functions",
+      "description": "",
+      "icon": "/static/media/sectors/business_functions.png"
     },
     {
       "id": "fitness_sports",
-      "name": "फिटनेस और खेल",
+      "name": "Fitness and Sports",
       "description": "",
-      "icon": ""
+      "icon": "/static/media/sectors/fitness_sports.png"
     },
     {
-      "id": "hospitality_tourism",
-      "name": "आतिथ्य और पर्यटन",
+      "id": "logistics",
+      "name": "Logistics",
       "description": "",
-      "icon": ""
+      "icon": "/static/media/sectors/logistics.png"
+    },
+    {
+      "id": "manufacturing",
+      "name": "Manufacturing",
+      "description": "",
+      "icon": "/static/media/sectors/manufacturing.png"
     }
     
   ],
-  "Madhyapradesh": [
-    {
-      "id": "education",
-      "name": "शिक्षा",
-      "description": "शिक्षण, शैक्षिक प्रौद्योगिकी, पाठ्यक्रम विकास",
-      "icon": "book"
-    },
-    {
-      "id": "media_journalism",
-      "name": "मीडिया और पत्रकारिता",
-      "description": "पत्रकारिता, ब्रॉडकास्टिंग, डिजिटल मीडिया, सोशल मीडिया",
-      "icon": "film"
-    },
-    {
-      "id": "banking_finance",
-      "name": "बैंकिंग और वित्त",
-      "description": "निवेश बैंकिंग, वित्तीय विश्लेषण, लेखांकन",
-      "icon": "trending-up"
-    },
+  "Academic": [
     {
       "id": "it",
-      "name": "सूचना प्रौद्योगिकी",
+      "name": "IT Network",
       "description": "सॉफ्टवेयर डेवलपमेंट, साइबर सिक्योरिटी, डेटा साइंस",
-      "icon": "cpu"
-    },
-    {
-      "id": "hospitability_tourism",
-      "name": "आतिथ्य और पर्यटन",
-      "description": "ऑटोमोटिव, वस्त्र, रसायन, औद्योगिक इंजीनियरिंग",
-      "icon": "settings"
-    },
-    {
-      "id": "healthcare",
-      "name": "स्वास्थ्य सेवा",
-      "description": "चिकित्सा अभ्यास, नर्सिंग, फार्मेसी",
-      "icon": "heart"
-    },
-    {
-      "id": "art_design",
-      "name": "कला और डिज़ाइन",
-      "description": "क्राफ्ट डिज़ाइन",
-      "icon": "zap"
-    },
-    {
-      "id": "beauty_wellness",
-      "name": "सौंदर्य और वेलनेस",
-      "description": "",
-      "icon": ""
-    },
-    {
-      "id": "farming_agriculture",
-      "name": "कृषि और खेती",
-      "description": "",
-      "icon": ""
-    },
-    {
-      "id": "fashion",
-      "name": "फैशन",
-      "description": "",
-      "icon": ""
-    },
-    {
-      "id": "fitness_sports",
-      "name": "फिटनेस और खेल",
-      "description": "",
-      "icon": ""
-    }
-    
-  ],
-  "Haryana": [
-    {
-      "id": "media_journalism",
-      "name": "मीडिया और पत्रकारिता",
-      "description": "पत्रकारिता, ब्रॉडकास्टिंग, डिजिटल मीडिया, सोशल मीडिया",
-      "icon": "film"
-    },
-    {
-      "id": "it",
-      "name": "सूचना प्रौद्योगिकी",
-      "description": "सॉफ्टवेयर डेवलपमेंट, साइबर सिक्योरिटी, डेटा साइंस",
-      "icon": "cpu"
+      "icon": "/static/media/sectors/it.png"
     },
     
     {
       "id": "healthcare",
-      "name": "स्वास्थ्य सेवा",
+      "name": "Healthcare",
       "description": "चिकित्सा अभ्यास, नर्सिंग, फार्मेसी",
-      "icon": "heart"
-    },
-    {
-      "id": "art_design",
-      "name": "कला और डिज़ाइन",
-      "description": "",
-      "icon": ""
+      "icon": "/static/media/sectors/healthcare.png"
     },
     {
       "id": "banking_finance",
-      "name": "बैंकिंग और वित्त",
+      "name": "Banking and Finance",
       "description": "",
-      "icon": ""
+      "icon": "/static/media/sectors/banking_finance.png"
     },
-    {
-      "id": "beauty_wellness",
-      "name": "सौंदर्य और वेलनेस",
-      "description": "",
-      "icon": ""
-    },
+    
     {
       "id": "education",
-      "name": "शिक्षा",
+      "name": "Education",
       "description": "",
-      "icon": ""
-    },
-    {
-      "id": "farming_agriculture",
-      "name": "कृषि और खेती",
-      "description": "",
-      "icon": ""
-    },
-    {
-      "id": "fashion",
-      "name": "फैशन",
-      "description": "",
-      "icon": ""
-    },
-    {
-      "id": "fitness_sports",
-      "name": "फिटनेस और खेल",
-      "description": "",
-      "icon": ""
-    },
-    {
-      "id": "hospitality_tourism",
-      "name": "आतिथ्य और पर्यटन",
-      "description": "",
-      "icon": ""
+      "icon": "/static/media/sectors/education.png"
     }
   ],
-  "Uttarakhand":[
+  "Non_traditional":[
     {
       "id": "media_journalism",
-      "name": "मीडिया और पत्रकारिता",
+      "name": "Media and Journalism",
       "description": "पत्रकारिता, ब्रॉडकास्टिंग, डिजिटल मीडिया, सोशल मीडिया",
-      "icon": "film"
-    },
-    {
-      "id": "it",
-      "name": "सूचना प्रौद्योगिकी",
-      "description": "सॉफ्टवेयर डेवलपमेंट, साइबर सिक्योरिटी, डेटा साइंस",
-      "icon": "cpu"
+      "icon": "/static/media/sectors/media_journalism.png"
     },
     
     {
-      "id": "healthcare",
-      "name": "स्वास्थ्य सेवा",
-      "description": "चिकित्सा अभ्यास, नर्सिंग, फार्मेसी",
-      "icon": "heart"
+      "id": "self_employment",
+      "name": "Self Employment",
+      "description": "",
+      "icon": "/static/media/sectors/self_employment.png"
+    },
+    
+    
+    {
+      "id": "hospitality",
+      "name": "Hospitality ",
+      "description": "",
+      "icon": "/static/media/sectors/hospitility.png"
     },
     {
-      "id": "art_design",
-      "name": "कला और डिज़ाइन",
+      "id": "travel_tourism",
+      "name": "Travel and Tourism",
       "description": "",
-      "icon": ""
-    },
+      "icon": "/static/media/sectors/travel_tourism.png"
+    }
+  ],
+  "Traditional":[
     {
-      "id": "banking_finance",
-      "name": "बैंकिंग और वित्त",
-      "description": "",
-      "icon": ""
+      "id": "legal",
+      "name": "Legal",
+      "description": "पत्रकारिता, ब्रॉडकास्टिंग, डिजिटल मीडिया, सोशल मीडिया",
+      "icon": "/static/media/sectors/legal.png"
     },
+    
     {
-      "id": "beauty_wellness",
-      "name": "सौंदर्य और वेलनेस",
+      "id": "police_defence",
+      "name": "Police Defence",
       "description": "",
-      "icon": ""
+      "icon": "/static/media/sectors/police_defence.png"
     },
+    
+    
     {
-      "id": "education",
-      "name": "शिक्षा",
+      "id": "public_services",
+      "name": "Public Services ",
       "description": "",
-      "icon": ""
-    },
-    {
-      "id": "farming_agriculture",
-      "name": "कृषि और खेती",
-      "description": "",
-      "icon": ""
-    },
-    {
-      "id": "fashion",
-      "name": "फैशन",
-      "description": "",
-      "icon": ""
-    },
-    {
-      "id": "fitness_sports",
-      "name": "फिटनेस और खेल",
-      "description": "",
-      "icon": ""
-    },
-    {
-      "id": "hospitality_tourism",
-      "name": "आतिथ्य और पर्यटन",
-      "description": "",
-      "icon": ""
+      "icon": "/static/media/sectors/public_services.png"
     }
   ]
 }

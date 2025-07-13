@@ -1,0 +1,121 @@
+{
+  "Art": [
+    {
+      "id": "art_design",
+      "name": "Art and Design",
+      "description": "",
+      "icon": "/static/media/sectors/art_design.png"
+    },
+    
+    {
+      "id": "beauty_wellness",
+      "name": "Beuty and Wellness",
+      "description": ""
+      
+    },
+   
+    {
+      "id": "fashion",
+      "name": "Fashion",
+      "description": ""
+    }
+  ],
+  "Skill": [
+    {
+      "id": "agriculture_food_processing",
+      "name": "Agriculture and Food Processing",
+      "description": ""
+    },
+    {
+      "id": "business_functions",
+      "name": "Business Functions",
+      "description": ""
+    },
+    {
+      "id": "fitness_sports",
+      "name": "Fitness and Sports",
+      "description": ""
+    },
+    {
+      "id": "logistics",
+      "name": "Logistics",
+      "description": ""
+    },
+    {
+      "id": "manufacturing",
+      "name": "Manufacturing",
+      "description": ""
+    }
+    
+  ],
+  "Academic": [
+    {
+      "id": "it",
+      "name": "IT Network",
+      "description": "सॉफ्टवेयर डेवलपमेंट, साइबर सिक्योरिटी, डेटा साइंस"
+    },
+    
+    {
+      "id": "healthcare",
+      "name": "Healthcare",
+      "description": "चिकित्सा अभ्यास, नर्सिंग, फार्मेसी"
+    },
+    {
+      "id": "banking_finance",
+      "name": "Banking and Finance",
+      "description": "",
+      "icon": "/static/media/sectors/banking_finance.png"
+    },
+    
+    {
+      "id": "education",
+      "name": "Education",
+      "description": ""
+    }
+  ],
+  "Non_traditional":[
+    {
+      "id": "media_journalism",
+      "name": "Media and Journalism",
+      "description": "पत्रकारिता, ब्रॉडकास्टिंग, डिजिटल मीडिया, सोशल मीडिया"
+    },
+    
+    {
+      "id": "self_employment",
+      "name": "Self Employment",
+      "description": ""
+    },
+    
+    
+    {
+      "id": "hospitality",
+      "name": "Hospitality ",
+      "description": ""
+    },
+    {
+      "id": "travel_tourism",
+      "name": "Travel and Tourism",
+      "description": ""
+    }
+  ],
+  "Traditional":[
+    {
+      "id": "legal",
+      "name": "Legal",
+      "description": "पत्रकारिता, ब्रॉडकास्टिंग, डिजिटल मीडिया, सोशल मीडिया"
+    },
+    
+    {
+      "id": "police_defence",
+      "name": "Police Defence",
+      "description": ""
+    },
+    
+    
+    {
+      "id": "public_services",
+      "name": "Public Services ",
+      "description": ""
+    }
+  ]
+}

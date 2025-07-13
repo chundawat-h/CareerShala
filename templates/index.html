@@ -6,7 +6,6 @@
         <title>CareerShala - Alohomora Foundation</title>
         <!-- <link href="{{ url_for('static', filename='css/tailwind-output.css') }}" rel="stylesheet"> -->
 
-
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
@@ -173,9 +172,46 @@
             .snap-start {
             scroll-snap-align: start;
             }
+            .category-row {
+            display: flex;
+            overflow-x: auto;
+            white-space: nowrap;
+            padding: 1rem;
+            gap: 1rem;
+        }
+        .sector-card {
+            flex: 0 0 auto;
+            width: 140px;
+            text-align: center;
+            background: white;
+            border-radius: 8px;
+            padding: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .sector-card img {
+            width: 100%;
+            height: 100px;
+            object-fit: contain;
+            border-radius: 6px;
+        }
+        .category-title {
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin: 0 0 5px 0;
+        }
+        .colored-bg-0 { background-color: #dff4f3; }
+        .colored-bg-1 { background-color: #fef3db; }
+        .colored-bg-2 { background-color: #f6e3ff; }
+        .colored-bg-3 { background-color: #e3f1ff; }
+        .colored-bg-4 { background-color: #fde2e2; }
+
         </style>
     </head>
-    <body >
+    <body class="relative bg-fixed bg-center bg-cover" style="background-image: url('/static/media/home/background.png');">
+  <div class="absolute inset-0 bg-black bg-opacity-60 z-0"></div>
+
+  <div class="relative z-10">
+
         <!-- Header -->
         {% include 'header.html' %}
         <!-- Hero Section -->
@@ -186,16 +222,15 @@
                 <div class="relative container mx-auto px-4">
                     <div class="w-full">
                         <div class="mb-4 md:mb-8 transform hover:scale-105 transition-transform">
-                            <div class="flex justify-between  items-start will-change">
+                            <div class="hidden flex justify-between  items-start will-change">
                                 <img src="/static/media/logo/image.png" alt="Alohomora" class="bg-opacity-90 w-16 md:w-24 lg:w-36 h-auto">
                             </div>
                             <h1 class="text-5xl md:text-7xl  lg:text-9xl text-primary px-2 md:px-4 font-bold justify-between leading-tight bg-clip-text font-bold">
                                 CAREERSHALA
                             </h1>
-                            <h2 class="text-xl md:text-4xl p-1 md:p-3 text-accent4 font-bold items-start mb-2 md:mb-6 leading-tight bg-clip-text font-['Baloo_2']">
+                            <h2 class="text-xl md:text-4xl p-1 md:p-3 text-accent4 font-bold items-start leading-tight bg-clip-text font-['Baloo_2']">
                                 School se Career tak ka safar!
-                            </h2>
-                            
+                            </h2>           
                         </div>
                         
                         <div class="hidden flex flex-col sm:flex-row gap-4">
@@ -213,19 +248,19 @@
         <div class="flex justify-between  items-start will-change mb-2 md:mb-12">
             <img src="/static/media/home/image1.png" alt="Alohomora" class="bg-opacity-90 w-full h-auto bg-accent1">
         </div>
-        <div class="flex justify-between py-2 md:py-4 bg-gray-50 mb-2 md:mb-8">
-            <div class="flex justify-content  items-start py-2 md:py-4 ">
+        <div class="flex justify-center py-2 md:py-4 mb-2 md:mb-8">
+            <div class="hidden flex justify-content  items-start py-2 md:py-4 ">
                 <img src="/static/media/home/image21.png" alt="Alohomora" class="bg-opacity-90 w-16 md:w-24 lg:w-36 h-auto">
             </div>
             <div class="mb-12">
-                <div class="text-accent3 text-xl md:text-4xl mb-4">
+                <div class="text-primary text-xl md:text-4xl mb-4 font-bold">
                 क्या आप जानते हैं करियर क्या होता है?
                 </div>
-                <div class="text-accent4 text-xl md:text-4xl text-center">
+                <div class="text-primary text-xl md:text-4xl text-center">
                 चलिए देखते हैं!
                 </div>
             </div>
-            <div class="flex justify-content  py-4 md:py-8">
+            <div class="hidden flex justify-content  py-4 md:py-8">
                 <img src="/static/media/home/image3.png" alt="Alohomora" class="bg-opacity-90 w-16 md:w-24 lg:w-36 h-auto">
             </div>
         </div>
@@ -242,12 +277,37 @@
                 </iframe>
             </div>
         </div>
-        <div class="text-accent4 text-xl md:text-4xl  md:p-8 text-center mb-4 mx-auto">
-            आपका करियर, आपकी राह — चलें उस ओर?
+        <div class="flex justify-center items-center">
+            <div class="flex flex-wrap justify-center text-center text-xl md:text-4xl font-bold">
+                <span class="text-white mr-2">आपका</span>
+                <span class="text-primary mr-2">करियर</span>
+                <span class="text-white mr-2">, आपकी</span>
+                <span class="text-primary mr-2">राह</span>
+                <span class="text-white">— चलें उस ओर?</span>
+            </div>
         </div>
-        <div class="w-full max-w-6xl mb-8 center mx-auto">
-            <img src="/static/media/home/image5.png" alt="Alohomora" class="bg-opacity-90 w-full h-auto bg-accent1">
+        <br>
+        <!-- Image + Text Section -->
+        <div class="flex flex-row justify-center items-center space-x-24 md:space-x-36 py-4 md:py-8 mb-2 md:mb-8">
+            <!-- First Image + "world" -->
+            <div class="flex flex-col items-center">
+                <img src="/static/media/home/image6.png" alt="World" class="w-24 md:w-24 lg:w-48 h-auto bg-opacity-90">
+                <a href="/world" class="mt-3 text-2xl md:text-3xl text-white font-bold rounded-md p-1 md:p-2 bg-primary" style="font-family: 'Baloo 2', cursive;">world</a>
+                <span class="mt-3 text-md md:text-2xl text-primary font-bold " style="font-family: 'Baloo 2', cursive;">अपने रुचि और कौशल समझें</span>
+            </div>
+
+            <!-- Second Image + "self" -->
+            <div class="flex flex-col items-center">
+                <img src="/static/media/home/image7.png" alt="Self" class="w-24 md:w-24 lg:w-48 h-auto bg-opacity-90">
+                <a class="mt-3 text-2xl md:text-3xl text-white font-bold rounded-md p-1 md:p-2 bg-primary" style="font-family: 'Baloo 2', cursive;">self</a>
+                <span class="mt-3 text-md md:text-2xl text-primary font-bold" style="font-family: 'Baloo 2', cursive;">करियर की दुनिया को जानें</span>
+            </div>
         </div>
+
+        
+        <!-- <div class="w-full max-w-6xl mb-8 center mx-auto">
+            <img src="/static/media/home/image6.png" alt="Alohomora" class="bg-opacity-90 w-full h-auto bg-accent1">
+        </div> -->
         <div class="flex gap-2 md:gap-12 text-2xl md:text-5xl mb-4 md:mb-12 font-mono typewriter-box justify-center" id="typewriter">
             <span class="bg-gray-200 px-3 py-1 rounded shadow">self</span>
             <span class="bg-gray-200 px-3 py-1 rounded shadow">+</span>
@@ -255,21 +315,198 @@
             <span class="bg-gray-200 px-3 py-1 rounded shadow">=</span>
             <span class="bg-green-200 px-3 py-1 rounded shadow">career</span>
         </div>
-        <!-- Footer -->
+
+        <section class="bg-white p-4 md:p-12">
+        <div class="w-36 md:w-48 max-w-2xl mb-2 md:mb-8 center mx-auto">
+            <img src="/static/media/home/image8.png" alt="Alohomora" class="bg-opacity-90 w-full h-auto">
+        </div>
+        <div class="flex flex-col items-center ">
+            <div class="text-2xl md:text-4xl text-accent4 font-bold font-family:'Baloo_2',cursive text-center">confused ?</div> 
+            <br>
+            <a href="/self" class="bg-primary hover:bg-secondary text-accent4 py-2 px-4 rounded transition ">चलो खुद को explore करें!</a>
+        </div>
+        <!-- <a href="/world" class="bg-primary hover:bg-secondary text-white py-2 px-4 rounded transition">Go to World</a>    -->
+        </section>
+
+    <!-- Featured Sectors -->
+    <section class="py-16 bg-white" id="featured">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+            <h1 class="text-3xl font-bold">करियर क्षेत्र की दुनिया</h1>
+            <p class="text-sm mt-2 text-gray-700">अपने रुचि के क्षेत्र पर क्लिक करें और जानें उससे जुड़े करियर की पूरी जानकारी लें</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8   " id="featured-sectors">
+                {% for sector in random_sectors %}
+                <div onclick="window.location.href='/sector/{{ sector.id }}'" class="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow cursor-pointer border border-gray-100 h-48 flex flex-col justify-center items-center p-6">
+                    <div class="mb-4">
+                        <img src="{{ sector.icon  }}" alt="{{ sector.name }}" class="w-16 h-16 object-contain" 
+                             onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAiIGhlaWdodD0iODAiIHZpZXdCb3g9IjAgMCA4MCA4MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjgwIiBoZWlnaHQ9IjgwIiByeD0iOCIgZmlsbD0iIzM0MzQzNCIvPgo8cGF0aCBkPSJNNDAgMjBWNjBNMjAgNDBINjAiIHN0cm9rZT0iIzY2NjY2NiIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KPHN2Zz4K'">
+                    </div>
+                    <h5 class="text-lg font-bold text-gray-800 text-center">{{ sector.name }}</h5>
+                </div>
+                {% endfor %}
+            </div>
+            
+            <div class="text-center mt-12">
+                <button id="explore-more-btn" onclick="showAllSectors()" class="border-2 border-primary text-primary hover:bg-primary hover:text-white px-8 py-3 rounded-lg font-medium transition-all">
+                    <i class="fas fa-plus mr-2"></i>
+                    Explore All Sectors
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- All Sectors (Hidden initially) -->
+    <section class="py-16 bg-gray-50 items-center" id="all-sectors">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h1 class="text-3xl font-bold">करियर क्षेत्र की दुनिया</h1>
+            <p class="text-sm mt-2 text-gray-700">अपने रुचि के क्षेत्र पर क्लिक करें और जानें उससे जुड़े करियर की पूरी जानकारी लें</p>
+             </div>
+            
+            <div id="sectors-container" >
+                <!-- Categories will be dynamically loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <!-- <section class="py-16 bg-accent3 text-white" id="about">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-3xl font-bold mb-6">About CareerShala</h2>
+                    <p class="text-lg mb-6 text-gray-100">We are dedicated to helping students make informed career decisions by providing comprehensive information about various career sectors and opportunities.</p>
+                    <ul class="space-y-3">
+                        <li class="flex items-center"><i class="fas fa-check text-green-400 mr-3"></i>21+ Career Sectors</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-400 mr-3"></i>5 Major Categories</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-400 mr-3"></i>Detailed Career Information</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-400 mr-3"></i>Student-Friendly Interface</li>
+                    </ul>
+                </div>
+                <div class="text-center">
+                    <i class="fas fa-users text-6xl text-accent2 mb-4"></i>
+                    <h4 class="text-2xl font-semibold">Empowering Students</h4>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- Footer -->
     {% include 'footer.html' %}
+
+    <!-- Custom JS -->
+    <script src="/static/js/main.js"></script>
+    
     <script>
-    const observer = new IntersectionObserver(
-        ([entry]) => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('animate');
-            observer.unobserve(entry.target); // Remove this line if you want it to replay every time
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
         }
-        },
-        { threshold: 0.5 }
-    );
-
-    observer.observe(document.getElementById('typewriter'));
+        
+        // Simplified direct institution search
+        function showDirectInstitutionSearch() {
+            // Create a simple state selection modal
+            const states = [
+                 'Haryana',
+             'Madhya Pradesh', 'Maharashtra',  'Uttarakhand',  'Delhi'
+            ];
+            
+            const modalHTML = `
+                <div id="institution-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+                    <div class="bg-white rounded-lg p-6 max-w-md w-full mx-4">
+                        <div class="flex justify-between items-center mb-4">
+                            <h3 class="text-lg font-semibold text-gray-800">संस्थान खोजें</h3>
+                            <button onclick="closeInstitutionModal()" class="text-gray-500 hover:text-gray-700">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label class="block text-sm font-medium text-gray-700 mb-2">राज्य चुनें:</label>
+                            <select id="state-select" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
+                                <option value="">राज्य चुनें...</option>
+                                ${states.map(state => `<option value="${state}">${state}</option>`).join('')}
+                            </select>
+                        </div>
+                        
+                        <div class="flex gap-3">
+                            <button onclick="closeInstitutionModal()" class="flex-1 px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50">
+                                रद्द करें
+                            </button>
+                            <button onclick="searchInstitutionsByState()" class="flex-1 px-4 py-2 bg-primary text-white rounded-lg hover:bg-yellow-600">
+                                खोजें
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            document.body.insertAdjacentHTML('beforeend', modalHTML);
+        }
+        
+        function closeInstitutionModal() {
+            const modal = document.getElementById('institution-modal');
+            if (modal) {
+                modal.remove();
+            }
+        }
+        
+        function searchInstitutionsByState() {
+            const selectedState = document.getElementById('state-select').value;
+            if (!selectedState) {
+                alert('कृपया राज्य चुनें');
+                return;
+            }
+            
+            closeInstitutionModal();
+            // Navigate to institutions page with state filter
+            window.location.href = `/institutions?state=${encodeURIComponent(selectedState)}&direct=true`;
+        }
     </script>
+    <script>
+    function startInstitutionSearch() {
+        // Show state selection modal
+        const modalHTML = `
+            <div id="institution-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+                <div class="bg-white rounded-lg p-6 max-w-md w-full">
+                    <h3 class="text-lg font-bold mb-4">संस्थान खोजें</h3>
+                    <select id="state-select" class="w-full p-2 border rounded mb-4">
+                        <option value="">राज्य चुनें</option>
+                        <option value="delhi">दिल्ली</option>
+                        <option value="haryana">हरियाणा</option>
+                        <option value="uttarakhand">उत्तराखंड</option>
+                        <!-- Add other states -->
+                    </select>
+                    <div class="flex gap-2">
+                        <button onclick="closeModal()" class="flex-1 bg-gray-200 px-4 py-2 rounded">
+                            रद्द करें
+                        </button>
+                        <button onclick="proceedToSectorSelection()" class="flex-1 bg-primary text-white px-4 py-2 rounded">
+                            आगे बढ़ें
+                        </button>
+                    </div>
+                </div>
+            </div>
+        `;
+        document.body.insertAdjacentHTML('beforeend', modalHTML);
+    }
 
-    </body>
+    function closeModal() {
+        const modal = document.getElementById('institution-modal');
+        if (modal) modal.remove();
+    }
+
+    function proceedToSectorSelection() {
+        const state = document.getElementById('state-select').value;
+        closeModal();
+        if (state) {
+            // Redirect to sectors page with state parameter
+            window.location.href = `/sectors?state=${encodeURIComponent(state)}&direct=true`;
+        }
+    }
+</script>
+</body>
 </html>

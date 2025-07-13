@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="hi" data-bs-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>करियर विवरण | CareerShala</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/static/css/light-theme.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.5.0/echarts.min.js"></script>
+        <script>
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        colors: {
+                            primary: "#f7a90b",
+                            secondary: "#f9f6ee",
+                            accent1: "#eef8eb",
+                            accent2: "#6C63FF",
+                            accent3: "#8c6a51",
+                            accent4: "#9C2A2B",
+                        },
+                        borderRadius: {
+                            none: "0px",
+                            sm: "4px",
+                            DEFAULT: "8px",
+                            md: "12px",
+                            lg: "16px",
+                            xl: "20px",
+
+                            "2xl": "24px",
+                            "3xl": "32px",
+                            full: "9999px",
+                            button: "8px",
+                        },
+                    },
+                },
+            };
+        </script>
+    <style>
+        .career-hero {
+            background: linear-gradient(135deg, var(--bs-primary), var(--bs-info));
+            color: white;
+            padding: 3rem 0;
+        }
+        .info-card {
+            background: var(--bs-dark);
+            border: 1px solid var(--bs-border-color);
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .breadcrumb {
+            background: var(--bs-body-bg);
+            padding: 1rem 0;
+        }
+        .btn-explore {
+            background: linear-gradient(135deg, var(--bs-success), var(--bs-info));
+            border: none;
+            padding: 0.75rem 2rem;
+            font-weight: bold;
+        }
+        .timeline-item {
+            border-left: 3px solid var(--bs-primary);
+            padding-left: 1rem;
+            margin-bottom: 1.5rem;
+        }
+    </style>
+</head>
+<body class="text-white">
+    <!-- Header -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="/">
+                <i class="fas fa-graduation-cap me-2"></i>CareerShala
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">होम</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/#sectors">सभी सेक्टर</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <div class="container">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb mb-0">
+                    <li class="breadcrumb-item"><a href="/">होम</a></li>
+                    <li class="breadcrumb-item"><a href="#" id="sector-link">सेक्टर</a></li>
+                    <li class="breadcrumb-item"><a href="#" id="category-link">श्रेणी</a></li>
+                    <li class="breadcrumb-item active" id="career-breadcrumb">करियर</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Loading State -->
+    <div id="loading" class="text-center py-5">
+        <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">लोड हो रहा है...</span>
+        </div>
+        <p class="mt-3 text-muted">करियर की जानकारी लोड हो रही है...</p>
+    </div>
+
+    <!-- Career Hero Section -->
+    <div id="career-hero" class="career-hero" style="display: none;">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <h1 class="display-4 fw-bold" id="career-title">करियर का नाम</h1>
+                    <p class="lead" id="career-hindi-name">हिंदी नाम</p>
+                    <div class="mt-3">
+                        <span class="badge bg-light text-dark me-2" id="career-stream">स्ट्रीम</span>
+                        <span class="badge bg-light text-dark" id="career-duration">अवधि</span>
+                    </div>
+                </div>
+                <div class="col-md-4 text-center">
+                    <i class="fas fa-briefcase" id="career-icon" style="font-size: 5rem; opacity: 0.8;"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Career Details -->
+    <div id="career-details" class="container my-5" style="display: none;">
+        <div class="row">
+            <!-- Left Column - Career Information -->
+            <div class="col-lg-8">
+                <div class="info-card">
+                    <h4 class="fw-bold mb-3"><i class="fas fa-info-circle text-primary me-2"></i>करियर विवरण</h4>
+                    <p id="career-description" class="text-muted text-white">करियर का विवरण यहाँ दिखाया जाएगा।</p>
+                </div>
+
+                <div class="info-card">
+                    <h5 class="fw-bold mb-3"><i class="fas fa-calendar-day text-success me-2"></i>एक दिन की जिंदगी</h5>
+                    <p id="career-day-in-life" class="text-muted text-white">दैनिक कार्य की जानकारी यहाँ होगी।</p>
+                </div>
+
+                <div class="info-card">
+                    <h5 class="fw-bold mb-3"><i class="fas fa-lightbulb text-warning me-2"></i>क्या आप जानते हैं?</h5>
+                    <p id="career-did-you-know" class="text-muted text-white">रोचक तथ्य यहाँ होंगे।</p>
+                </div>
+
+                <div class="info-card">
+                    <h5 class="fw-bold mb-3"><i class="fas fa-chart-line text-info me-2"></i>करियर प्रगति</h5>
+                    <p id="career-progression" class="text-muted text-white">करियर की प्रगति की जानकारी।</p>
+                </div>
+            </div>
+
+            <!-- Right Column - Career Path Timeline -->
+            <div class="col-lg-4">
+                <div class="info-card">
+                    <h5 class="fw-bold mb-4"><i class="fas fa-route text-primary me-2"></i>करियर पथ</h5>
+                    
+                    <div class="timeline-item">
+                        <h6 class="fw-bold text-primary">स्कूल के दौरान</h6>
+                        <p class="small text-muted" id="during-school">स्कूल के दौरान की सलाह।</p>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <h6 class="fw-bold text-primary">12वीं के बाद</h6>
+                        <p class="small text-muted" id="after-12th">12वीं के बाद की योजना।</p>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <h6 class="fw-bold text-primary">कॉलेज के दौरान</h6>
+                        <p class="small text-muted" id="during-college">कॉलेज के दौरान करने योग्य काम।</p>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <h6 class="fw-bold text-primary">कॉलेज के बाद</h6>
+                        <p class="small text-muted" id="after-college">कॉलेज के बाद के विकल्प।</p>
+                    </div>
+                </div>
+
+                <!-- Courses Information -->
+                <div class="info-card">
+                    <h5 class="fw-bold mb-3"><i class="fas fa-book text-success me-2"></i>आवश्यक कोर्सेस</h5>
+                    <ul id="career-courses" class="list-unstyled">
+                        <li class="text-muted">कोर्स की जानकारी लोड हो रही है...</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Explore Institutions Button -->
+        <div class="text-center mt-5">
+            <button class="btn btn-explore btn-lg" onclick="exploreInstitutions()">
+                <i class="fas fa-university me-2"></i>संस्थानों की खोज करें
+            </button>
+        </div>
+    </div>
+
+    <!-- Partial Data State -->
+    <div id="partial-data" class="container my-5" style="display: none;">
+        <div class="row">
+            <div class="col-lg-8">
+                <!-- Basic Information -->
+                <div class="info-card">
+                    <h4 class="fw-bold mb-3"><i class="fas fa-info-circle text-primary me-2"></i>करियर की जानकारी</h4>
+                    <p id="basic-career-description" class="text-muted">करियर का बुनियादी विवरण यहाँ दिखाया जाएगा।</p>
+                </div>
+
+                <!-- Coming Soon Banner -->
+                <div class="alert alert-warning" role="alert">
+                    <i class="fas fa-clock me-2"></i>
+                    <strong>पूरी गाइडेंस जल्द आ रही है!</strong> 
+                    इस करियर की विस्तृत जानकारी, करियर पथ और विशेष सुझाव जल्द ही उपलब्ध होंगे।
+                </div>
+
+                <!-- Available Stories/Information -->
+                <div class="info-card" id="available-stories" style="display: none;">
+                    <h5 class="fw-bold mb-3"><i class="fas fa-user-graduate text-success me-2"></i>प्रेरणादायक कहानियाँ</h5>
+                    <div id="career-stories"></div>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <!-- Basic Requirements -->
+                <div class="info-card" id="basic-requirements" style="display: none;">
+                    <h5 class="fw-bold mb-3"><i class="fas fa-graduation-cap text-primary me-2"></i>बुनियादी आवश्यकताएं</h5>
+                    <div id="basic-req-content"></div>
+                </div>
+
+                <!-- Contact for More Info -->
+                <div class="info-card">
+                    <h5 class="fw-bold mb-3"><i class="fas fa-envelope text-info me-2"></i>अधिक जानकारी के लिए</h5>
+                    <p class="small text-muted">इस करियर के बारे में और जानकारी चाहिए? हमसे संपर्क करें!</p>
+                    <button class="btn btn-outline-primary btn-sm">संपर्क करें</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Explore Institutions Button -->
+        <div class="text-center mt-5">
+            <button class="btn btn-explore btn-lg" onclick="exploreInstitutions()">
+                <i class="fas fa-university me-2"></i>संस्थानों की खोज करें
+            </button>
+        </div>
+    </div>
+
+    <!-- No Data State -->
+    <div id="no-data" class="container text-center py-5" style="display: none;">
+        <i class="fas fa-construction fa-3x text-muted mb-3"></i>
+        <h5>करियर की जानकारी तैयार की जा रही है</h5>
+        <p class="text-muted">इस करियर की विस्तृत जानकारी जल्द ही उपलब्ध होगी।</p>
+        <a href="/" class="btn btn-primary">होम पर वापस जाएं</a>
+    </div>
+
+    <!-- Footer -->
+    <footer class="py-4 mt-5" style="background-color: var(--bs-footer-bg); color: white;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5 class="fw-bold">CareerShala</h5>
+                    <p class="text-muted">आपके करियर की सही शुरुआत</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <div class="social-links">
+                        <a href="#" class="text-light me-3"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-light me-3"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-light"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Get URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const sectorId = urlParams.get('sector');
+        const categoryName = urlParams.get('category');
+        const careerName = urlParams.get('career');
+        
+        let currentCareerData = null;
+        
+        // Load career details when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            if (sectorId && categoryName && careerName) {
+                loadCareerDetails(sectorId, categoryName, careerName);
+            } else {
+                showNoData();
+            }
+        });
+
+        async function loadCareerDetails(sectorId, categoryName, careerName) {
+            try {
+                // Fetch sector data
+                const response = await fetch(`/api/sector/${sectorId}`);
+                if (!response.ok) throw new Error('Failed to fetch sector data');
+                
+                const sectorData = await response.json();
+                
+                // Find the specific career
+                const category = sectorData.career_categories?.find(cat => cat.category === categoryName);
+                const career = category?.careers?.find(c => c.name === careerName);
+                
+                // Find career path information
+                const careerPath = sectorData.career_paths?.find(cp => 
+                    cp.career.includes(careerName) || cp.hindi_career.includes(careerName)
+                );
+                
+                if (career) {
+                    currentCareerData = { ...career, careerPath, sectorId, categoryName, sectorName: sectorData.sector_name };
+                    renderCareerDetails(currentCareerData);
+                    updateBreadcrumb(sectorData.sector_name, categoryName, careerName);
+                } else {
+                    showNoData();
+                }
+                
+            } catch (error) {
+                console.error('Error loading career details:', error);
+                showNoData();
+            }
+        }
+
+        function updateBreadcrumb(sectorName, categoryName, careerName) {
+            document.getElementById('sector-link').textContent = sectorName;
+            document.getElementById('sector-link').href = `/sector/${sectorId}`;
+            
+            document.getElementById('category-link').textContent = categoryName;
+            document.getElementById('category-link').href = `/careers?sector=${sectorId}&category=${encodeURIComponent(categoryName)}`;
+            
+            document.getElementById('career-breadcrumb').textContent = careerName;
+        }
+
+        function renderCareerDetails(data) {
+            // Update hero section
+            document.getElementById('career-title').textContent = data.name;
+            document.getElementById('career-hindi-name').textContent = data.hindi_name || '';
+            document.getElementById('career-stream').textContent = data.stream || 'कोई भी स्ट्रीम';
+            document.getElementById('career-duration').textContent = data.duration || 'अवधि निर्दिष्ट नहीं';
+            
+            // Set career icon
+            const icon = getCareerIcon(data.name);
+            document.getElementById('career-icon').className = icon;
+            
+            // Check if we have complete career path data
+            const hasCompleteData = data.careerPath && 
+                                  data.careerPath.description && 
+                                  data.careerPath.during_school && 
+                                  data.careerPath.after_12th;
+            
+            document.getElementById('loading').style.display = 'none';
+            document.getElementById('career-hero').style.display = 'block';
+            
+            if (hasCompleteData) {
+                // Show complete career details
+                document.getElementById('career-description').textContent = data.careerPath.description;
+                document.getElementById('career-day-in-life').textContent = data.careerPath.day_in_life || 'दैनिक कार्य की जानकारी उपलब्ध नहीं है।';
+                document.getElementById('career-did-you-know').textContent = data.careerPath.did_you_know || 'रोचक तथ्य उपलब्ध नहीं हैं।';
+                document.getElementById('career-progression').textContent = data.careerPath.career_progression || 'करियर प्रगति की जानकारी उपलब्ध नहीं है।';
+                
+                // Timeline information
+                document.getElementById('during-school').textContent = data.careerPath.during_school;
+                document.getElementById('after-12th').textContent = data.careerPath.after_12th;
+                document.getElementById('during-college').textContent = data.careerPath.during_college || 'जानकारी उपलब्ध नहीं है।';
+                document.getElementById('after-college').textContent = data.careerPath.after_college || 'जानकारी उपलब्ध नहीं है।';
+                
+                // Courses information
+                const coursesContainer = document.getElementById('career-courses');
+                if (data.courses && data.courses.length > 0) {
+                    coursesContainer.innerHTML = data.courses.map(course => 
+                        `<li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>${course}</li>`
+                    ).join('');
+                } else {
+                    coursesContainer.innerHTML = '<li class="text-muted">कोर्स की जानकारी उपलब्ध नहीं है।</li>';
+                }
+                
+                document.getElementById('career-details').style.display = 'block';
+                
+            } else {
+                // Show partial data with "coming soon" message
+                const basicDescription = data.description || data.careerPath?.description || 
+                                       `${data.name} एक ${data.categoryName} क्षेत्र का करियर है।`;
+                document.getElementById('basic-career-description').textContent = basicDescription;
+                
+                // Show available stories if any
+                if (data.stories && data.stories.length > 0) {
+                    const storiesContainer = document.getElementById('career-stories');
+                    storiesContainer.innerHTML = data.stories.map(story => 
+                        `<div class="mb-3 p-3 border-start border-primary border-3">
+                            <p class="mb-0">${story}</p>
+                        </div>`
+                    ).join('');
+                    document.getElementById('available-stories').style.display = 'block';
+                }
+                
+                // Show basic requirements if available
+                if (data.basic_requirements || data.courses) {
+                    const reqContainer = document.getElementById('basic-req-content');
+                    let reqHTML = '';
+                    
+                    if (data.courses && data.courses.length > 0) {
+                        reqHTML += '<h6 class="fw-bold">आवश्यक कोर्सेस:</h6>';
+                        reqHTML += '<ul class="list-unstyled">';
+                        data.courses.forEach(course => {
+                            reqHTML += `<li class="mb-1"><i class="fas fa-check-circle text-success me-2"></i>${course}</li>`;
+                        });
+                        reqHTML += '</ul>';
+                    }
+                    
+                    if (data.basic_requirements) {
+                        reqHTML += `<p class="small text-muted mt-2">${data.basic_requirements}</p>`;
+                    }
+                    
+                    if (reqHTML) {
+                        reqContainer.innerHTML = reqHTML;
+                        document.getElementById('basic-requirements').style.display = 'block';
+                    }
+                }
+                
+                document.getElementById('partial-data').style.display = 'block';
+            }
+        }
+
+        function getCareerIcon(careerName) {
+            const iconMap = {
+                'Reporter': 'fas fa-microphone',
+                'Correspondent': 'fas fa-newspaper',
+                'Photographer': 'fas fa-camera',
+                'Videographer': 'fas fa-video',
+                'Copywriter': 'fas fa-pen-fancy',
+                'Script Writer': 'fas fa-file-alt',
+                'Blogger': 'fas fa-blog',
+                'Social Media Manager': 'fas fa-hashtag',
+                'News Anchor': 'fas fa-microphone-alt',
+                'Content Writer': 'fas fa-keyboard'
+            };
+            
+            for (const [key, icon] of Object.entries(iconMap)) {
+                if (careerName.includes(key)) {
+                    return icon;
+                }
+            }
+            return 'fas fa-briefcase';
+        }
+
+        function exploreInstitutions() {
+            if (currentCareerData) {
+                const params = new URLSearchParams({
+                    sector: currentCareerData.sectorId,
+                    category: currentCareerData.categoryName,
+                    career: currentCareerData.name
+                });
+                window.location.href = `/institutions?${params.toString()}`;
+            }
+        }
+
+        function showNoData() {
+            document.getElementById('loading').style.display = 'none';
+            document.getElementById('no-data').style.display = 'block';
+        }
+    </script>
+</body>
+</html>

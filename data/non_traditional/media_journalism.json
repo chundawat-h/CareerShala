@@ -1,0 +1,215 @@
+{
+  "sector_id": "media_journalism",
+  "sector_name": "Media and Journalism",
+  "category": "Art",
+  "common_info": {
+    "description": "मीडिया को लोकतंत्र का चौथा स्तंभ माना जाता है, इसकी शक्ति और जिम्मेदारी नागरिकों को सूचित रखना, राजनीतिक, सामाजिक, आर्थिक और अंतर्राष्ट्रीय मामलों पर उनकी आवाज़ बनना है। मीडिया के विभिन्न रूप हैं - प्रिंट (समाचार पत्र, पत्रिकाएं, जर्नल), प्रसारण (टीवी, रेडियो) और डिजिटल (वेबसाइट, ब्लॉग, सोशलमीडिया) और इसलिए विभिन्न प्रकार के काम के अवसर प्रदान करते हैं। अगर आपको पढ़ना, लिखना, वीडियो बनाना, लोगों से बात करना, नई जानकारी से अपडेट रहना और उसे दूसरों के साथ साझा करना पसंद है, तो मीडिया और पत्रकारिता आपकी रुचि का विषय हो सकता है।",
+    "skills": "रचनात्मकता [Creativity] - किसी काम को नए और अलग तरीके से करना या हटके सोचना। शोध [Research] - किसी नई चीज़ के बारे में किताब, इंटरनेट या लोगों से बातचीत कर जानकारी हासिल करना। चित्रकारी [Sketching/drawing] - पेपर, कंप्यूटर या मोबाइल आदि पर चित्र या स्केच करना। संचार कौशल [Communication] - अपने विचारों को किसी के सामने स्पष्ट और सरल तरीके से समझा पाना।",
+    "facts": "मीडिया इंडस्ट्री में रचनात्मकता और नई तकनीकों का महत्वपूर्ण योगदान है। सोशल मीडिया के पॉपुलर होने के साथ साथ लोग अन्य बहुत से प्रकार के क्षेत्र में अपना करियर बना रहे हैं।",
+    "daily_practices": "हर दिन अलग-अलग विषय पर कुछ नया लिखने की कोशिश करे। अपनी आवाज़ में स्क्रिप्ट रिकॉर्ड करें और सुनकर उच्चारण बेहतर करने की कोशिश करे। अपने आस-पास की दिलचस्प चीजों की तस्वीरें या छोटे-छोटे वीडियो बनाएं।",
+    "immediate_actions": "अपने काम का पोर्टफोलियो बनाना शुरू करें। अपने स्कूल में मीडिया क्लब हाउस बनाओ और अलग अलग प्रोफेशन के बारे में बात-चीत करो। किसी लोकल अखबार के लिए वालंटियर करिये।",
+    "keywords": "Photographer, Journalist, Website Making, Facebook Live Techniques, Camera Techniques, Film Editing, Video Editing Software, Social Media Manager, Content Writer, Blogger, Screenplay Education and Courses",
+    "questions": "आप इस इंडस्ट्री के बारे में पढ़ कर कैसा महसूस करते है? इन काम और स्किल्स की तरफ आपका कितना रुझान है? क्या इस इंडस्ट्री में आपकी रुचि है? इस इंडस्ट्री में काम कर रहे लोगों से बात चीत करके और जानकारी लें।"
+  },
+  "career_categories": [
+    {"id":"on_ground",
+      "category": "ऑन-ग्राउंड",
+      "careers": [
+        {
+          "name": "Reporter / Correspondent",
+          "hindi_name": "रिपोर्टर / कोरेस्पोंडेंट",
+          "stream": "कोई भी स्ट्रीम",
+          "courses": [
+            "बैचलर ऑफ़ मास कम्युनिकेशन एंड जर्नलिज़्म",
+            "डिग्री इन फ़ील्ड्स ऑफ़ स्पेसलाईज़ेशन"
+          ],
+          "duration": "3-4 साल",
+          "institutions": {
+            "delhi": [
+              "Lady Shri Ram College for Women",
+              "Kamala Nehru College", 
+              "Amity School of Communication",
+              "Delhi School of Journalism",
+              "International Institute of Mass Media",
+              "Guru Govind Singh Indraprastha University",
+              "Delhi College of Arts and Commerce"
+            ],
+            "haryana": [
+              "Kurukshetra University",
+              "Guru Jambheshwar University of Science and Technology",
+              "YMCA University of Science and Technology", 
+              "Manav Rachna International Institute of Research and Studies",
+              "National Institute of Mass Communication and Journalism",
+              "Government College for Women (Srinagar)"
+            ],
+            "uttarakhand": [
+              "Doon University",
+              "Graphic Era University",
+              "Himgiri Zee University",
+              "Uttaranchal University",
+              "Dev Bhoomi Group of Institutions",
+              "IMS Unison University",
+              "Quantum University",
+              "Tula's Institute",
+              "Himalayan Institute of Management and Technology",
+              "DIT University"
+            ],
+            "bihar": [
+              "Patna University, Patna",
+              "Amity University, Patna",
+              "St. Xavier's College of Management & Technology, Patna",
+              "Patna Women's College, Patna",
+              "International School of Management, Patna",
+              "Impact College, Patna",
+              "Babasaheb Bhimrao Ambedkar Bihar University, Muzaffarpur",
+              "Langat Singh College, Muzaffarpur",
+              "Rajendra College, Chapra",
+              "National Business College, Patna",
+              "Magadh University, Bodh Gaya"
+            ]
+          }
+        },
+        {
+          "name": "Photographer / Videographer",
+          "hindi_name": "फोटोग्राफर / वीडियोग्राफर",
+          "stream": "कोई भी स्ट्रीम",
+          "courses": [
+            "बैचलर ऑफ़ मास कम्युनिकेशन",
+            "बैचलर ऑफ़ फाइन आर्ट्स",
+            "सर्टिफिकेट कोर्स / डिप्लोमा इन फोटोग्राफी / वीडियोग्राफी"
+          ],
+          "duration": "1-3 साल",
+          "institutions": {
+            "delhi": [
+              "Bharatiya Vidya Bhavan",
+              "Sri Aurobindo Centre for Arts and Communication",
+              "Amity School of Communication",
+              "Jamia Millia Islamia",
+              "Delhi School of Photography",
+              "Delhi College of Photography",
+              "YMCA Institute",
+              "Hansraj College (DU) + RKFMA"
+            ],
+            "haryana": [
+              "State University of Performing and Visual Arts (SUPVA)",
+              "MAAC (Maya Academy of Advanced Cinematics)",
+              "Arena Animation",
+              "Professional Photography Institute (PPI), Gurugram",
+              "Dada Lakhmi Chand State University of Performing and Visual Arts (DLCSUPVA), Rohtak",
+              "Guru Nanak Girls College, Yamuna Nagar",
+              "Medhavi skill University"
+            ],
+            "uttarakhand": [
+              "Creative Hut Institute of Photography",
+              "Himalayan Institute",
+              "Himgiri Zee University",
+              "IIP Academy at Kausani",
+              "Academy of professional photography"
+            ],
+            "bihar": [
+              "National Institute of Mass Communication & Journalism, Patna",
+              "Arena Animation, Patna",
+              "Maya Academy of Advanced Cinematics, Patna",
+              "National Institute of Fashion Technology, Patna",
+              "Patna University, Department of Journalism & Mass Communication",
+              "Catalyst Institute of Management and Advance Global Excellence, Patna",
+              "Aradhna College of Film and Art (ACOFA), Bhagalpur",
+              "Patna Institute of Wedding & Film Making (PIWF), Patna",
+              "Yatharth Group of Institutions, Siwan"
+            ]
+          }
+        }
+      ]
+    },
+    { "id":"righting",
+      "category": "राइटिंग",
+      "careers": [
+        {
+          "name": "Copywriter / Script Writer / Blogger",
+          "hindi_name": "कॉपीराइटर / स्क्रिप्टराइटर / ब्लॉगर",
+          "stream": "कोई भी स्ट्रीम",
+          "courses": [
+            "बैचलर ऑफ़ मास कम्युनिकेशन",
+            "डिप्लोमा इन स्क्रिप्ट एंड स्क्रीनप्ले राइटिंग",
+            "बैचलर ऑफ़ आर्ट्स (हिंदी / इंग्लिश / अन्य भाषाएं)"
+          ],
+          "duration": "1-3 साल",
+          "institutions": {
+            "delhi": [
+              "Take One School of Mass Communication",
+              "AAFT School of Cinema",
+              "Delhi School of Communication",
+              "Craft Film School",
+              "ITV Next International Media School",
+              "ICE Institute",
+              "Deshbandhu College"
+            ],
+            "haryana": [
+              "Whistling Woods International",
+              "MAAC",
+              "Arena Animation"
+            ],
+            "uttarakhand": [
+              "Doon University",
+              "Graphic Era University"
+            ],
+            "bihar": [
+              "Patna University",
+              "Impact College"
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "career_paths": [
+    {
+      "career": "Photographer/Videographer",
+      "hindi_career": "फोटोग्राफर/विडिओग्राफर",
+      "during_school": "12th में किसी भी स्ट्रीम से फोटोग्राफर बन सकते हैं | क्रिएटिविटी और कंप्युटर स्किल्स जैसी हॉबीस बनाएँ , स्केचिंग और डिज़ाइनिंग की लगातार प्रैक्टिस करें और गूगल से नए-नए टेक्निक सीखें।",
+      "after_12th": "Mass Communication, Fine Arts, या Photography में कोर्स करें। Short term certificate courses भी उपलब्ध हैं।",
+      "during_college": "Internships करें, portfolio बनाएं, latest equipment और software सीखें। Events और projects में participate करें।",
+      "after_college": "Freelancing शुरू करें, media houses में job apply करें, या अपना studio खोलें।",
+      "description": "फोटोग्राफर और वीडियोग्राफर visual storytelling के माध्यम से moments को capture करते हैं।",
+      "day_in_life": "Equipment setup, shooting, editing, client meetings, और portfolio maintenance।",
+      "did_you_know": "Digital photography ने इस field को completely transform कर दिया है।",
+      "career_progression": "Assistant → Photographer → Senior Photographer → Creative Director → Business Owner"
+    },
+    {
+      "career": "News Anchor/Presenter",
+      "hindi_career": "न्यूज ऐंकर/प्रेसेंटर न्यूज रिपोर्टर",
+      "during_school": "12th में किसी भी स्ट्रीम के बाद न्यूज रिपोर्टर या ऐंकर बन सकते हैं | स्कूल के समय में भी: यूट्यूब और लर्निंग ऐप्स के माध्यम से अपनी बोलने और आब्ज़र्वैशन स्किल्स को बेहतर बनाएं।",
+      "after_12th": "Journalism, Mass Communication में graduation करें। Anchoring courses भी helpful हैं।",
+      "during_college": "College radio/TV में participate करें, internships करें news channels में।",
+      "after_college": "Local channels से शुरू करें, experience gain करके national channels में move करें।",
+      "description": "News anchors और presenters news को audience तक पहुंचाते हैं।",
+      "day_in_life": "Script reading, news research, studio preparation, live broadcasting, interviews।",
+      "did_you_know": "Good anchors often become the face of news channels।",
+      "career_progression": "Trainee → Junior Anchor → Senior Anchor → Prime Time Anchor → News Director"
+    },
+    {
+      "career": "Social Media Manager",
+      "hindi_career": "सोशल मीडिया मैनेजर",
+      "during_school": "12th में किसी भी stream के बाद Social Media Manager बन सकते हैं। स्कूल के समय में भी : स्किल्स सीखें जैसे प्रॉब्लम सॉलविंग लाजिकल थिंकिंग , मार्केटिंग , कम्यूनिकेशन आदि।",
+      "after_12th": "Digital Marketing, Mass Communication, या Business में courses करें।",
+      "during_college": "Social media platforms पर practice करें, internships करें digital agencies में।",
+      "after_college": "Digital marketing agencies में join करें या freelancing शुरू करें।",
+      "description": "Social media managers brand की online presence को manage करते हैं।",
+      "day_in_life": "Content creation, posting schedules, analytics monitoring, community management।",
+      "did_you_know": "Social media marketing is one of the fastest growing fields।",
+      "career_progression": "Assistant → Social Media Executive → Manager → Senior Manager → Head of Digital"
+    },
+    {
+      "career": "Script/Screenplay Writer",
+      "hindi_career": "स्क्रिप्ट/ स्क्रीनप्ले राइटर",
+      "during_school": "12th में किसी भी स्ट्रीम से स्क्रिप्ट राइटर बन सकते हैंl स्कूल के समय भी: लेख लिखने, वास्तविक घटनाओ पे विचार साझा करने जैसी हॉबीस में रूचि रखे| अपने दोस्तों को भी छोटी कहानियाँ सुनाएं।",
+      "after_12th": "Creative Writing, Mass Communication, या Literature में courses करें।",
+      "during_college": "Short films के लिए scripts लिखें, writing competitions में participate करें।",
+      "after_college": "Production houses में apply करें, freelance writing शुरू करें।",
+      "description": "Script writers films, TV shows, और digital content के लिए stories और dialogues लिखते हैं।",
+      "day_in_life": "Story development, character creation, dialogue writing, script formatting।",
+      "did_you_know": "Good writers are always in demand in the entertainment industry।",
+      "career_progression": "Assistant Writer → Writer → Senior Writer → Head Writer → Creative Director"
+    }
+  ]
+}

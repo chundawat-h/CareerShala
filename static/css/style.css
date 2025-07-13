@@ -1,269 +1,124 @@
-/* Custom CSS for CareerShala */
+/* Custom styles for CareerShala */
 
-/* Root variables for consistent theming */
 :root {
-  --primary-color: #0d6efd;
-  --secondary-color: #6c757d;
-  --success-color: #198754;
-  --info-color: #0dcaf0;
-  --warning-color: #ffc107;
-  --danger-color: #dc3545;
-  --light-color: #f8f9fa;
-  --dark-color: #212529;
+    --art-color: #e74c3c;
+    --skill-color: #3498db;
+    --traditional-color: #2ecc71;
+    --non-traditional-color: #9b59b6;
+    --education-color: #f39c12;
 }
 
-/* Body and general styling */
-body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  line-height: 1.6;
-  background-color: var(--bs-body-bg);
+.hero-section {
+    background: linear-gradient(135deg, var(--bs-primary) 0%, var(--bs-info) 100%);
+    color: white;
 }
 
-/* Navigation enhancements */
-.navbar-brand {
-  font-size: 1.5rem;
-  font-weight: 700;
+.sector-card {
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
-.navbar-nav .nav-link {
-  font-weight: 500;
-  transition: color 0.3s ease;
+.sector-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
 }
 
-/* Card hover effects */
-.card {
-  transition: all 0.3s ease;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+.category-row {
+    margin-bottom: 3rem;
 }
 
-.card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+.category-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    display: inline-block;
 }
 
-/* State selection buttons */
-.state-btn {
-  height: auto;
-  padding: 1.5rem;
-  transition: all 0.3s ease;
-  border: 2px solid rgba(13, 110, 253, 0.2);
+.category-art { background-color: var(--art-color); color: white; }
+.category-skill { background-color: var(--skill-color); color: white; }
+.category-traditional { background-color: var(--traditional-color); color: white; }
+.category-non-traditional { background-color: var(--non-traditional-color); color: white; }
+.category-education { background-color: var(--education-color); color: white; }
+
+.horizontal-scroll {
+    display: flex;
+    overflow-x: auto;
+    gap: 1rem;
+    padding: 1rem 0;
+    scroll-behavior: smooth;
 }
 
-.state-btn:hover {
-  transform: translateY(-2px);
-  border-color: var(--primary-color);
-  box-shadow: 0 8px 25px rgba(13, 110, 253, 0.15);
+.horizontal-scroll::-webkit-scrollbar {
+    height: 8px;
 }
 
-.state-btn.active {
-  background-color: var(--primary-color);
-  border-color: var(--primary-color);
-  color: white;
+.horizontal-scroll::-webkit-scrollbar-track {
+    background: var(--bs-dark);
+    border-radius: 4px;
 }
 
-/* Sector and career cards */
-.sector-card,
-.career-card {
-  transition: all 0.3s ease;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+.horizontal-scroll::-webkit-scrollbar-thumb {
+    background: var(--bs-secondary);
+    border-radius: 4px;
 }
 
-.sector-card:hover,
-.career-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-  border-color: var(--primary-color);
+.horizontal-scroll::-webkit-scrollbar-thumb:hover {
+    background: var(--bs-light);
 }
 
-/* Badge styling */
-.badge {
-  font-size: 0.75rem;
-  font-weight: 500;
+.sector-card-horizontal {
+    min-width: 250px;
+    max-width: 250px;
+    flex-shrink: 0;
 }
 
-/* Loading states */
-.spinner-border {
-  width: 2rem;
-  height: 2rem;
+.sector-icon img {
+    transition: transform 0.3s ease;
 }
 
-.spinner-border-sm {
-  width: 1rem;
-  height: 1rem;
+.sector-card:hover .sector-icon img {
+    transform: scale(1.1);
 }
 
-/* Breadcrumb styling */
-.breadcrumb {
-  background-color: transparent;
-  padding: 0;
+.fade-in {
+    animation: fadeIn 0.5s ease-in;
 }
 
-.breadcrumb-item + .breadcrumb-item::before {
-  content: "›";
-  font-weight: bold;
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
-/* Career path steps */
-.career-step {
-  position: relative;
-  padding-left: 2rem;
-  margin-bottom: 2rem;
+.loading-spinner {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255,255,255,.3);
+    border-radius: 50%;
+    border-top-color: #fff;
+    animation: spin 1s ease-in-out infinite;
 }
 
-.career-step::before {
-  content: '';
-  position: absolute;
-  left: 0.5rem;
-  top: 0;
-  bottom: -2rem;
-  width: 2px;
-  background-color: var(--primary-color);
-}
-
-.career-step:last-child::before {
-  display: none;
-}
-
-.step-number {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 2rem;
-  height: 2rem;
-  background-color: var(--primary-color);
-  color: white;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
-  font-size: 0.875rem;
-}
-
-/* Institution cards */
-.institution-card {
-  border-left: 4px solid var(--primary-color);
-}
-
-.institution-card.government {
-  border-left-color: var(--success-color);
-}
-
-.institution-card.private {
-  border-left-color: var(--info-color);
+@keyframes spin {
+    to { transform: rotate(360deg); }
 }
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-  .display-4 {
-    font-size: 2rem;
-  }
-  
-  .display-5 {
-    font-size: 1.75rem;
-  }
-  
-  .state-btn {
-    padding: 1rem;
-  }
-  
-  .card-body {
-    padding: 1rem;
-  }
-}
-
-/* Utility classes */
-.text-gradient {
-  background: linear-gradient(45deg, var(--primary-color), var(--info-color));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.bg-gradient-primary {
-  background: linear-gradient(45deg, var(--primary-color), #0056b3);
-}
-
-/* Footer styling */
-footer {
-  margin-top: auto;
-}
-
-/* Error and success states */
-.alert {
-  border: none;
-  border-radius: 0.5rem;
-}
-
-.alert-success {
-  background-color: rgba(25, 135, 84, 0.1);
-  color: var(--success-color);
-}
-
-.alert-danger {
-  background-color: rgba(220, 53, 69, 0.1);
-  color: var(--danger-color);
-}
-
-.alert-info {
-  background-color: rgba(13, 202, 240, 0.1);
-  color: var(--info-color);
-}
-
-.alert-warning {
-  background-color: rgba(255, 193, 7, 0.1);
-  color: #664d03;
-}
-
-/* Animation classes */
-.fade-in {
-  animation: fadeIn 0.5s ease-in;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.slide-up {
-  animation: slideUp 0.6s ease-out;
-}
-
-@keyframes slideUp {
-  from {
-    opacity: 0;
-    transform: translateY(50px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Focus states for accessibility */
-.btn:focus,
-.card:focus {
-  outline: 2px solid var(--primary-color);
-  outline-offset: 2px;
-}
-
-/* Print styles */
-@media print {
-  .navbar,
-  .breadcrumb,
-  .btn,
-  footer {
-    display: none !important;
-  }
-  
-  .card {
-    border: 1px solid #000 !important;
-    break-inside: avoid;
-  }
+    .hero-section .display-4 {
+        font-size: 2rem;
+    }
+    
+    .sector-card-horizontal {
+        min-width: 200px;
+        max-width: 200px;
+    }
+    
+    .category-title {
+        font-size: 1.2rem;
+    }
 }

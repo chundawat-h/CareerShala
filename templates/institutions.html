@@ -1,408 +1,54 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CareerShala - Educational Institutions</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Hind:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" />
-    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: "#FF6B35",
-                        secondary: "#2EC4B6",
-                        accent1: "#FFD93D",
-                        accent2: "#6C63FF",
-                        accent3: "#4CAF50",
-                        accent4: "#9C27B0",
-                    },
-                    borderRadius: {
-                        none: "0px",
-                        sm: "4px",
-                        DEFAULT: "8px",
-                        md: "12px",
-                        lg: "16px",
-                        xl: "20px",
-                        "2xl": "24px",
-                        "3xl": "32px",
-                        full: "9999px",
-                        button: "8px",
-                    },
-                },
-            },
-        };
-    </script>
-    <style>
-        :where([class^="ri-"])::before { content: "\f3c2"; }
-        body {
-            font-family: 'Hind', 'Poppins', sans-serif;
-        }
-        .hero-section {
-            background-image: linear-gradient(to right, rgba(255, 255, 255, 0.9) 40%, rgba(255, 255, 255, 0.7) 60%, rgba(255, 255, 255, 0.4) 80%, rgba(255, 255, 255, 0) 100%);
-            background-size: cover;
-            background-position: center right;
-        }
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        .institution-card {
-            animation: fadeInUp 0.6s ease-out forwards;
-            opacity: 0;
-        }
-        .institution-card:nth-child(1) { animation-delay: 0.2s; }
-        .institution-card:nth-child(2) { animation-delay: 0.4s; }
-        .institution-card:nth-child(3) { animation-delay: 0.6s; }
-        .institution-card:nth-child(4) { animation-delay: 0.8s; }
-        .institution-card:nth-child(5) { animation-delay: 1.0s; }
-        .institution-card:nth-child(6) { animation-delay: 1.2s; }
-        .card-hover-effect {
-            position: relative;
-            overflow: hidden;
-        }
-        .card-hover-effect::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: 2px solid transparent;
-            border-radius: inherit;
-            pointer-events: none;
-            transition: all 0.3s ease;
-        }
-        .card-hover-effect:hover::before {
-            border-color: #3B82F6;
-            animation: borderAnimation 1.5s linear infinite;
-        }
-        
-        @keyframes borderAnimation {
-            0% { clip-path: inset(0 0 95% 0); }
-            25% { clip-path: inset(0 95% 0 0); }
-            50% { clip-path: inset(95% 0 0 0); }
-            75% { clip-path: inset(0 0 0 95%); }
-            100% { clip-path: inset(0 0 95% 0); }
-        }
-        
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-            100% { transform: translateY(0px); }
-        }
-        
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
-        
-        .float-animation {
-            animation: float 3s ease-in-out infinite;
-        }
-        
-        .pulse-animation {
-            animation: pulse 2s ease-in-out infinite;
-        }
-        
-        .gradient-bg {
-            background: linear-gradient(135deg, #FF6B35 0%, #2EC4B6 100%);
-        }
-    </style>
+    <meta charset="UTF-8">
+    <title>Institutions - CareerShala</title>
+    <!-- Keep existing head content -->
 </head>
-<body class="bg-gray-50">
-    <!-- Header -->
+<body>
     {% include 'header.html' %}
 
-    <!-- Hero Section -->
-    <section class="hero-section w-full py-24 md:py-32 bg-cover bg-center relative overflow-hidden">
-        <div class="absolute inset-0 bg-gradient-to-r from-accent2/10 to-primary/10"></div>
-        <div class="absolute inset-0 bg-gradient-to-br from-white/95 via-white/90 to-transparent"></div>
-        <div class="container mx-auto px-4">
-            <div class="relative container mx-auto px-4">
-                <nav class="flex items-center text-sm text-gray-600 mb-6">
-                    <a href="/" class="hover:text-primary">होम</a>
-                    <i class="ri-arrow-right-s-line mx-2"></i>
-                    <a href="javascript:history.back()" class="hover:text-primary">करियर</a>
-                    <i class="ri-arrow-right-s-line mx-2"></i>
-                    <span class="text-gray-900">शैक्षणिक संस्थान</span>
-                </nav>
-                <div class="w-full max-w-2xl">
-                    <div class="mb-8 transform hover:scale-105 transition-transform">
-                        <h1 class="text-5xl md:text-7xl p-4 font-bold mb-6 leading-tight bg-gradient-to-r from-primary via-accent2 to-accent1 text-transparent bg-clip-text font-['Baloo_2']">
-                            शैक्षणिक संस्थान
-                        </h1>
-                        <p class="text-lg md:text-xl text-gray-700 mb-8 leading-relaxed">
-                            अपने करियर के लिए सर्वोत्तम शैक्षणिक संस्थानों की खोज करें
-                        </p>
-                    </div>
-                    <div class="flex flex-col sm:flex-row gap-4">
-                        <button onclick="history.back()" class="bg-gradient-to-r from-primary to-accent2 text-white px-10 py-4 rounded-full font-medium hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300 whitespace-nowrap text-lg">
-                            <i class="ri-arrow-left-line mr-2"></i>वापस जाएं
-                        </button>
-                        <button onclick="filterByState('all')" class="bg-white/80 backdrop-blur text-primary border-2 border-primary px-10 py-4 rounded-full font-medium hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300 whitespace-nowrap text-lg">
-                            <i class="ri-filter-line mr-2"></i>सभी संस्थान
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Filter Section -->
-    <section class="py-8 bg-white border-b">
-        <div class="container mx-auto px-4">
-            <div class="flex flex-wrap items-center justify-between gap-4">
-                <div class="flex items-center gap-4">
-                    <label class="text-gray-700 font-medium">राज्य के अनुसार फिल्टर करें:</label>
-                    <select id="state-filter" class="px-4 py-2 border rounded-lg bg-white text-gray-700 focus:outline-none focus:ring-2 focus:ring-primary">
-                        <option value="all">सभी राज्य</option>
-                        <option value="Delhi">दिल्ली</option>
-                        <option value="Mumbai">मुंबई</option>
-                        <option value="Bangalore">बैंगलोर</option>
-                        <option value="Other">अन्य राज्य</option>
-                    </select>
-                </div>
-                <div class="text-gray-600">
-                    <span id="institution-count">0</span> संस्थान मिले
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Main Content -->
-    <main class="container mx-auto px-4 py-12">
-        <!-- Loading State -->
-        <div id="loading" class="text-center py-12">
-            <div class="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-primary"></div>
-            <p class="mt-4 text-gray-600">Loading institutions...</p>
+    <div class="container">
+        <h1>Educational Institutions</h1>
+        
+        <!-- State Selection -->
+        <div class="state-selector">
+            <select id="state-select" onchange="onStateSelect()">
+                <option value="">-- Select State --</option>
+                <option value="delhi">Delhi</option>
+                <option value="haryana">Haryana</option>
+                <!-- Add other states -->
+            </select>
         </div>
 
-        <!-- Error State -->
-        <div id="error-state" class="text-center py-12 hidden">
-            <div class="bg-red-50 border border-red-200 rounded-lg p-6 max-w-md mx-auto">
-                <i class="ri-error-warning-line text-4xl text-red-500 mb-4"></i>
-                <h3 class="text-lg font-semibold text-red-800 mb-2">Error Loading Institutions</h3>
-                <p id="error-message" class="text-red-600"></p>
-            </div>
-        </div>
-
-        <!-- Institutions Grid -->
-        <div id="institutions-grid" class="hidden">
-            <div class="text-center mb-12">
-                <h2 class="text-2xl font-bold text-gray-900 mb-4">उपलब्ध शैक्षणिक संस्थान</h2>
-                <p class="text-gray-600">अपने करियर के लिए सही संस्थान चुनें और सफलता की राह पर आगे बढ़ें</p>
-            </div>
-            
-            <div id="institutions-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Institution cards will be dynamically loaded here -->
-            </div>
-        </div>
-    </main>
-
-    <!-- Featured Section -->
-    <section class="bg-gradient-to-r from-primary/10 to-secondary/10 py-12 my-8">
-        <div class="container mx-auto px-4">
-            <div class="max-w-3xl mx-auto text-center">
-                <h2 class="text-2xl font-semibold text-gray-800 mb-4">अपना संस्थान नहीं मिला?</h2>
-                <p class="text-gray-600 mb-6">हमें बताएं और हम इसे अपनी सूची में जोड़ने का प्रयास करेंगे।</p>
-                <button class="bg-primary text-white px-6 py-3 rounded-full hover:bg-primary/90 transition-all">
-                    <i class="ri-add-line mr-2"></i>संस्थान सुझाएं
-                </button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-   
-    {% include 'footer.html' %}
+        <!-- Institutions Container -->
+        <div id="institutions-container"></div>
+    </div>
 
     <script>
-        let allInstitutions = [];
-        let filteredInstitutions = [];
+        // Get URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const sectorId = urlParams.get('sector');
+        const category = urlParams.get('category');
+        const career = urlParams.get('career');
 
-        document.addEventListener("DOMContentLoaded", function () {
-            loadAllInstitutions();
-            
-            // Set up filter event listener
-            document.getElementById('state-filter').addEventListener('change', function() {
-                filterByState(this.value);
-            });
+        function onStateSelect() {
+            const state = document.getElementById('state-select').value;
+            if (state) {
+                loadInstitutions(sectorId, category, career, state);
+            }
+        }
+
+        // Load institutions if state is in URL
+        document.addEventListener('DOMContentLoaded', () => {
+            const state = urlParams.get('state');
+            if (state) {
+                document.getElementById('state-select').value = state;
+                loadInstitutions(sectorId, category, career, state);
+            }
         });
-
-        async function loadAllInstitutions() {
-            const loadingEl = document.getElementById('loading');
-            const errorEl = document.getElementById('error-state');
-            const gridEl = document.getElementById('institutions-grid');
-            
-            try {
-                // Load from media-journalism data as example
-                const response = await fetch('/api/institutions/all?state=all');
-                
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-                
-                const data = await response.json();
-                
-                if (data.error) {
-                    throw new Error(data.error);
-                }
-                
-                allInstitutions = data.institutions || [];
-                filteredInstitutions = [...allInstitutions];
-                
-                displayInstitutions(filteredInstitutions);
-                
-            } catch (error) {
-                console.error('Error loading institutions:', error);
-                // Show sample institutions for demo
-                showSampleInstitutions();
-            }
-        }
-
-        function showSampleInstitutions() {
-            // Sample institutions from the media journalism data
-            allInstitutions = [
-                {
-                    name: "दिल्ली विश्वविद्यालय - पत्रकारिता विभाग",
-                    location: "Delhi",
-                    type: "University",
-                    courses: ["मास कम्युनिकेशन", "पत्रकारिता"],
-                    website: "du.ac.in"
-                },
-                {
-                    name: "जामिया मिलिया इस्लामिया - मास कम्युनिकेशन केंद्र",
-                    location: "Delhi", 
-                    type: "University",
-                    courses: ["मास कम्युनिकेशन", "मीडिया स्टडीज"],
-                    website: "jmi.ac.in"
-                },
-                {
-                    name: "फिल्म एंड टेलीविजन इंस्टीट्यूट ऑफ इंडिया",
-                    location: "Pune",
-                    type: "Institute",
-                    courses: ["फिल्म निर्माण", "टेलीविजन प्रोडक्शन"],
-                    website: "ftii.ac.in"
-                },
-                {
-                    name: "एशियन कॉलेज ऑफ जर्नलिज्म",
-                    location: "Bangalore",
-                    type: "College",
-                    courses: ["पत्रकारिता", "डिजिटल मीडिया"],
-                    website: "acj.edu"
-                },
-                {
-                    name: "इंडियन इंस्टीट्यूट ऑफ मास कम्युनिकेशन",
-                    location: "Delhi",
-                    type: "Institute",
-                    courses: ["मास कम्युनिकेशन", "पब्लिक रिलेशन"],
-                    website: "iimc.nic.in"
-                },
-                {
-                    name: "मुंबई यूनिवर्सिटी - मीडिया स्टडीज विभाग",
-                    location: "Mumbai",
-                    type: "University", 
-                    courses: ["मीडिया स्टडीज", "फिल्म स्टडीज"],
-                    website: "mu.ac.in"
-                }
-            ];
-            
-            filteredInstitutions = [...allInstitutions];
-            displayInstitutions(filteredInstitutions);
-        }
-
-        function displayInstitutions(institutions) {
-            const loadingEl = document.getElementById('loading');
-            const gridEl = document.getElementById('institutions-grid');
-            const containerEl = document.getElementById('institutions-container');
-            const countEl = document.getElementById('institution-count');
-            
-            loadingEl.classList.add('hidden');
-            
-            // Update count
-            countEl.textContent = institutions.length;
-            
-            if (institutions.length === 0) {
-                containerEl.innerHTML = `
-                    <div class="col-span-full text-center py-12">
-                        <i class="ri-building-line text-6xl text-gray-300 mb-4"></i>
-                        <h3 class="text-xl font-semibold text-gray-600 mb-2">कोई संस्थान नहीं मिला</h3>
-                        <p class="text-gray-500">चुने गए फिल्टर के लिए कोई संस्थान उपलब्ध नहीं है।</p>
-                    </div>
-                `;
-            } else {
-                containerEl.innerHTML = institutions.map((institution, index) => `
-                    <div class="institution-card card-hover-effect bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer transform hover:-translate-y-2" 
-                         style="animation-delay: ${index * 0.1}s;">
-                        <div class="mb-4">
-                            <div class="flex items-start justify-between mb-4">
-                                <div class="w-12 h-12 bg-gradient-to-br from-secondary/20 to-secondary/40 rounded-lg flex items-center justify-center">
-                                    <i class="ri-building-line text-2xl text-secondary"></i>
-                                </div>
-                                <span class="px-3 py-1 bg-primary/10 text-primary text-xs font-medium rounded-full">${institution.location}</span>
-                            </div>
-                            <h3 class="text-lg font-semibold text-gray-900 mb-2">${institution.name}</h3>
-                            <p class="text-gray-600 text-sm mb-3">${institution.type}</p>
-                            
-                            <div class="mb-4">
-                                <h4 class="text-sm font-medium text-gray-700 mb-2">उपलब्ध कोर्स:</h4>
-                                <div class="flex flex-wrap gap-1">
-                                    ${institution.courses.map(course => `
-                                        <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">${course}</span>
-                                    `).join('')}
-                                </div>
-                            </div>
-                            
-                            <div class="flex items-center justify-between text-sm">
-                                <a href="http://${institution.website}" target="_blank" class="text-primary hover:underline">
-                                    <i class="ri-external-link-line mr-1"></i>वेबसाइट पर जाएं
-                                </a>
-                                <span class="text-gray-500">विस्तार से जानें →</span>
-                            </div>
-                        </div>
-                    </div>
-                `).join('');
-            }
-            
-            gridEl.classList.remove('hidden');
-        }
-
-        function filterByState(state) {
-            if (state === 'all') {
-                filteredInstitutions = [...allInstitutions];
-            } else {
-                filteredInstitutions = allInstitutions.filter(inst => inst.location === state);
-            }
-            
-            displayInstitutions(filteredInstitutions);
-            
-            // Update select value
-            document.getElementById('state-filter').value = state;
-        }
-
-        function showError(message) {
-            const loadingEl = document.getElementById('loading');
-            const errorEl = document.getElementById('error-state');
-            const messageEl = document.getElementById('error-message');
-            
-            loadingEl.classList.add('hidden');
-            messageEl.textContent = message;
-            errorEl.classList.remove('hidden');
-        }
     </script>
+
+    {% include 'footer.html' %}
 </body>
 </html>

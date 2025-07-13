@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#1B3F73',
+            highlight: '#E5EFFB',
+            muted: '#6B7280'
+          }
+        }
+      }
+    };
+  </script>
+</head>
+<body class="bg-white text-gray-900 font-sans leading-relaxed">
+
+  {% include 'header.html' %}
+
+  <section class="py-8 px-4 sm:px-6 lg:px-12 max-w-7xl mx-auto">
+
+    <!-- Back Button -->
+    <div class="mb-6">
+      <a href="/" class="inline-flex items-center text-sm text-primary hover:underline">
+        <i class="fas fa-arrow-left mr-2"></i> होमपेज पर लौटें
+      </a>
+    </div>
+
+    <!-- Top Banner Style Header -->
+    <div class="bg-highlight rounded-xl shadow-sm p-6 md:flex items-center gap-6 mb-8">
+      <div class="flex-shrink-0 mb-4 md:mb-0 text-center md:text-left">
+        <img src="{{ sector.icon }}" onerror="this.src='/static/media/career-categories/default.png'" alt="{{ sector.name }}" class="h-28 w-auto object-contain mx-auto md:mx-0" />
+      </div>
+      <div class="flex-grow">
+        <h1 class="text-3xl font-extrabold text-gray-800 mb-2">{{ sector.name }}</h1>
+        <p class="text-sm text-muted mb-3">{{ sector.description }}</p>
+        <span class="inline-block bg-primary text-white text-xs font-semibold px-3 py-1 rounded-full">{{ category }}</span>
+      </div>
+    </div>
+
+    <!-- Two Column Layout -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+
+      <!-- LEFT COLUMN: Career Categories -->
+      <div class="lg:col-span-2 space-y-6">
+        <div class="bg-white rounded-xl shadow-md overflow-hidden">
+          <div class="bg-gray-100 px-6 py-4 border-b">
+            <h2 class="text-lg font-semibold">करियर के विकल्प</h2>
+          </div>
+          <div id="career-categories" class="p-6">
+            <div class="flex flex-col items-center justify-center py-4">
+              <div class="animate-spin h-6 w-6 border-4 border-blue-500 border-t-transparent rounded-full"></div>
+              <p class="mt-2 text-sm text-gray-500">करियर विकल्प लोड हो रहे हैं...</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT COLUMN: Quick Info -->
+      <div class="space-y-6">
+        <div class="bg-white rounded-xl shadow-md">
+          <div class="bg-gray-100 px-6 py-4 border-b">
+            <h2 class="text-base font-semibold">त्वरित जानकारी</h2>
+          </div>
+          <div id="sector-info" class="p-6">
+            <div class="flex flex-col items-center justify-center py-4">
+              <div class="animate-spin h-6 w-6 border-4 border-blue-500 border-t-transparent rounded-full"></div>
+              <p class="mt-2 text-sm text-gray-500">जानकारी लोड हो रही है...</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  {% include 'footer.html' %}
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const sectorId = '{{ sector.id }}';
+      loadSectorDetails(sectorId);
+    });
+    async function loadSectorDetails(sectorId) {
+      try {
+        const response = await fetch(`/api/sector/${sectorId}`);
+        if (response.ok) {
+          const sectorData = await response.json();
+          renderSectorDetails(sectorData);
+        } else {
+          showBasicInfo();
+        }
+      } catch (error) {
+        console.error('Error loading sector details:', error);
+        showBasicInfo();
+      }
+    }
+
+    function renderSectorDetails(data) {
+      const categoriesContainer = document.getElementById('career-categories');
+      if (data.career_categories && data.career_categories.length > 0) {
+        categoriesContainer.innerHTML = '';
+
+        const row = document.createElement('div');
+        row.className = 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6';
+
+        data.career_categories.forEach(categoryGroup => {
+          const categoryCard = createCategoryCard(categoryGroup, data.sector_id);
+          row.appendChild(categoryCard);
+        });
+
+        categoriesContainer.appendChild(row);
+      } else {
+        categoriesContainer.innerHTML = '<p class="text-gray-500">करियर की जानकारी जल्द ही उपलब्ध होगी...</p>';
+      }
+
+      const infoContainer = document.getElementById('sector-info');
+      if (data.common_info) {
+        infoContainer.innerHTML = `
+          <div class="mb-4">
+            <h6 class="font-bold">मुख्य कौशल</h6>
+            <p class="text-gray-500 text-sm">${data.common_info.skills || 'जानकारी जल्द ही उपलब्ध होगी...'}</p>
+          </div>
+          <div class="mb-4">
+            <h6 class="font-bold">दैनिक अभ्यास</h6>
+            <p class="text-gray-500 text-sm">${data.common_info.daily_practices || 'जानकारी जल्द ही उपलब्ध होगी...'}</p>
+          </div>
+          <div class="mb-4">
+            <h6 class="font-bold">तत्काल कार्य</h6>
+            <p class="text-gray-500 text-sm">${data.common_info.immediate_actions || 'जानकारी जल्द ही उपलब्ध होगी...'}</p>
+          </div>
+          <div>
+            <h6 class="font-bold">प्रश्न</h6>
+            <p class="text-gray-500 text-sm">${data.common_info.questions || 'प्रश्न जल्द ही उपलब्ध होंगे...'}</p>
+          </div>
+        `;
+      } else {
+        showBasicInfo();
+      }
+    }
+
+    function createCategoryCard(categoryGroup, sectorId) {
+      const col = document.createElement('div');
+      col.className = '';
+
+      const icon = getCategoryIcon(categoryGroup.category);
+      const careerCount = categoryGroup.careers ? categoryGroup.careers.length : 0;
+
+      col.innerHTML = `
+        <div class="category-card p-4 rounded-xl shadow hover:-translate-y-1 hover:shadow-lg transition" onclick="selectCategory('${sectorId}', '${categoryGroup.category}')">
+          <div class="category-image">
+            <i class="${icon}"></i>
+          </div>
+          <div class="text-center mt-4">
+            <h5 class="font-bold text-white">${categoryGroup.category}</h5>
+            <p class="text-sm text-gray-300">${careerCount} करियर विकल्प</p>
+          </div>
+        </div>
+      `;
+      return col;
+    }
+
+    function getCategoryIcon(categoryName) {
+      const iconMap = {
+        'ऑन-ग्राउंड': 'fas fa-users',
+        'राइटिंग': 'fas fa-pen-fancy',
+        'तकनीकी': 'fas fa-laptop-code',
+        'व्यापार': 'fas fa-briefcase',
+        'कला': 'fas fa-palette',
+        'संगीत': 'fas fa-music',
+        'डिजाइन': 'fas fa-paint-brush',
+        'मीडिया': 'fas fa-camera',
+        'शिक्षा': 'fas fa-graduation-cap',
+        'स्वास्थ्य': 'fas fa-heartbeat'
+      };
+      return iconMap[categoryName] || 'fas fa-folder';
+    }
+
+    function selectCategory(sectorId, categoryName) {
+      const params = new URLSearchParams({sector: sectorId, category: categoryName });
+      window.location.href = `/careers?${params.toString()}`;
+    }
+
+    function createCareerCard(career, category) {
+      const card = document.createElement('div');
+      card.className = 'bg-white rounded-lg shadow mb-6';
+
+      let institutionsList = '';
+      if (career.institutions) {
+        const states = ['delhi', 'haryana', 'uttarakhand', 'bihar'];
+        const stateNames = {
+          'delhi': 'दिल्ली',
+          'haryana': 'हरियाणा',
+          'uttarakhand': 'उत्तराखंड',
+          'bihar': 'बिहार'
+        };
+
+        states.forEach(state => {
+          if (career.institutions[state] && career.institutions[state].length > 0) {
+            institutionsList += `
+              <div class="mb-2">
+                <strong class="text-blue-500 text-sm">${stateNames[state]}:</strong>
+                <ul class="list-disc ml-5 text-sm text-gray-700">
+                  ${career.institutions[state].slice(0, 3).map(inst => `<li>${inst}</li>`).join('')}
+                  ${career.institutions[state].length > 3 ? `<li class="text-gray-500">और ${career.institutions[state].length - 3} संस्थान...</li>` : ''}
+                </ul>
+              </div>
+            `;
+          }
+        });
+      }
+
+      card.innerHTML = `
+        <div class="p-6">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <h6 class="text-lg font-bold">${career.name}</h6>
+              ${career.hindi_name ? `<p class="text-sm text-gray-500 mb-2">${career.hindi_name}</p>` : ''}
+              <div class="mb-2 flex flex-wrap gap-2">
+                <span class="inline-block bg-blue-500 text-white text-xs px-2 py-1 rounded">${career.stream || 'कोई भी स्ट्रीम'}</span>
+                <span class="inline-block bg-gray-600 text-white text-xs px-2 py-1 rounded">${career.duration || 'अवधि नहीं दी गई'}</span>
+              </div>
+              ${career.courses && career.courses.length > 0 ? `
+                <div class="mb-2">
+                  <strong class="text-sm">कोर्सेस:</strong>
+                  <ul class="list-disc ml-5 text-sm text-gray-700">
+                    ${career.courses.map(course => `<li>${course}</li>`).join('')}
+                  </ul>
+                </div>
+              ` : ''}
+            </div>
+            <div>
+              ${institutionsList ? `
+                <div class="institutions-section text-sm">
+                  <strong class="text-sm">प्रमुख संस्थान:</strong>
+                  ${institutionsList}
+                </div>
+              ` : ''}
+            </div>
+          </div>
+        </div>
+      `;
+      return card;
+    }
+
+    function showBasicInfo() {
+      document.getElementById('career-categories').innerHTML = 
+        '<p class="text-gray-500">Detailed career information is being prepared. Check back soon!</p>';
+
+      document.getElementById('sector-info').innerHTML = `
+        <div class="mb-3">
+          <h6 class="font-bold">About This Sector</h6>
+          <p class="text-gray-500 text-sm">{{ sector.description }}</p>
+        </div>
+        <div class="bg-blue-100 text-blue-800 p-4 rounded flex items-center gap-2">
+          <i class="fas fa-info-circle"></i>
+          Detailed career paths and guidance coming soon!
+        </div>
+      `;
+    }
+  </script>
+</body>
+</html>
